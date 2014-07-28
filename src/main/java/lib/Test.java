@@ -291,78 +291,27 @@ public class Test {
 		}catch(Exception e){
 			System.out.println(e.getMessage());
 		}
-//		
 		
 		AxisServiceClient c=new AxisServiceClient();
-//		Object[] pa={"symbol","rukshan"};
-//		String rr=c.getAttibuteValueOfOperationIn("quote", "getSimpleQuote","last",pa);
-//		System.out.println(rr);
-		
-//		Object[] pa1={"symbol","wso2"};
-//		Object rr1=c.invokeOperationIn("quote", "getQuote",pa1);
-//		System.out.println(c.getOperationResponse().toString());
-		
-//		c.setServiceName("quote");
-//		c.setServiceOperation("getQuote");
-//		c.setServiceParentChild("request");
-//		c.setServiceParas("symbol","wso2");
-//		OMElement o=c.InvokeOperation();
-//		System.out.println(o.toString());
-//		System.out.println(c.getOperationValue("last"));
+		Standard s=new Standard();
 		
 		c.setServiceName("quote");
 		c.setServiceOperation("getQuote");
 		c.setServiceParentChild("request");
 		c.setServiceParas("symbol","wso2");
+		
+		c.setServiceHttpHeader("foo", "bar");
 		Object o=c.InvokeOperation();
-//		OMElement o=c.InvokeOperationSec("http://services.samples","http://services.samples","getQuote");
-//		System.out.println(o.toString());
-		System.out.println(c.getOperationValue("symbol"));
-		System.out.println(c.getOperationValue("last"));
-		Standard s=new Standard();
-		System.out.println(o.toString());
-		System.out.println(s.containString(o, "name"));
-		
-		
-		
-//		c.setServiceName("echo");
-//		c.setServiceOperation("echoStringArrays");
-//		c.setServiceParentChild(null);
-//		c.setServiceParas("a","rukA");
-//		c.setServiceParas("b","rukB");
-//		c.setServiceParas("c","123");
-//		OMElement o1=c.InvokeOperation();
-////		System.out.println(o1.toString());
-//		System.out.println(c.createArrayFromOMElement(o1));
-//		Standard sd=new Standard();
-//		Object[] arr=sd.createArray("1","2","3", "4", "5","6");
-//		Object[] arr=new Object[]{"1","2","3", "4", "5","6"};				          
-//		
-//		c.setServiceName("Adcal");
-//		c.setServiceOperation("getArrayLength");
-//		c.setServiceParas("arr",arr);
-//		OMElement o1=c.InvokeOperation();
-//		Object[] oo1=c.getResponseValue(o1);
-//		for (Object object : oo1) {
-//			System.out.println(object);
-//		}
-//		
-//		c.setServiceOperation("getArray");		
-//		OMElement o2=c.InvokeOperation();
-//		Object[] oo2=c.getResponseValue(o2);
-//		for (Object object : oo2) {
-//			System.out.println(object);
-//		}
-//		c.setServiceName("echo");
-//		c.setServiceOperation("echoStringArrays");
-//		c.setServiceParas("a","AA");
-//		c.setServiceParas("b","BB");
-//		c.setServiceParas("c","123");
-//		OMElement o=c.InvokeOperation();
-//		System.out.println(o.getFirstElement().getFirstChildWithName(new QName("http://echo.services.core.carbon.wso2.org","c")));
-//		System.out.println(c.getOperationValue("c"));
-		//assertNotNull  ${o}
-		//Assert InvokeOperation  123
+		System.out.println(s.containString(o, "GetQuoteResponse"));				
+		System.out.println(s.containString(o, "WSO2 Company"));
+
+		c.clearServiceHttpHeader();
+		c.setServiceHttpHeader("my_custom_header1", "bar");
+		c.setServiceHttpHeader("my_custom_header2", "foo");
+		o=c.InvokeOperation();
+		System.out.println(o);
+		System.out.println(s.containString(o, "GetQuoteResponse"));				
+		System.out.println(s.containString(o, "WSO2 Company"));
 		
 	}
 }

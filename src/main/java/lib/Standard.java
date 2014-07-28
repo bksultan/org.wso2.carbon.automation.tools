@@ -71,7 +71,7 @@ public class Standard {
 	}
 
 	public boolean containString(Object o,String v){
-		return o.toString().contains(v);
+		return o.toString().toLowerCase().contains(v.toLowerCase());
 	}
 	
 	private static void log() {

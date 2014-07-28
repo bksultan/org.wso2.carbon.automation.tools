@@ -2,6 +2,7 @@ package lib;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 import javax.xml.namespace.QName;
 
@@ -14,17 +15,15 @@ import org.apache.axis2.Constants;
 import org.apache.axis2.addressing.EndpointReference;
 import org.apache.axis2.client.Options;
 import org.apache.axis2.client.ServiceClient;
+import org.apache.axis2.transport.http.HTTPConstants;
+import org.apache.commons.httpclient.Header;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.testng.Assert;
 
 import property.AutomationContext;
 
-import com.predic8.schema.Schema;
 import com.predic8.wsdl.Definitions;
-import com.predic8.wsdl.Operation;
-import com.predic8.wsdl.Service;
-import com.predic8.wsdl.Types;
 import com.predic8.wsdl.WSDLParser;
 
 public class AxisServiceClient {
@@ -42,7 +41,13 @@ public class AxisServiceClient {
 		}
 		try {
 			sender = new ServiceClient();
+
 			options = new Options();
+			if (httpHeaders != null && !httpHeaders.isEmpty()) {
+				// sender.addStringHeader(new QName(ns, localName), value); //
+				// Set headers
+				options.setProperty(HTTPConstants.HTTP_HEADERS, httpHeaders);
+			}
 			options.setTo(new EndpointReference(endPointReference));
 			options.setProperty(
 					org.apache.axis2.transport.http.HTTPConstants.CHUNKED,
@@ -279,11 +284,10 @@ public class AxisServiceClient {
 		}
 		return q.toArray();
 	}
-	
+
 	public Object[] getResponseValue(OMElement result) {
 		return createArrayFromOMElement(result);
 	}
-	
 
 	public String getTargetNamespace(String wsdlUrl) {
 		WSDLParser parser = new WSDLParser();
@@ -327,6 +331,7 @@ public class AxisServiceClient {
 	private String setServiceName, setServiceOperation;
 	private ArrayList<Object[]> setServiceParas = new ArrayList<Object[]>();
 	private String setServiceParentChild, namespace;
+	private List<Header> httpHeaders = new ArrayList<Header>();
 
 	public void setServiceName(String name) {
 		setServiceName = name;
@@ -344,12 +349,29 @@ public class AxisServiceClient {
 		setServiceParentChild = name;
 	}
 
+	public void setServiceHttpHeader(String name, String value) {
+		httpHeaders.add(new Header(name, value));
+	}
+
+	public void clearServiceHttpHeader() {
+		if (httpHeaders != null) {
+			httpHeaders.clear();
+		}
+
+	}
+
+	public void clearServiceParas() {
+		if (setServiceParas != null) {
+			setServiceParas.clear();
+		}
+	}
+
 	public OMElement InvokeOperation() {
 		String endPoint = setServiceName;
 		String operationName = setServiceOperation;
 		String a = AutomationContext.context(AutomationContext.PRODUCT_AXIS2);
 		endPoint = a + "/" + endPoint;
-//		System.out.println(endPoint);
+		// System.out.println(endPoint);
 		namespace = getTargetNamespace(endPoint + "?wsdl");
 
 		OMFactory fac = OMAbstractFactory.getOMFactory();
@@ -363,37 +385,35 @@ public class AxisServiceClient {
 		// }
 
 		for (Object[] para : setServiceParas) {
-			
-			
-			if(para[1].getClass().getCanonicalName()
-					.equals("java.lang.Object[]")){
-				
+
+			if (para[1].getClass().getCanonicalName()
+					.equals("java.lang.Object[]")) {
+
 				Object[] s = (Object[]) para[1];
 				for (int j = 0; j < s.length; j++) {
 					OMElement value = fac.createOMElement((String) para[0],
 							omNs);
 					value.addChild(fac.createOMText(value, (String) s[j]));
-					
+
 					if (parent == null) {
 						meth.addChild(value);
 					} else {
 						parent.addChild(value);
 					}
-					
+
 				}
-				
-			}else{
-				OMElement value = fac.createOMElement((String)para[0], omNs);
-				value.addChild(fac.createOMText(value, (String)para[1]));
-				
+
+			} else {
+				OMElement value = fac.createOMElement((String) para[0], omNs);
+				value.addChild(fac.createOMText(value, (String) para[1]));
+
 				if (parent == null) {
 					meth.addChild(value);
 				} else {
 					parent.addChild(value);
 				}
 			}
-			
-			
+
 		}
 
 		if (parent != null) {
@@ -406,9 +426,11 @@ public class AxisServiceClient {
 		OMElement res = null;
 		try {
 			res = sendReceive(method, endPoint, operationName);
-			setServiceParas.clear();
+			// setServiceParas.clear();
+			clearServiceHttpHeader();
+			clearServiceParas();
 			getOperationResponse = res;
-			invokeOperation=createArrayFromOMElement(res);
+			invokeOperation = createArrayFromOMElement(res);
 			return res;
 		} catch (Exception e) {
 			System.out.println("error: " + e.getMessage());
@@ -419,34 +441,32 @@ public class AxisServiceClient {
 
 	public String getOperationValue(String attribut) {
 
-//		WSDLParser parser = new WSDLParser();
-//		Definitions defs = parser
-//				.parse("http://ubuntu:8280/services/quote?wsdl");
-//		String s1 = defs.getTargetNamespace();
-//		for (Types op : defs.getTypes()) {
-//			for (Schema sch : op.getSchemas()) {
-//				System.out.println(sch.getTargetNamespace());
-//			}
-//		}
+		// WSDLParser parser = new WSDLParser();
+		// Definitions defs = parser
+		// .parse("http://ubuntu:8280/services/quote?wsdl");
+		// String s1 = defs.getTargetNamespace();
+		// for (Types op : defs.getTypes()) {
+		// for (Schema sch : op.getSchemas()) {
+		// System.out.println(sch.getTargetNamespace());
+		// }
+		// }
 		// System.out.println(defs.getOperation("getQuote","getQuote"));
-//		System.out.println(getOperationResponse);
-//		System.out.println(namespace);
-		 String ns=namespace+"/xsd";
-		 String re = getOperationResponse
-		 .getFirstElement()
-		 .getFirstChildWithName(
-		 new QName(ns, attribut))
-		 .getText();
-		 return re;
-//		return null;
+		// System.out.println(getOperationResponse);
+		// System.out.println(namespace);
+		String ns = namespace + "/xsd";
+		String re = getOperationResponse.getFirstElement()
+				.getFirstChildWithName(new QName(ns, attribut)).getText();
+		return re;
+		// return null;
 	}
 
-	public OMElement InvokeOperationSec(String localName, String ns, String value1) {
+	public OMElement InvokeOperationSec(String localName, String ns,
+			String value1) {
 		String endPoint = setServiceName;
 		String operationName = setServiceOperation;
 		String a = AutomationContext.context(AutomationContext.PRODUCT_AXIS2);
 		endPoint = a + "/" + endPoint;
-//		System.out.println(endPoint);
+		// System.out.println(endPoint);
 		namespace = getTargetNamespace(endPoint + "?wsdl");
 
 		OMFactory fac = OMAbstractFactory.getOMFactory();
@@ -460,37 +480,35 @@ public class AxisServiceClient {
 		// }
 
 		for (Object[] para : setServiceParas) {
-			
-			
-			if(para[1].getClass().getCanonicalName()
-					.equals("java.lang.Object[]")){
-				
+
+			if (para[1].getClass().getCanonicalName()
+					.equals("java.lang.Object[]")) {
+
 				Object[] s = (Object[]) para[1];
 				for (int j = 0; j < s.length; j++) {
 					OMElement value = fac.createOMElement((String) para[0],
 							omNs);
 					value.addChild(fac.createOMText(value, (String) s[j]));
-					
+
 					if (parent == null) {
 						meth.addChild(value);
 					} else {
 						parent.addChild(value);
 					}
-					
+
 				}
-				
-			}else{
-				OMElement value = fac.createOMElement((String)para[0], omNs);
-				value.addChild(fac.createOMText(value, (String)para[1]));
-				
+
+			} else {
+				OMElement value = fac.createOMElement((String) para[0], omNs);
+				value.addChild(fac.createOMText(value, (String) para[1]));
+
 				if (parent == null) {
 					meth.addChild(value);
 				} else {
 					parent.addChild(value);
 				}
 			}
-			
-			
+
 		}
 
 		if (parent != null) {
@@ -502,10 +520,11 @@ public class AxisServiceClient {
 		// System.out.println(method);
 		OMElement res = null;
 		try {
-			res = sendReceive(method, endPoint, operationName,localName,ns,value1);
+			res = sendReceive(method, endPoint, operationName, localName, ns,
+					value1);
 			setServiceParas.clear();
 			getOperationResponse = res;
-			invokeOperation=createArrayFromOMElement(res);
+			invokeOperation = createArrayFromOMElement(res);
 			return res;
 		} catch (Exception e) {
 			System.out.println("error: " + e.getMessage());
