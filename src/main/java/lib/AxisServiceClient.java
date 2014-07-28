@@ -276,7 +276,7 @@ public class AxisServiceClient {
 
 	public Object[] createArrayFromOMElement(OMElement result) {
 		ArrayList<Object> q = new ArrayList<Object>();
-		Iterator<OMElement> ite = result.getChildren();
+		Iterator<?> ite = result.getChildren();
 		for (Iterator<?> iterator = ite; iterator.hasNext();) {
 			OMElement type = (OMElement) iterator.next();
 			System.out.println(type.getText());

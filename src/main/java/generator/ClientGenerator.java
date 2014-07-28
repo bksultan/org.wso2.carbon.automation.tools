@@ -148,11 +148,11 @@ public class ClientGenerator {
 
 				// if(true) continue;
 
-				String exception = "";
+				// String exception = "";
 				for (Fault f : op.getFaults()) {
 					// exception="throws "+f.getName()+"_Exception";
 					// exception="throws "+f.getName();
-					String exc;
+					// String exc;
 					String s = "";
 					try {
 						s = getImportString(defs.getTargetNamespace(),
@@ -164,19 +164,19 @@ public class ClientGenerator {
 						Object o = cn.newInstance();
 						if (o instanceof Throwable) {
 							// System.out.println("Throwable");
-							exc = f.getName();
+							// exc = f.getName();
 						} else {
 							// System.out.println("not Throwable");
-							exc = f.getName() + "_Exception";
+							// exc = f.getName() + "_Exception";
 						}
 					} catch (ClassNotFoundException x) {
-						exc = "RemoteException";
+						// exc = "RemoteException";
 					} catch (Exception e) {
 						// System.out.println(e.getClass());
-						exc = "java.lang.Exception";
+						// exc = "java.lang.Exception";
 					}
-					exc = "java.lang.Exception";
-					exception = "throws " + exc;
+					// exc = "java.lang.Exception";
+					// exception = "throws " + exc;
 					// System.out.println(s);
 				}
 
@@ -375,9 +375,7 @@ public class ClientGenerator {
 			for (int i = 0; i < ExportPackage.getLength(); i++) {
 				System.out.println();
 				String d = ExportPackage.item(i).getTextContent().trim();
-				if (d.split(";").length > 0)
-					;
-				{
+				if (d.split(";").length > 0) {
 					System.out.println(d.split(";")[0]);
 					return d.split(";")[0];
 				}

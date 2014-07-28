@@ -6,13 +6,11 @@ import org.apache.axis2.client.ServiceClient;
 import org.apache.log4j.Logger;
 //import org.junit.Assert;
 import org.testng.Assert;
-
-import property.AutomationContext;
-import property.PropertyInfo;
-
 import org.wso2.carbon.proxyadmin.stub.ProxyServiceAdminStub;
 import org.wso2.carbon.proxyadmin.stub.types.carbon.MetaData;
 import org.wso2.carbon.proxyadmin.stub.types.carbon.ProxyData;
+
+import property.AutomationContext;
 
 public class ProxyServiceAdminLibrary {
 	public static final String ROBOT_LIBRARY_SCOPE = "GLOBAL";

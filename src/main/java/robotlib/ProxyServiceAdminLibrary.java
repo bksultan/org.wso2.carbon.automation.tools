@@ -3,9 +3,7 @@ import lib.AuthenticationLibrary;
 import org.apache.axis2.AxisFault;
 import org.apache.axis2.client.Options;
 import org.apache.axis2.client.ServiceClient;
-//import org.junit.Assert;
 import org.testng.Assert;
-import property.PropertyInfo;
 import property.AutomationContext;
 import org.wso2.carbon.proxyadmin.stub.ProxyServiceAdminStub;
 import org.wso2.carbon.proxyadmin.stub.types.carbon.MetaData;
@@ -23,17 +21,29 @@ public class ProxyServiceAdminLibrary{
 
 	}		
 
-	public String[] getAvailableEndpoints()  throws java.lang.Exception{
+	public String disableStatistics(String arg)  throws java.lang.Exception{
 
-		this.getAvailableEndpoints=stub.getAvailableEndpoints();
-		return this.getAvailableEndpoints;
+		this.disableStatistics=stub.disableStatistics(arg);
+		return this.disableStatistics;
 
 	}
 
-	private String[] getAvailableEndpoints;
+	private String disableStatistics;
 
-	public void  AssertgetAvailableEndpoints(String[] expected) {	
-		Assert.assertEquals(getAvailableEndpoints , expected );		
+	public void  AssertdisableStatistics(String expected) {	
+		Assert.assertEquals(disableStatistics , expected );		
+	}
+	public String getEndpoint(String arg)  throws java.lang.Exception{
+
+		this.getEndpoint=stub.getEndpoint(arg);
+		return this.getEndpoint;
+
+	}
+
+	private String getEndpoint;
+
+	public void  AssertgetEndpoint(String expected) {	
+		Assert.assertEquals(getEndpoint , expected );		
 	}
 	public String redeployProxyService(String arg)  throws java.lang.Exception{
 
@@ -58,18 +68,6 @@ public class ProxyServiceAdminLibrary{
 
 	public void  AssertaddProxy(String expected) {	
 		Assert.assertEquals(addProxy , expected );		
-	}
-	public String disableStatistics(String arg)  throws java.lang.Exception{
-
-		this.disableStatistics=stub.disableStatistics(arg);
-		return this.disableStatistics;
-
-	}
-
-	private String disableStatistics;
-
-	public void  AssertdisableStatistics(String expected) {	
-		Assert.assertEquals(disableStatistics , expected );		
 	}
 	public String modifyProxy(ProxyData arg)  throws java.lang.Exception{
 
@@ -179,6 +177,18 @@ public class ProxyServiceAdminLibrary{
 	public void  AssertstopProxyService(String expected) {	
 		Assert.assertEquals(stopProxyService , expected );		
 	}
+	public String[] getAvailableEndpoints()  throws java.lang.Exception{
+
+		this.getAvailableEndpoints=stub.getAvailableEndpoints();
+		return this.getAvailableEndpoints;
+
+	}
+
+	private String[] getAvailableEndpoints;
+
+	public void  AssertgetAvailableEndpoints(String[] expected) {	
+		Assert.assertEquals(getAvailableEndpoints , expected );		
+	}
 	public String enableStatistics(String arg)  throws java.lang.Exception{
 
 		this.enableStatistics=stub.enableStatistics(arg);
@@ -214,18 +224,6 @@ public class ProxyServiceAdminLibrary{
 
 	public void  AssertdeleteProxyService(String expected) {	
 		Assert.assertEquals(deleteProxyService , expected );		
-	}
-	public String getEndpoint(String arg)  throws java.lang.Exception{
-
-		this.getEndpoint=stub.getEndpoint(arg);
-		return this.getEndpoint;
-
-	}
-
-	private String getEndpoint;
-
-	public void  AssertgetEndpoint(String expected) {	
-		Assert.assertEquals(getEndpoint , expected );		
 	}
 
 

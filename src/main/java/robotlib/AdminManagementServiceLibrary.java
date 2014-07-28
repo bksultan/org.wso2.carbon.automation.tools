@@ -3,9 +3,7 @@ import lib.AuthenticationLibrary;
 import org.apache.axis2.AxisFault;
 import org.apache.axis2.client.Options;
 import org.apache.axis2.client.ServiceClient;
-//import org.junit.Assert;
 import org.testng.Assert;
-import property.PropertyInfo;
 import property.AutomationContext;
 import org.wso2.carbon.admin.mgt.stub.beans.xsd.AdminMgtInfoBean;
 import org.wso2.carbon.admin.mgt.stub.AdminManagementServiceStub;
@@ -23,18 +21,6 @@ public class AdminManagementServiceLibrary{
 
 	}		
 
-	public boolean initiatePasswordReset(AdminMgtInfoBean arg0,CaptchaInfoBean arg)  throws java.lang.Exception{
-
-		this.initiatePasswordReset=stub.initiatePasswordReset(arg0,arg);
-		return this.initiatePasswordReset;
-
-	}
-
-	private boolean initiatePasswordReset;
-
-	public void  AssertinitiatePasswordReset(boolean expected) {	
-		Assert.assertEquals(initiatePasswordReset , expected );		
-	}
 	public boolean updatePasswordWithUserInput(AdminMgtInfoBean arg0,CaptchaInfoBean arg1,String arg)  throws java.lang.Exception{
 
 		this.updatePasswordWithUserInput=stub.updatePasswordWithUserInput(arg0,arg1,arg);
@@ -46,6 +32,18 @@ public class AdminManagementServiceLibrary{
 
 	public void  AssertupdatePasswordWithUserInput(boolean expected) {	
 		Assert.assertEquals(updatePasswordWithUserInput , expected );		
+	}
+	public boolean initiatePasswordReset(AdminMgtInfoBean arg0,CaptchaInfoBean arg)  throws java.lang.Exception{
+
+		this.initiatePasswordReset=stub.initiatePasswordReset(arg0,arg);
+		return this.initiatePasswordReset;
+
+	}
+
+	private boolean initiatePasswordReset;
+
+	public void  AssertinitiatePasswordReset(boolean expected) {	
+		Assert.assertEquals(initiatePasswordReset , expected );		
 	}
 	public CaptchaInfoBean generateRandomCaptcha()  throws java.lang.Exception{
 

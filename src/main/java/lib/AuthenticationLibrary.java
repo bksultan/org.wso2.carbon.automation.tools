@@ -11,10 +11,8 @@ import org.apache.commons.logging.LogFactory;
 import org.wso2.carbon.authenticator.stub.AuthenticationAdminStub;
 import org.wso2.carbon.authenticator.stub.LoginAuthenticationExceptionException;
 import org.wso2.carbon.authenticator.stub.LogoutAuthenticationExceptionException;
-import org.wso2.carbon.statistics.stub.types.carbon.SystemStatistics;
 
 import property.AutomationContext;
-import property.PropertyInfo;
 
 public class AuthenticationLibrary {
 

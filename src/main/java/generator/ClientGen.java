@@ -1,12 +1,5 @@
 package generator;
 
-//1.login to esb
-//2.upload a proxy to esb
-//3.check whether it was deployed successfully
-//4.send a payload to the proxy
-//5.Get the response 
-//6.Check the response is correct/incorrect
-
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -25,11 +18,6 @@ import java.util.Set;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
-import lib.AuthenticationLibrary;
-import lib.AxisServiceClient;
-import lib.ProxyServiceAdminLibrary;
-import lib.Test;
-
 import org.apache.axiom.om.OMAbstractFactory;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
@@ -40,14 +28,13 @@ import org.apache.axis2.addressing.EndpointReference;
 import org.apache.axis2.client.Options;
 import org.apache.axis2.client.ServiceClient;
 import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
 import org.stringtemplate.v4.ST;
 import org.stringtemplate.v4.STGroup;
 import org.stringtemplate.v4.STGroupFile;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
-
-import property.AutomationContext;
 
 import com.predic8.wsdl.Definitions;
 import com.predic8.wsdl.Operation;
@@ -110,8 +97,8 @@ public class ClientGen {
 			sender.setOptions(options);
 
 			OMElement result = sender.sendReceive(method);
-			Iterator<OMElement> ite = result.getChildren();
-			for (Iterator iterator = ite; iterator.hasNext();) {
+			Iterator<?> ite = result.getChildren();
+			for (Iterator<?> iterator = ite; iterator.hasNext();) {
 				OMElement type = (OMElement) iterator.next();
 				System.out.println(type.getText());
 			}
@@ -132,7 +119,7 @@ public class ClientGen {
 
 	}
 
-	public static void main(String[] args) {
+	public static void main2(String[] args) {
 		ArrayList<String> libList = new ArrayList<String>();
 		File test = new File("src/test/resources/robotframework/tests");
 		File[] txtFiles = test.listFiles(new FileFilter() {
@@ -187,10 +174,15 @@ public class ClientGen {
 
 	}
 
+	public static void main(String[] args) {
+		System.out.println(System.getProperty("user.dir"));
+		GenerateLibraries();
+	}
+	
 	public static void generate(String library) {
 		Set<String> importLib = new HashSet<String>();
 		STGroup group = new STGroupFile(
-				"src/main/resources/template/templateR.stg");
+				"src/main/resources/templateR.stg");
 		try {
 			log.info("Hello this is an info message");
 			String[] res = getServiceInfor(library);
@@ -276,9 +268,10 @@ public class ClientGen {
 
 	private static void save(String className, String result) {
 		try {
-			String loc = AutomationContext
-					.context(AutomationContext.PROJECT_LOCATION);
+//			String loc = AutomationContext
+//					.context(AutomationContext.PROJECT_LOCATION);
 			
+			String loc=System.getProperty("user.dir");
 			File ff1 = new File(loc + "/src/main/java");
 			if(!ff1.exists()){
 				ff1.mkdir();
@@ -473,6 +466,41 @@ public class ClientGen {
 			log.debug("info: Client generated " + serviceName);
 		} catch (ClassNotFoundException e) {
 			System.out.println("error " + e.getMessage());
+		}
+	}
+
+	public static void GenerateLibraries() {
+		
+		PropertyConfigurator.configure("src/main/resources/log4j.properties");
+
+		File f = new File("/home/rukshan/log4j/log.out");
+		f.delete();
+
+		File pomfile = new File("src/main/resources/service.xml");
+		String[] res;
+		try {
+
+			DocumentBuilder dBuilder = DocumentBuilderFactory.newInstance()
+					.newDocumentBuilder();
+			Document doc = dBuilder.parse(pomfile);
+			System.out.println("Root element :"
+					+ doc.getDocumentElement().getNodeName());
+
+			NodeList service = doc.getElementsByTagName("service");
+			for (int i = 0; i < service.getLength(); i++) {
+				Element ele = (Element) service.item(i);
+				res = new String[2];
+				res[0] = ele.getAttribute("stub");
+				res[1] = ele.getAttribute("wsdl");
+
+				ClientGen.generateClient(res);
+
+			}
+			log.debug("Standard class: Client Generated");
+			System.out.println("Standard class: Client Generated");
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			log.debug("Standard class: " + e.getMessage());
 		}
 	}
 }

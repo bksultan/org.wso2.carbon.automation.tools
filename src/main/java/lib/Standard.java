@@ -25,7 +25,6 @@ public class Standard {
 
 	public Standard() {
 		// TODO Auto-generated constructor stub
-//		File f=new File
 		PropertyConfigurator.configure("src/main/resources/log4j.properties");
 	}
 
@@ -33,9 +32,6 @@ public class Standard {
 		return x;
 	}
 
-//	public void assertNotNull(Object o){
-//		Assert.assertNotNull(o);
-//	}
 	public void AssertArrayLength(Object[] x, int y) {
 		Assert.assertEquals(x.length, y);
 	}
@@ -51,7 +47,7 @@ public class Standard {
 
 	public Object[] createArrayFromOME(OMElement result) {
 		ArrayList<Object> q = new ArrayList<Object>();
-		Iterator<OMElement> ite = result.getChildren();
+		Iterator<?> ite = result.getChildren();
 		for (Iterator<?> iterator = ite; iterator.hasNext();) {
 			OMElement type = (OMElement) iterator.next();
 			System.out.println(type.getText());
@@ -78,14 +74,6 @@ public class Standard {
 		
 		File f = new File("/home/rukshan/log4j/log.out");
 		f.delete();
-
-//		InputStream io = Standard.class.getResourceAsStream("/log4j.properties");
-//		URL re = Standard.class.getResource("/log4j.properties");
-//		System.out.println(re.getFile());
-//		
-//		PropertyConfigurator.configure("src/main/resources/log4j.properties");
-		
-//		if(true)return;
 
 		File pomfile = new File("src/main/resources/service.xml");
 		String[] res;

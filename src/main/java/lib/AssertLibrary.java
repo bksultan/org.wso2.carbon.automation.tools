@@ -14,7 +14,7 @@ public class AssertLibrary {
 			String parasTyp = "";
 			String paras = "";
 			int i = 0;
-			for (Class pa : cl) {
+			for (Class<?> pa : cl) {
 //				System.out.print(pa.getSimpleName() + " ");
 				paras += "args" + (i) + ", ";
 				parasTyp += pa.getSimpleName() + " " + "args" + (i++) + ", ";
