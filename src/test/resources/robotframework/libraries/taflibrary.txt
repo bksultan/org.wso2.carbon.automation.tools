@@ -1,0 +1,9 @@
+*** Settings ***
+Library  lib.Standard
+Library  lib.AuthenticationLibrary
+Library  lib.AxisServiceClient
+Library  lib.ProxyServiceAdminLibrary
+Library	 lib.AssertLibrary
+Library  lib.Test
+Library	 lib.ASObjectPool
+Library	 robotlib.ServiceUploaderLibrary

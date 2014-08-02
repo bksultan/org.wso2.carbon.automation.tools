@@ -103,3 +103,18 @@ try {
 	<endif>
 	}
 >>
+
+poolMethod()::=<<
+try {
+	<if(cond)>
+	this.<methodName>=stub.<methodName>(<parasRet>);
+	<else>stub.<methodName>(<parasRet>);
+	<endif>
+	<if(cond)>return this.<methodName>;<endif>
+	}catch(java.lang.Exception ex){
+	<if(cond)>
+		this.<methodName>=null;
+		return null;
+	<endif>
+	}
+>>

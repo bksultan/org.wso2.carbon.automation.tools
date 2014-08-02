@@ -8,8 +8,11 @@ public class AssertLibrary {
 	public static void main(String[] args) {
 
 		Class<?> s = Assert.class;
-		for (Method st : s.getMethods()) {
-//			System.out.println(st.getName());
+		for (Method st : s.getDeclaredMethods()) {
+			System.out.println();
+			if(st.getReturnType().equals("void")){
+				continue;
+			}
 			Class<?>[] cl = st.getParameterTypes();
 			String parasTyp = "";
 			String paras = "";

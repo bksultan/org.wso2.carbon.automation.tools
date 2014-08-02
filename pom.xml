@@ -91,27 +91,27 @@
 		<plugins>
 			
 
-			<plugin>
-				<groupId>com.googlecode.robotframework-maven-plugin</groupId>
-				<artifactId>robotframework-maven-plugin</artifactId>
-				<version>1.1.2</version>
+<!-- 			<plugin> -->
+<!-- 				<groupId>com.googlecode.robotframework-maven-plugin</groupId> -->
+<!-- 				<artifactId>robotframework-maven-plugin</artifactId> -->
+<!-- 				<version>1.1.2</version> -->
 
-				<configuration>
-					<extraPathDirectories>
-						<!-- <extraPathDirectory>src/test/resources/robotframework/libraries</extraPathDirectory> -->
-						<!-- <extraPathDirectory>target/classes/com/mycompany/lib</extraPathDirectory> -->
-						<!-- <extraPathDiectory>target/classes</extraPathDirectory> -->
-					</extraPathDirectories>
-				</configuration>
+<!-- 				<configuration> -->
+<!-- 					<extraPathDirectories> -->
+<!-- 						<extraPathDirectory>src/test/resources/robotframework/libraries</extraPathDirectory> -->
+<!-- 						<extraPathDirectory>target/classes/com/mycompany/lib</extraPathDirectory> -->
+<!-- 						<extraPathDiectory>target/classes</extraPathDirectory> -->
+<!-- 					</extraPathDirectories> -->
+<!-- 				</configuration> -->
 
-				<executions>
-					<execution>
-						<goals>
-							<goal>run</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
+<!-- 				<executions> -->
+<!-- 					<execution> -->
+<!-- 						<goals> -->
+<!-- 							<goal>run</goal> -->
+<!-- 						</goals> -->
+<!-- 					</execution> -->
+<!-- 				</executions> -->
+<!-- 			</plugin> -->
 
 			<!-- <plugin> -->
 			<!-- <groupId>org.jvnet.maven.incrementalbuild</groupId> -->
@@ -350,6 +350,13 @@
 			<artifactId>org.wso2.carbon.aarservices.stub</artifactId>
 			<version>4.2.0</version>
 		</dependency>
+		
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.wso2.carbon</groupId> -->
+<!-- 			<artifactId>org.wso2.carbon.service.mgt.stub</artifactId> -->
+<!-- 			<version>4.2.0</version> -->
+<!-- 		</dependency> -->
+<!-- 		ServiceAdmin -->
 
 		<!-- soa -->
 

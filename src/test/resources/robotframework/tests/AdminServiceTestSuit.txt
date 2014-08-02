@@ -3,18 +3,17 @@ Library  lib.Standard
 Library  lib.AuthenticationLibrary
 Library  lib.AxisServiceClient
 Library  lib.ProxyServiceAdminLibrary
-Library  lib.Test
-Library  robotlib.StatisticsAdminLibrary
 Library	 lib.AssertLibrary
+Library	 lib.ASObjectPool
+Library	 robotlib.ServiceUploaderLibrary
 
 *** Test Cases ***
-	
 Loging to ESB
 	${cook}=	Login As  admin  admin  localhost 			#logging as admin 
 	Log	${cook}												#print the session cookie
 	
-Test Sample									          
-	${r}=	get Attibute Value Of OperationIn  quote  getSimpleQuote  last  symbol  rukshan
-	assertNotNull  ${r}  Fault: response message 'last' price null
-	${symbol}=	get Attibute Value Of OperationIn  quote  getSimpleQuote  symbol  symbol  WSO2
-	assertEquals  ${symbol}  WSO2  Fault: value 'symbol' mismatched
+Test Sample				
+	init ServiceUploader
+	${data}=	create AARServiceData  /home/rukshan/Desktop/SimpleStockQuoteService.aar  ""
+	${res}=	uploadService  ${data}						          
+	#assertEquals  ${res}  successful

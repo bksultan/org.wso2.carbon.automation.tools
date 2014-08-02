@@ -292,6 +292,7 @@ public class AxisServiceClient {
 	public String getTargetNamespace(String wsdlUrl) {
 		WSDLParser parser = new WSDLParser();
 		// String wsdl="http://localhost:8082/axis2/services/echo?wsdl";
+		System.out.println(wsdlUrl);
 		Definitions defs = parser.parse(wsdlUrl);
 		return defs.getTargetNamespace();
 	}
@@ -439,20 +440,8 @@ public class AxisServiceClient {
 
 	}
 
-	public String getOperationValue(String attribut) {
+	public String getResponseAttributeValue(String attribut) {
 
-		// WSDLParser parser = new WSDLParser();
-		// Definitions defs = parser
-		// .parse("http://ubuntu:8280/services/quote?wsdl");
-		// String s1 = defs.getTargetNamespace();
-		// for (Types op : defs.getTypes()) {
-		// for (Schema sch : op.getSchemas()) {
-		// System.out.println(sch.getTargetNamespace());
-		// }
-		// }
-		// System.out.println(defs.getOperation("getQuote","getQuote"));
-		// System.out.println(getOperationResponse);
-		// System.out.println(namespace);
 		String ns = namespace + "/xsd";
 		String re = getOperationResponse.getFirstElement()
 				.getFirstChildWithName(new QName(ns, attribut)).getText();

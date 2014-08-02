@@ -6,6 +6,7 @@ import org.apache.axiom.om.OMElement;
 import org.apache.axis2.AxisFault;
 import org.apache.axis2.client.Options;
 import org.apache.axis2.client.ServiceClient;
+import org.wso2.carbon.aarservices.stub.types.carbon.AARServiceData;
 import org.wso2.carbon.admin.mgt.stub.AdminManagementServiceStub;
 import org.wso2.carbon.discovery.admin.stub.types.mgt.ServiceDiscoveryConfig;
 import org.wso2.carbon.registry.info.stub.InfoAdminServiceStub;
@@ -16,6 +17,8 @@ import org.wso2.carbon.user.mgt.stub.UserAdminStub;
 import org.wso2.carbon.user.mgt.stub.types.carbon.UserRealmInfo;
 
 import property.AutomationContext;
+import robotlib.ServiceAdminLibrary;
+import robotlib.ServiceUploaderLibrary;
 
 public class Test {
 
@@ -278,40 +281,77 @@ public class Test {
 
 	}
 
-	public static void main(String[] args) {
+	public static void mainE(String[] args) {
 		AuthenticationLibrary al = new AuthenticationLibrary();
 		sessionCookie = al.LoginAs("admin", "admin", "localhost");
 
-		ProxyServiceAdminLibrary l=new ProxyServiceAdminLibrary();
-		try{
-		l.initProxyServiceAdmin();
-		//System.out.println(l.addProxy("quote", "http://192.168.0.1:8080/axis2/services/SimpleStockQuoteService?wsdl"));
-//		System.out.println(l.addProxy("secquote", "http://localhost:8080/axis2/services/SecureStockQuoteService?wsdl"));
-		
-		}catch(Exception e){
+		ProxyServiceAdminLibrary l = new ProxyServiceAdminLibrary();
+		try {
+			l.initProxyServiceAdmin();
+			// System.out.println(l.addProxy("quote",
+			// "http://192.168.0.1:8080/axis2/services/SimpleStockQuoteService?wsdl"));
+			// System.out.println(l.addProxy("secquote",
+			// "http://localhost:8080/axis2/services/SecureStockQuoteService?wsdl"));
+
+		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-		
-		AxisServiceClient c=new AxisServiceClient();
-		Standard s=new Standard();
-		
+
+		AxisServiceClient c = new AxisServiceClient();
+		Standard s = new Standard();
+
 		c.setServiceName("quote");
 		c.setServiceOperation("getQuote");
 		c.setServiceParentChild("request");
-		c.setServiceParas("symbol","wso2");
-		
+		c.setServiceParas("symbol", "wso2");
+
 		c.setServiceHttpHeader("foo", "bar");
-		Object o=c.InvokeOperation();
-		System.out.println(s.containString(o, "GetQuoteResponse"));				
+		Object o = c.InvokeOperation();
+		System.out.println(s.containString(o, "GetQuoteResponse"));
 		System.out.println(s.containString(o, "WSO2 Company"));
 
 		c.clearServiceHttpHeader();
 		c.setServiceHttpHeader("my_custom_header1", "bar");
 		c.setServiceHttpHeader("my_custom_header2", "foo");
-		o=c.InvokeOperation();
+		o = c.InvokeOperation();
 		System.out.println(o);
-		System.out.println(s.containString(o, "GetQuoteResponse"));				
+		System.out.println(s.containString(o, "GetQuoteResponse"));
 		System.out.println(s.containString(o, "WSO2 Company"));
+
+	}
+
+	public static void main(String[] args) {
+		AuthenticationLibrary al = new AuthenticationLibrary();
+		sessionCookie = al.LoginAs("admin", "admin", "localhost");
+
+		ServiceUploaderLibrary l = new ServiceUploaderLibrary();
+
+		try {
+			l.initServiceUploader();
+			AARServiceData[] d = ASObjectPool.createAARServiceData(
+					"src/test/resources/artifacts/AS/aar/Axis2Service.aar");
+//			String s = l.uploadService(d);
+//			System.out.println(s);
+			ServiceAdminLibrary l2=new ServiceAdminLibrary();
+			l2.initServiceAdmin();
+			System.out.println(l2.getServiceData("Axis2Service"));
+			
+			AxisServiceClient ax=new AxisServiceClient();
+			ax.setServiceName("Axis2Service");
+			ax.setServiceOperation("echoInt");
+			ax.setServiceParas("x", "25");
+			OMElement om=ax.InvokeOperation();
+			
+		    Standard s=new Standard();
+		    System.out.println(s.containString(om,"<ns:return>25</ns:return>"));
+			//assertTrue(response.toString().contains("<ns:return>25</ns:return>"));
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println(e.getMessage());
+		}
+		
+		
 		
 	}
+
 }

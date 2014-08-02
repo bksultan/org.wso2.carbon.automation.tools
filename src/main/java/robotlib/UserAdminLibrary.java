@@ -24,66 +24,6 @@ public class UserAdminLibrary{
 
 	}		
 
-	public String[] listUsers(String arg0,int arg)  throws java.lang.Exception{
-
-		this.listUsers=stub.listUsers(arg0,arg);
-		return this.listUsers;
-
-	}
-
-	private String[] listUsers;
-
-	public void  AssertlistUsers(String[] expected) {	
-		Assert.assertEquals(listUsers , expected );		
-	}
-	public UIPermissionNode getAllUIPermissions()  throws java.lang.Exception{
-
-		this.getAllUIPermissions=stub.getAllUIPermissions();
-		return this.getAllUIPermissions;
-
-	}
-
-	private UIPermissionNode getAllUIPermissions;
-
-	public void  AssertgetAllUIPermissions(UIPermissionNode expected) {	
-		Assert.assertEquals(getAllUIPermissions , expected );		
-	}
-	public FlaggedName[] getAllSharedRoleNames(String arg0,int arg)  throws java.lang.Exception{
-
-		this.getAllSharedRoleNames=stub.getAllSharedRoleNames(arg0,arg);
-		return this.getAllSharedRoleNames;
-
-	}
-
-	private FlaggedName[] getAllSharedRoleNames;
-
-	public void  AssertgetAllSharedRoleNames(FlaggedName[] expected) {	
-		Assert.assertEquals(getAllSharedRoleNames , expected );		
-	}
-	public FlaggedName[] getAllRolesNames(String arg0,int arg)  throws java.lang.Exception{
-
-		this.getAllRolesNames=stub.getAllRolesNames(arg0,arg);
-		return this.getAllRolesNames;
-
-	}
-
-	private FlaggedName[] getAllRolesNames;
-
-	public void  AssertgetAllRolesNames(FlaggedName[] expected) {	
-		Assert.assertEquals(getAllRolesNames , expected );		
-	}
-	public void bulkImportUsers(String arg0,DataHandler arg1,String arg)  throws java.lang.Exception{
-
-	stub.bulkImportUsers(arg0,arg1,arg);
-
-	}
-
-	public void setRoleUIPermission(String arg0,String[] arg)  throws java.lang.Exception{
-
-	stub.setRoleUIPermission(arg0,arg);
-
-	}
-
 	public UIPermissionNode getRolePermissions(String arg)  throws java.lang.Exception{
 
 		this.getRolePermissions=stub.getRolePermissions(arg);
@@ -120,24 +60,6 @@ public class UserAdminLibrary{
 
 	}
 
-	public boolean isSharedRolesEnabled()  throws java.lang.Exception{
-
-		this.isSharedRolesEnabled=stub.isSharedRolesEnabled();
-		return this.isSharedRolesEnabled;
-
-	}
-
-	private boolean isSharedRolesEnabled;
-
-	public void  AssertisSharedRolesEnabled(boolean expected) {	
-		Assert.assertEquals(isSharedRolesEnabled , expected );		
-	}
-	public void addRemoveUsersOfRole(String arg0,String[] arg1,String[] arg)  throws java.lang.Exception{
-
-	stub.addRemoveUsersOfRole(arg0,arg1,arg);
-
-	}
-
 	public void changePassword(String arg0,String arg)  throws java.lang.Exception{
 
 	stub.changePassword(arg0,arg);
@@ -150,6 +72,72 @@ public class UserAdminLibrary{
 
 	}
 
+	public FlaggedName[] getAllSharedRoleNames(String arg0,int arg)  throws java.lang.Exception{
+
+		this.getAllSharedRoleNames=stub.getAllSharedRoleNames(arg0,arg);
+		return this.getAllSharedRoleNames;
+
+	}
+
+	private FlaggedName[] getAllSharedRoleNames;
+
+	public void  AssertgetAllSharedRoleNames(FlaggedName[] expected) {	
+		Assert.assertEquals(getAllSharedRoleNames , expected );		
+	}
+	public FlaggedName[] getAllRolesNames(String arg0,int arg)  throws java.lang.Exception{
+
+		this.getAllRolesNames=stub.getAllRolesNames(arg0,arg);
+		return this.getAllRolesNames;
+
+	}
+
+	private FlaggedName[] getAllRolesNames;
+
+	public void  AssertgetAllRolesNames(FlaggedName[] expected) {	
+		Assert.assertEquals(getAllRolesNames , expected );		
+	}
+	public void bulkImportUsers(String arg0,DataHandler arg1,String arg)  throws java.lang.Exception{
+
+	stub.bulkImportUsers(arg0,arg1,arg);
+
+	}
+
+	public FlaggedName[] getRolesOfUser(String arg0,String arg1,int arg)  throws java.lang.Exception{
+
+		this.getRolesOfUser=stub.getRolesOfUser(arg0,arg1,arg);
+		return this.getRolesOfUser;
+
+	}
+
+	private FlaggedName[] getRolesOfUser;
+
+	public void  AssertgetRolesOfUser(FlaggedName[] expected) {	
+		Assert.assertEquals(getRolesOfUser , expected );		
+	}
+	public FlaggedName[] listAllUsers(String arg0,int arg)  throws java.lang.Exception{
+
+		this.listAllUsers=stub.listAllUsers(arg0,arg);
+		return this.listAllUsers;
+
+	}
+
+	private FlaggedName[] listAllUsers;
+
+	public void  AssertlistAllUsers(FlaggedName[] expected) {	
+		Assert.assertEquals(listAllUsers , expected );		
+	}
+	public String[] listUsers(String arg0,int arg)  throws java.lang.Exception{
+
+		this.listUsers=stub.listUsers(arg0,arg);
+		return this.listUsers;
+
+	}
+
+	private String[] listUsers;
+
+	public void  AssertlistUsers(String[] expected) {	
+		Assert.assertEquals(listUsers , expected );		
+	}
 	public void addRole(String arg0,String[] arg1,String[] arg2,boolean arg)  throws java.lang.Exception{
 
 	stub.addRole(arg0,arg1,arg2,arg);
@@ -198,6 +186,18 @@ public class UserAdminLibrary{
 	public void  AssertgetUsersOfRole(FlaggedName[] expected) {	
 		Assert.assertEquals(getUsersOfRole , expected );		
 	}
+	public UIPermissionNode getAllUIPermissions()  throws java.lang.Exception{
+
+		this.getAllUIPermissions=stub.getAllUIPermissions();
+		return this.getAllUIPermissions;
+
+	}
+
+	private UIPermissionNode getAllUIPermissions;
+
+	public void  AssertgetAllUIPermissions(UIPermissionNode expected) {	
+		Assert.assertEquals(getAllUIPermissions , expected );		
+	}
 	public boolean hasMultipleUserStores()  throws java.lang.Exception{
 
 		this.hasMultipleUserStores=stub.hasMultipleUserStores();
@@ -228,33 +228,33 @@ public class UserAdminLibrary{
 
 	}
 
-	public FlaggedName[] getRolesOfUser(String arg0,String arg1,int arg)  throws java.lang.Exception{
+	public boolean isSharedRolesEnabled()  throws java.lang.Exception{
 
-		this.getRolesOfUser=stub.getRolesOfUser(arg0,arg1,arg);
-		return this.getRolesOfUser;
-
-	}
-
-	private FlaggedName[] getRolesOfUser;
-
-	public void  AssertgetRolesOfUser(FlaggedName[] expected) {	
-		Assert.assertEquals(getRolesOfUser , expected );		
-	}
-	public FlaggedName[] listAllUsers(String arg0,int arg)  throws java.lang.Exception{
-
-		this.listAllUsers=stub.listAllUsers(arg0,arg);
-		return this.listAllUsers;
+		this.isSharedRolesEnabled=stub.isSharedRolesEnabled();
+		return this.isSharedRolesEnabled;
 
 	}
 
-	private FlaggedName[] listAllUsers;
+	private boolean isSharedRolesEnabled;
 
-	public void  AssertlistAllUsers(FlaggedName[] expected) {	
-		Assert.assertEquals(listAllUsers , expected );		
+	public void  AssertisSharedRolesEnabled(boolean expected) {	
+		Assert.assertEquals(isSharedRolesEnabled , expected );		
 	}
+	public void setRoleUIPermission(String arg0,String[] arg)  throws java.lang.Exception{
+
+	stub.setRoleUIPermission(arg0,arg);
+
+	}
+
 	public void changePasswordByUser(String arg0,String arg)  throws java.lang.Exception{
 
 	stub.changePasswordByUser(arg0,arg);
+
+	}
+
+	public void addRemoveUsersOfRole(String arg0,String[] arg1,String[] arg)  throws java.lang.Exception{
+
+	stub.addRemoveUsersOfRole(arg0,arg1,arg);
 
 	}
 

@@ -21,7 +21,11 @@
 		name="ProxyServiceAdmin" wsdl="ProxyServiceAdmin" lib="ProxyServiceAdminLibrary" />
 		
 	<service stub="org.wso2.carbon.aarservices.stub.ServiceUploaderStub"
-		name="ServiceUploader" wsdl="ServiceUploader" lib="ServiceUploaderLibrary" />		
+		name="ServiceUploader" wsdl="ServiceUploader" lib="ServiceUploaderLibrary" />
+		
+<!-- 	<service stub=" org.wso2.carbon.service.mgt.stub.ServiceAdminStub" -->
+<!-- 		name="ServiceAdmin" wsdl="ServiceAdmin" lib="ServiceAdminLibrary" /> -->
+				
 </adminservices>
 
 

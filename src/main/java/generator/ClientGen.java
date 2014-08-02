@@ -403,6 +403,7 @@ public class ClientGen {
 			importLib.add(servicestub);
 
 			String methods = "";
+			String poolmethods = "";
 
 			operations = getOperations(c, wsdl);
 
@@ -425,10 +426,15 @@ public class ClientGen {
 				int i = 0;
 				for (Class<?> pc : m.getParameterTypes()) {
 					String retType1 = pc.getSimpleName();
-					// System.out.println(retType1);
+					 
 					retType1 = retType1.replace("[]", "");
 					if (isNameValid(retType1)) {
 						importLib.add(pc.getCanonicalName().replace("[]", ""));
+						System.out.println("------------------------");
+						System.out.println("complex: "+retType1);
+						//String mm=creatMethods(pc.getCanonicalName().replace("[]", ""));
+						//poolmethods+=mm;
+						System.out.println("------------------------");
 					}
 					paras += pc.getSimpleName() + " " + "arg" + (i) + ",";
 					parasRet += "arg" + (i++) + ",";
@@ -446,6 +452,8 @@ public class ClientGen {
 				methods += methodTem.render();
 			}
 
+			methods += poolmethods;
+			
 			ST classTem = group.getInstanceOf("class");
 
 			String serviceName = getServiceName(c, wsdl);
@@ -502,5 +510,45 @@ public class ClientGen {
 			System.out.println(e.getMessage());
 			log.debug("Standard class: " + e.getMessage());
 		}
+	}
+
+	public static String creatMethods(String cls) {
+
+		Class<?> s=null;
+		try {
+			s = Class.forName(cls);
+		} catch (ClassNotFoundException e) {
+			System.out.println(e.getMessage());
+			return "";
+		}
+		String ms="",Simplename;
+		for (Method st : s.getMethods()) {
+//			System.out.println(st.getName());
+			Class<?>[] cl = st.getParameterTypes();
+			String parasTyp = "";
+			String paras = "";
+			int i = 0;
+			for (Class<?> pa : cl) {
+//				System.out.print(pa.getSimpleName() + " ");
+				Simplename=pa.getSimpleName();
+				if(isNameValid(Simplename)){
+					Simplename="Object";
+				}else{
+					
+				}
+				paras += "args" + (i) + ", ";				
+				parasTyp += Simplename + " " + "args" + (i++) + ", ";
+			}
+			if (paras.length() > 2) {
+				paras = paras.substring(0, paras.length() - 3);
+				parasTyp = parasTyp.substring(0, parasTyp.length() - 3);
+			}
+
+			String me = "public "+st.getReturnType().getSimpleName()+" " + st.getName() + "(" + parasTyp
+					+ "){Assert." + st.getName() + "(" + paras + "); }";
+//			System.out.println(me);
+			ms+=me+"\n";
+		}
+		return ms;
 	}
 }
