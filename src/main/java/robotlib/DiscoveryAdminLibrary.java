@@ -23,17 +23,23 @@ public class DiscoveryAdminLibrary{
 
 	}		
 
-	public TargetServiceDetails resolveTargetService(String arg0,String arg)  throws java.lang.Exception{
+	public void updateDiscoveryProxy(DiscoveryProxyDetails arg)  throws java.lang.Exception{
 
-		this.resolveTargetService=stub.resolveTargetService(arg0,arg);
-		return this.resolveTargetService;
+	stub.updateDiscoveryProxy(arg);
 
 	}
 
-	private TargetServiceDetails resolveTargetService;
+	public ServiceDiscoveryConfig getServiceDiscoveryConfig()  throws java.lang.Exception{
 
-	public void  AssertresolveTargetService(TargetServiceDetails expected) {	
-		Assert.assertEquals(resolveTargetService , expected );		
+		this.getServiceDiscoveryConfig=stub.getServiceDiscoveryConfig();
+		return this.getServiceDiscoveryConfig;
+
+	}
+
+	private ServiceDiscoveryConfig getServiceDiscoveryConfig;
+
+	public void  AssertgetServiceDiscoveryConfig(ServiceDiscoveryConfig expected) {	
+		Assert.assertEquals(getServiceDiscoveryConfig , expected );		
 	}
 	public void removeDiscoveryProxy(String arg)  throws java.lang.Exception{
 
@@ -41,6 +47,18 @@ public class DiscoveryAdminLibrary{
 
 	}
 
+	public DiscoveryProxyDetails getDiscoveryProxy(String arg)  throws java.lang.Exception{
+
+		this.getDiscoveryProxy=stub.getDiscoveryProxy(arg);
+		return this.getDiscoveryProxy;
+
+	}
+
+	private DiscoveryProxyDetails getDiscoveryProxy;
+
+	public void  AssertgetDiscoveryProxy(DiscoveryProxyDetails expected) {	
+		Assert.assertEquals(getDiscoveryProxy , expected );		
+	}
 	public DiscoveryProxyDetails[] getDiscoveryProxies()  throws java.lang.Exception{
 
 		this.getDiscoveryProxies=stub.getDiscoveryProxies();
@@ -65,24 +83,6 @@ public class DiscoveryAdminLibrary{
 	public void  AssertprobeDiscoveryProxy(TargetServiceDetails[] expected) {	
 		Assert.assertEquals(probeDiscoveryProxy , expected );		
 	}
-	public void updateDiscoveryProxy(DiscoveryProxyDetails arg)  throws java.lang.Exception{
-
-	stub.updateDiscoveryProxy(arg);
-
-	}
-
-	public DiscoveryProxyDetails getDiscoveryProxy(String arg)  throws java.lang.Exception{
-
-		this.getDiscoveryProxy=stub.getDiscoveryProxy(arg);
-		return this.getDiscoveryProxy;
-
-	}
-
-	private DiscoveryProxyDetails getDiscoveryProxy;
-
-	public void  AssertgetDiscoveryProxy(DiscoveryProxyDetails expected) {	
-		Assert.assertEquals(getDiscoveryProxy , expected );		
-	}
 	public void enableServiceDiscovery(String arg)  throws java.lang.Exception{
 
 	stub.enableServiceDiscovery(arg);
@@ -101,17 +101,17 @@ public class DiscoveryAdminLibrary{
 
 	}
 
-	public ServiceDiscoveryConfig getServiceDiscoveryConfig()  throws java.lang.Exception{
+	public TargetServiceDetails resolveTargetService(String arg0,String arg)  throws java.lang.Exception{
 
-		this.getServiceDiscoveryConfig=stub.getServiceDiscoveryConfig();
-		return this.getServiceDiscoveryConfig;
+		this.resolveTargetService=stub.resolveTargetService(arg0,arg);
+		return this.resolveTargetService;
 
 	}
 
-	private ServiceDiscoveryConfig getServiceDiscoveryConfig;
+	private TargetServiceDetails resolveTargetService;
 
-	public void  AssertgetServiceDiscoveryConfig(ServiceDiscoveryConfig expected) {	
-		Assert.assertEquals(getServiceDiscoveryConfig , expected );		
+	public void  AssertresolveTargetService(TargetServiceDetails expected) {	
+		Assert.assertEquals(resolveTargetService , expected );		
 	}
 
 
