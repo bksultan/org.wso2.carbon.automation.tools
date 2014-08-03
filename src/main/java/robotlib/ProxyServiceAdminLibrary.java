@@ -33,6 +33,30 @@ public class ProxyServiceAdminLibrary{
 	public void  AssertgetEndpoint(String expected) {	
 		Assert.assertEquals(getEndpoint , expected );		
 	}
+	public String[] getAvailableEndpoints()  throws java.lang.Exception{
+
+		this.getAvailableEndpoints=stub.getAvailableEndpoints();
+		return this.getAvailableEndpoints;
+
+	}
+
+	private String[] getAvailableEndpoints;
+
+	public void  AssertgetAvailableEndpoints(String[] expected) {	
+		Assert.assertEquals(getAvailableEndpoints , expected );		
+	}
+	public String redeployProxyService(String arg)  throws java.lang.Exception{
+
+		this.redeployProxyService=stub.redeployProxyService(arg);
+		return this.redeployProxyService;
+
+	}
+
+	private String redeployProxyService;
+
+	public void  AssertredeployProxyService(String expected) {	
+		Assert.assertEquals(redeployProxyService , expected );		
+	}
 	public String addProxy(ProxyData arg)  throws java.lang.Exception{
 
 		this.addProxy=stub.addProxy(arg);
@@ -56,6 +80,18 @@ public class ProxyServiceAdminLibrary{
 
 	public void  AssertmodifyProxy(String expected) {	
 		Assert.assertEquals(modifyProxy , expected );		
+	}
+	public String disableStatistics(String arg)  throws java.lang.Exception{
+
+		this.disableStatistics=stub.disableStatistics(arg);
+		return this.disableStatistics;
+
+	}
+
+	private String disableStatistics;
+
+	public void  AssertdisableStatistics(String expected) {	
+		Assert.assertEquals(disableStatistics , expected );		
 	}
 	public String disableTracing(String arg)  throws java.lang.Exception{
 
@@ -188,42 +224,6 @@ public class ProxyServiceAdminLibrary{
 
 	public void  AssertdeleteProxyService(String expected) {	
 		Assert.assertEquals(deleteProxyService , expected );		
-	}
-	public String[] getAvailableEndpoints()  throws java.lang.Exception{
-
-		this.getAvailableEndpoints=stub.getAvailableEndpoints();
-		return this.getAvailableEndpoints;
-
-	}
-
-	private String[] getAvailableEndpoints;
-
-	public void  AssertgetAvailableEndpoints(String[] expected) {	
-		Assert.assertEquals(getAvailableEndpoints , expected );		
-	}
-	public String redeployProxyService(String arg)  throws java.lang.Exception{
-
-		this.redeployProxyService=stub.redeployProxyService(arg);
-		return this.redeployProxyService;
-
-	}
-
-	private String redeployProxyService;
-
-	public void  AssertredeployProxyService(String expected) {	
-		Assert.assertEquals(redeployProxyService , expected );		
-	}
-	public String disableStatistics(String arg)  throws java.lang.Exception{
-
-		this.disableStatistics=stub.disableStatistics(arg);
-		return this.disableStatistics;
-
-	}
-
-	private String disableStatistics;
-
-	public void  AssertdisableStatistics(String expected) {	
-		Assert.assertEquals(disableStatistics , expected );		
 	}
 
 

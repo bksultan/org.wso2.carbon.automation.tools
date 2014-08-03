@@ -25,9 +25,14 @@
 
 	<service stub="org.wso2.carbon.application.mgt.stub.ApplicationAdminStub"
 		name="ApplicationAdmin" wsdl="ApplicationAdmin" lib="ApplicationAdminLibrary" />
-		
-			<service stub="org.wso2.carbon.application.mgt.stub.upload.CarbonAppUploaderStub"
+
+	<service
+		stub="org.wso2.carbon.application.mgt.stub.upload.CarbonAppUploaderStub"
 		name="CarbonAppUploader" wsdl="CarbonAppUploader" lib="CarbonAppUploaderLibrary" />
+
+	<service stub="org.wso2.carbon.jarservices.stub.JarServiceCreatorAdminStub"
+		name="JarServiceCreatorAdmin" wsdl="JarServiceCreatorAdmin" lib="JarServiceCreatorAdminLibrary" />
+
 
 </adminservices>
 

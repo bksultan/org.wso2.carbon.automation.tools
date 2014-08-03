@@ -1,5 +1,6 @@
 package lib;
 
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -431,10 +432,15 @@ public class AxisServiceClient {
 			clearServiceHttpHeader();
 			clearServiceParas();
 			getOperationResponse = res;
-			invokeOperation = createArrayFromOMElement(res);
+			try {
+				invokeOperation = createArrayFromOMElement(res);
+			} catch (Exception e) {
+				System.out.println(e.getMessage());
+			}
 			return res;
 		} catch (Exception e) {
 			System.out.println("error: " + e.getMessage());
+			e.printStackTrace();
 			return null;
 		}
 
@@ -520,5 +526,24 @@ public class AxisServiceClient {
 			return null;
 		}
 
+	}
+
+	public void waitDeployService(String service) {
+		String a = AutomationContext.context(AutomationContext.PRODUCT_AXIS2);
+		service = a + "/" + service + "?wsdl";
+		int times = 0;
+		while ((times++) < 15) {
+			try {
+				new URL(service);
+				System.out.println("deploied " + times);
+				return;
+			} catch (Exception e) {
+				System.out.println(e.getMessage());
+			}
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+			}
+		}
 	}
 }

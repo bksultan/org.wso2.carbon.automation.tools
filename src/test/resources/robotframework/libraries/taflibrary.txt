@@ -7,3 +7,5 @@ Library	 lib.AssertLibrary
 Library  lib.Test
 Library	 lib.ASObjectPool
 Library	 robotlib.ServiceUploaderLibrary
+Library	robotlib.CarbonAppUploaderLibrary
+Library	robotlib.ApplicationAdminLibrary
