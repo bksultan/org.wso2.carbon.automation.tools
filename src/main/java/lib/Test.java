@@ -1,25 +1,13 @@
 package lib;
 
-import java.io.File;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.activation.DataHandler;
-import javax.activation.FileDataSource;
 import javax.xml.namespace.QName;
 
-import org.apache.axiom.om.OMAbstractFactory;
 import org.apache.axiom.om.OMElement;
-import org.apache.axiom.om.OMFactory;
-import org.apache.axiom.om.OMText;
 import org.apache.axis2.AxisFault;
 import org.apache.axis2.client.Options;
 import org.apache.axis2.client.ServiceClient;
-import org.testng.Assert;
 import org.wso2.carbon.admin.mgt.stub.AdminManagementServiceStub;
 import org.wso2.carbon.application.mgt.stub.upload.types.carbon.UploadedFileItem;
-import org.wso2.carbon.automation.api.clients.jarservices.JARServiceUploaderClient;
 import org.wso2.carbon.discovery.admin.stub.types.mgt.ServiceDiscoveryConfig;
 import org.wso2.carbon.registry.info.stub.InfoAdminServiceStub;
 import org.wso2.carbon.service.mgt.stub.ServiceAdminStub;
@@ -31,8 +19,6 @@ import org.wso2.carbon.user.mgt.stub.types.carbon.UserRealmInfo;
 import property.AutomationContext;
 import robotlib.ApplicationAdminLibrary;
 import robotlib.CarbonAppUploaderLibrary;
-import robotlib.JarServiceCreatorAdminLibrary;
-import robotlib.ServiceAdminLibrary;
 import robotlib.ServiceUploaderLibrary;
 
 public class Test {
@@ -336,29 +322,29 @@ public class Test {
 	}
 
 	public static void main3(String[] args) {
-		AuthenticationLibrary al = new AuthenticationLibrary();
-		sessionCookie = al.LoginAs("admin", "admin", "localhost");
-
-		AxisServiceClient c=new AxisServiceClient();
-		JarServiceCreatorAdminLibrary l=new JarServiceCreatorAdminLibrary();
-		
-		try {
-			l.initJarServiceCreatorAdmin();
-			
-			URL u=new URL("file://" +new File("src/test/resources/artifacts/AS/jar/artifact1/JarService.jar").getAbsolutePath());
-			DataHandler dh = new DataHandler(u);
-			List<DataHandler> jarList = new ArrayList();
+//		AuthenticationLibrary al = new AuthenticationLibrary();
+//		sessionCookie = al.LoginAs("admin", "admin", "localhost");
+//
+////		AxisServiceClient c=new AxisServiceClient();
+//		JarServiceCreatorAdminLibrary l=new JarServiceCreatorAdminLibrary();
+//		
+//		try {
+//			l.initJarServiceCreatorAdmin();
+//			
+//			URL u=new URL("file://" +new File("src/test/resources/artifacts/AS/jar/artifact1/JarService.jar").getAbsolutePath());
+//			DataHandler dh = new DataHandler(u);
+//			List<DataHandler> jarList = new ArrayList();
 //			l.createAndDeployService(arg0, arg1, arg2, arg);
 //			l.upload("", jarList, dh);
-//			c.setServiceName("CommodityQuote");
-//			c.setServiceOperation("getQuoteRequest");
-//			c.setServiceParas("symbol", "mn");
-//			OMElement o=c.InvokeOperation();
-//			System.out.println(o);
-		} catch (Exception e) {
-			e.printStackTrace();
-			System.out.println(e.getMessage());
-		}	
+////			c.setServiceName("CommodityQuote");
+////			c.setServiceOperation("getQuoteRequest");
+////			c.setServiceParas("symbol", "mn");
+////			OMElement o=c.InvokeOperation();
+////			System.out.println(o);
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//			System.out.println(e.getMessage());
+//		}	
 		 
 		
 	}
@@ -369,7 +355,7 @@ public class Test {
 		sessionCookie = al.LoginAs("admin", "admin", "localhost");
 		ApplicationAdminLibrary a=new ApplicationAdminLibrary();
 		AxisServiceClient ac=new AxisServiceClient();
-		ServiceAdminLibrary s=new ServiceAdminLibrary();
+//		ServiceAdminLibrary s=new ServiceAdminLibrary();
 		
 		try {
 			c.initCarbonAppUploader();
@@ -429,7 +415,7 @@ public class Test {
 		
 		AxisServiceClient c=new AxisServiceClient();
 		
-		Standard s=new Standard();
+//		Standard s=new Standard();
 		
 		ServiceUploaderLibrary sl=new ServiceUploaderLibrary();
 		try {
@@ -445,8 +431,11 @@ public class Test {
 		c.setServiceName("CommodityQuote");
 		c.setServiceOperation("getQuote");
 		c.setServiceParas("symbol","mn");
+		OMElement res=c.createPayloadWithText("");
         
-		OMElement res=c.InvokeOperation();
+//		OMElement res=c.InvokeOperation();
+		System.out.println(c.getResponseAttributeValue("name"));
+//		System.out.println(c.getResponseAttributeValue("symbol"));
 		System.out.println(res);
 //		System.out.println(textData.getText());
 	}

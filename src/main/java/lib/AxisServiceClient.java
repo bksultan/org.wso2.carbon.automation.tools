@@ -1,16 +1,19 @@
 package lib;
 
+import java.io.ByteArrayInputStream;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
 import javax.xml.namespace.QName;
+import javax.xml.stream.XMLStreamException;
 
 import org.apache.axiom.om.OMAbstractFactory;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMFactory;
 import org.apache.axiom.om.OMNamespace;
+import org.apache.axiom.om.impl.builder.StAXOMBuilder;
 import org.apache.axis2.AxisFault;
 import org.apache.axis2.Constants;
 import org.apache.axis2.addressing.EndpointReference;
@@ -546,4 +549,43 @@ public class AxisServiceClient {
 			}
 		}
 	}
+
+	public OMElement createPayloadWithText(String s){
+		OMElement res = null;
+		
+//		String request = "<ns1:getQuoteRequest xmlns:ns1=\"http://www.wso2.org/types\">" +
+//                "<symbol>mn</symbol></ns1:getQuoteRequest>";
+		
+		String request = s;
+        try {
+			res= new StAXOMBuilder(new ByteArrayInputStream(request.getBytes())).getDocumentElement();
+		} catch (XMLStreamException e) {
+			System.out.println(e.getMessage());
+			return null;
+		}
+        
+        String endPoint = setServiceName;
+		String operationName = setServiceOperation;
+		String a = AutomationContext.context(AutomationContext.PRODUCT_AXIS2);
+		endPoint = a + "/" + endPoint;
+		namespace = getTargetNamespace(endPoint + "?wsdl");		
+        
+		try {
+			res = sendReceive(res, endPoint, operationName);
+			clearServiceHttpHeader();
+			clearServiceParas();
+			getOperationResponse = res;
+			try {
+				invokeOperation = createArrayFromOMElement(res);
+			} catch (Exception e) {
+				System.out.println(e.getMessage());
+			}
+			return res;
+		} catch (Exception e) {
+			System.out.println("error: " + e.getMessage());
+			e.printStackTrace();
+			return null;
+		}
+	}
 }
+
