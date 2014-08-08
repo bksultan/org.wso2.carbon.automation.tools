@@ -103,7 +103,7 @@ public class AuthenticationLibrary {
 		}
 	}
 
-	public String LoginAs(String userName, String password, String host) {
+	public String LoginAs(String userName, String password, String host) throws Exception {
 		try {
 			String log = c.login(userName, password, host);
 			System.out.println(log);
@@ -111,8 +111,9 @@ public class AuthenticationLibrary {
 			return log;
 		} catch (AxisFault e) {
 			System.out.println(e.getMessage());
+			throw new Exception(e.getMessage());
 		} catch (Exception e) {
-			System.out.println("re " + e.getMessage());
+			System.out.println(e.getMessage());
 		}
 		
 		return "error";

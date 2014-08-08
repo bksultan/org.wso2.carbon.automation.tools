@@ -1,6 +1,6 @@
 package lib;
 
-import generator.ClientGen;
+import generator.ClientGenerator;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -92,7 +92,7 @@ public class Standard {
 				res[0] = ele.getAttribute("stub");
 				res[1] = ele.getAttribute("wsdl");
 
-				ClientGen.generateClient(res);
+				ClientGenerator.generateClient(res);
 
 			}
 			logger.debug("Standard class: Client Generated");

@@ -21,6 +21,18 @@ public class AdminManagementServiceLibrary{
 
 	}		
 
+	public boolean updatePasswordWithUserInput(AdminMgtInfoBean arg0,CaptchaInfoBean arg1,String arg)  throws java.lang.Exception{
+
+		this.updatePasswordWithUserInput=stub.updatePasswordWithUserInput(arg0,arg1,arg);
+		return this.updatePasswordWithUserInput;
+
+	}
+
+	private boolean updatePasswordWithUserInput;
+
+	public void  AssertupdatePasswordWithUserInput(boolean expected) {	
+		Assert.assertEquals(updatePasswordWithUserInput , expected );		
+	}
 	public CaptchaInfoBean generateRandomCaptcha()  throws java.lang.Exception{
 
 		this.generateRandomCaptcha=stub.generateRandomCaptcha();
@@ -44,18 +56,6 @@ public class AdminManagementServiceLibrary{
 
 	public void  AssertinitiatePasswordReset(boolean expected) {	
 		Assert.assertEquals(initiatePasswordReset , expected );		
-	}
-	public boolean updatePasswordWithUserInput(AdminMgtInfoBean arg0,CaptchaInfoBean arg1,String arg)  throws java.lang.Exception{
-
-		this.updatePasswordWithUserInput=stub.updatePasswordWithUserInput(arg0,arg1,arg);
-		return this.updatePasswordWithUserInput;
-
-	}
-
-	private boolean updatePasswordWithUserInput;
-
-	public void  AssertupdatePasswordWithUserInput(boolean expected) {	
-		Assert.assertEquals(updatePasswordWithUserInput , expected );		
 	}
 
 

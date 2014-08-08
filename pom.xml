@@ -95,15 +95,6 @@
 <!-- 				<groupId>com.googlecode.robotframework-maven-plugin</groupId> -->
 <!-- 				<artifactId>robotframework-maven-plugin</artifactId> -->
 <!-- 				<version>1.1.2</version> -->
-
-<!-- 				<configuration> -->
-<!-- 					<extraPathDirectories> -->
-<!-- 						<extraPathDirectory>src/test/resources/robotframework/libraries</extraPathDirectory> -->
-<!-- 						<extraPathDirectory>target/classes/com/mycompany/lib</extraPathDirectory> -->
-<!-- 						<extraPathDiectory>target/classes</extraPathDirectory> -->
-<!-- 					</extraPathDirectories> -->
-<!-- 				</configuration> -->
-
 <!-- 				<executions> -->
 <!-- 					<execution> -->
 <!-- 						<goals> -->

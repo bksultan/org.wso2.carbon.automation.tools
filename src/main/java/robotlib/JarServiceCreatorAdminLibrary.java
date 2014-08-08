@@ -22,30 +22,6 @@ public class JarServiceCreatorAdminLibrary{
 
 	}		
 
-	public Service[] getClassMethods(String arg0,Service[] arg)  throws java.lang.Exception{
-
-		this.getClassMethods=stub.getClassMethods(arg0,arg);
-		return this.getClassMethods;
-
-	}
-
-	private Service[] getClassMethods;
-
-	public void  AssertgetClassMethods(Service[] expected) {	
-		Assert.assertEquals(getClassMethods , expected );		
-	}
-	public void createAndDeployService(String arg0,String arg1,String arg2,Service[] arg)  throws java.lang.Exception{
-
-	stub.createAndDeployService(arg0,arg1,arg2,arg);
-
-	}
-
-	public void uploadService()  throws java.lang.Exception{
-
-	stub.uploadService();
-
-	}
-
 	public UploadArtifactsResponse upload(String arg0,Resource arg1,Resource[] arg)  throws java.lang.Exception{
 
 		this.upload=stub.upload(arg0,arg1,arg);
@@ -57,6 +33,30 @@ public class JarServiceCreatorAdminLibrary{
 
 	public void  Assertupload(UploadArtifactsResponse expected) {	
 		Assert.assertEquals(upload , expected );		
+	}
+	public void uploadService()  throws java.lang.Exception{
+
+	stub.uploadService();
+
+	}
+
+	public void createAndDeployService(String arg0,String arg1,String arg2,Service[] arg)  throws java.lang.Exception{
+
+	stub.createAndDeployService(arg0,arg1,arg2,arg);
+
+	}
+
+	public Service[] getClassMethods(String arg0,Service[] arg)  throws java.lang.Exception{
+
+		this.getClassMethods=stub.getClassMethods(arg0,arg);
+		return this.getClassMethods;
+
+	}
+
+	private Service[] getClassMethods;
+
+	public void  AssertgetClassMethods(Service[] expected) {	
+		Assert.assertEquals(getClassMethods , expected );		
 	}
 
 

@@ -233,7 +233,7 @@ public class AxisServiceClient {
 	}
 
 	public Object invokeOperationIn(String endPOint, String operationName,
-			Object... paras) {
+			Object... paras) throws Exception {
 		// endPOint=PropertyInfo.read("axis2")+"/"+endPOint;
 
 		String a = AutomationContext.context(AutomationContext.PRODUCT_AXIS2);
@@ -293,16 +293,29 @@ public class AxisServiceClient {
 		return createArrayFromOMElement(result);
 	}
 
-	public String getTargetNamespace(String wsdlUrl) {
-		WSDLParser parser = new WSDLParser();
-		// String wsdl="http://localhost:8082/axis2/services/echo?wsdl";
-		System.out.println(wsdlUrl);
-		Definitions defs = parser.parse(wsdlUrl);
-		return defs.getTargetNamespace();
+	public String getTargetNamespace(String wsdlUrl) throws Exception{
+		int times=0;
+		while (true) {
+			times++;
+			try {
+				WSDLParser parser = new WSDLParser();
+				Definitions defs = parser.parse(wsdlUrl);
+				return defs.getTargetNamespace();
+			} catch (Exception e) {
+				if(times+"" == AutomationContext.context(AutomationContext.ATTEMPTS)){
+					throw new Exception("WSDL download exception");
+				}
+				try {
+					Thread.sleep(1000);
+				} catch (InterruptedException e1) {
+				}
+			}
+		}
+
 	}
 
 	public String getAttibuteValueOfOperationIn(String endPOint,
-			String operationName, String type, Object... paras) {
+			String operationName, String type, Object... paras) throws Exception {
 
 		String a = AutomationContext.context(AutomationContext.PRODUCT_AXIS2);
 		endPOint = a + "/" + endPOint;
@@ -371,7 +384,7 @@ public class AxisServiceClient {
 		}
 	}
 
-	public OMElement InvokeOperation() {
+	public OMElement InvokeOperation() throws Exception {
 		String endPoint = setServiceName;
 		String operationName = setServiceOperation;
 		String a = AutomationContext.context(AutomationContext.PRODUCT_AXIS2);
@@ -459,7 +472,7 @@ public class AxisServiceClient {
 	}
 
 	public OMElement InvokeOperationSec(String localName, String ns,
-			String value1) {
+			String value1) throws Exception {
 		String endPoint = setServiceName;
 		String operationName = setServiceOperation;
 		String a = AutomationContext.context(AutomationContext.PRODUCT_AXIS2);
@@ -531,17 +544,21 @@ public class AxisServiceClient {
 
 	}
 
-	public void waitDeployService(String service) {
+	public void waitDeployService(String service) throws Exception {
 		String a = AutomationContext.context(AutomationContext.PRODUCT_AXIS2);
 		service = a + "/" + service + "?wsdl";
 		int times = 0;
-		while ((times++) < 15) {
+		while (true) {
+			times++;
 			try {
 				new URL(service);
 				System.out.println("deploied " + times);
 				return;
 			} catch (Exception e) {
 				System.out.println(e.getMessage());
+				if (times+"" == AutomationContext.context(AutomationContext.ATTEMPTS)) {
+					throw new Exception("Service not Available");
+				}
 			}
 			try {
 				Thread.sleep(1000);
@@ -550,26 +567,29 @@ public class AxisServiceClient {
 		}
 	}
 
-	public OMElement createPayloadWithText(String s){
+	public OMElement createPayloadWithText(String s) throws Exception {
 		OMElement res = null;
-		
-//		String request = "<ns1:getQuoteRequest xmlns:ns1=\"http://www.wso2.org/types\">" +
-//                "<symbol>mn</symbol></ns1:getQuoteRequest>";
-		
+
+		// String request =
+		// "<ns1:getQuoteRequest xmlns:ns1=\"http://www.wso2.org/types\">" +
+		// "<symbol>mn</symbol></ns1:getQuoteRequest>";
+
 		String request = s;
-        try {
-			res= new StAXOMBuilder(new ByteArrayInputStream(request.getBytes())).getDocumentElement();
+		try {
+			res = new StAXOMBuilder(
+					new ByteArrayInputStream(request.getBytes()))
+					.getDocumentElement();
 		} catch (XMLStreamException e) {
 			System.out.println(e.getMessage());
 			return null;
 		}
-        
-        String endPoint = setServiceName;
+
+		String endPoint = setServiceName;
 		String operationName = setServiceOperation;
 		String a = AutomationContext.context(AutomationContext.PRODUCT_AXIS2);
 		endPoint = a + "/" + endPoint;
-		namespace = getTargetNamespace(endPoint + "?wsdl");		
-        
+		namespace = getTargetNamespace(endPoint + "?wsdl");
+
 		try {
 			res = sendReceive(res, endPoint, operationName);
 			clearServiceHttpHeader();
@@ -587,5 +607,5 @@ public class AxisServiceClient {
 			return null;
 		}
 	}
-}
 
+}

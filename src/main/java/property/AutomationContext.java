@@ -17,6 +17,7 @@ public class AutomationContext {
 	public static final String PRODUCT_HOST = "/automation/robotconfig/product/host";
 	public static final String PRODUCT_PORT = "/automation/robotconfig/product/port";
 	public static final String PROJECT_LOCATION = "/automation/robotconfig/project/location";
+	public static final String ATTEMPTS = "/automation/robotconfig/exe/attemt";
 
 	public static String context(String xpath) {
 		FileInputStream file;
