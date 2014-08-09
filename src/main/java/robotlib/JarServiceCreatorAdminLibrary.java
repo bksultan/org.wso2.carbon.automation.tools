@@ -22,24 +22,6 @@ public class JarServiceCreatorAdminLibrary{
 
 	}		
 
-	public UploadArtifactsResponse upload(String arg0,Resource arg1,Resource[] arg)  throws java.lang.Exception{
-
-		this.upload=stub.upload(arg0,arg1,arg);
-		return this.upload;
-
-	}
-
-	private UploadArtifactsResponse upload;
-
-	public void  Assertupload(UploadArtifactsResponse expected) {	
-		Assert.assertEquals(upload , expected );		
-	}
-	public void uploadService()  throws java.lang.Exception{
-
-	stub.uploadService();
-
-	}
-
 	public void createAndDeployService(String arg0,String arg1,String arg2,Service[] arg)  throws java.lang.Exception{
 
 	stub.createAndDeployService(arg0,arg1,arg2,arg);
@@ -57,6 +39,24 @@ public class JarServiceCreatorAdminLibrary{
 
 	public void  AssertgetClassMethods(Service[] expected) {	
 		Assert.assertEquals(getClassMethods , expected );		
+	}
+	public void uploadService()  throws java.lang.Exception{
+
+	stub.uploadService();
+
+	}
+
+	public UploadArtifactsResponse upload(String arg0,Resource arg1,Resource[] arg)  throws java.lang.Exception{
+
+		this.upload=stub.upload(arg0,arg1,arg);
+		return this.upload;
+
+	}
+
+	private UploadArtifactsResponse upload;
+
+	public void  Assertupload(UploadArtifactsResponse expected) {	
+		Assert.assertEquals(upload , expected );		
 	}
 
 

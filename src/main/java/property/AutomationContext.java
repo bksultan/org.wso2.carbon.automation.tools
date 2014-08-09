@@ -2,6 +2,7 @@ package property;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.InputStream;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -24,10 +25,13 @@ public class AutomationContext {
 		try {
 			String s="src/main/resources/automation.xml";
 			file = new FileInputStream(new File(s));
+			InputStream is=ClassLoader.getSystemResourceAsStream("automation.xml");
+//			file=new 
 			
 			DocumentBuilderFactory builderFactory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder builder = builderFactory.newDocumentBuilder();
 			Document xmlDocument = builder.parse(file);
+//			Document xmlDocument = builder.parse(is);
 			XPath xPath = XPathFactory.newInstance().newXPath();
 
 			String val = xPath.compile(xpath).evaluate(xmlDocument);
@@ -36,6 +40,7 @@ public class AutomationContext {
 		} catch (Exception e) {
 			
 			System.out.println(e.getMessage());
+		
 			return null;
 		}
 

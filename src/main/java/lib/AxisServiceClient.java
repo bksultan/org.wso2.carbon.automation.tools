@@ -294,6 +294,7 @@ public class AxisServiceClient {
 	}
 
 	public String getTargetNamespace(String wsdlUrl) throws Exception{
+		int num=Integer.parseInt(AutomationContext.context(AutomationContext.ATTEMPTS).trim());
 		int times=0;
 		while (true) {
 			times++;
@@ -302,7 +303,9 @@ public class AxisServiceClient {
 				Definitions defs = parser.parse(wsdlUrl);
 				return defs.getTargetNamespace();
 			} catch (Exception e) {
-				if(times+"" == AutomationContext.context(AutomationContext.ATTEMPTS)){
+				System.out.println("INFO: WSDL download exception retrying......");				
+				
+				if(times>num){
 					throw new Exception("WSDL download exception");
 				}
 				try {

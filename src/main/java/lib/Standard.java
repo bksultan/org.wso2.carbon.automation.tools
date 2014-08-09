@@ -3,6 +3,8 @@ package lib;
 import generator.ClientGenerator;
 
 import java.io.File;
+import java.io.InputStream;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -25,7 +27,13 @@ public class Standard {
 
 	public Standard() {
 		// TODO Auto-generated constructor stub
-		PropertyConfigurator.configure("src/main/resources/log4j.properties");
+		InputStream is = ClassLoader
+				.getSystemResourceAsStream("log4j.properties");
+		URL url=ClassLoader
+				.getSystemResource("log4j.properties");
+		// PropertyConfigurator.configure("src/main/resources/log4j.properties");
+//		PropertyConfigurator.configure(is);
+		//PropertyConfigurator.configure(url);
 	}
 
 	public Object[] CreateArray(Object... x) {
@@ -66,12 +74,12 @@ public class Standard {
 		return a;
 	}
 
-	public boolean containString(Object o,String v){
+	public boolean containString(Object o, String v) {
 		return o.toString().toLowerCase().contains(v.toLowerCase());
 	}
-	
+
 	private static void log() {
-		
+
 		File f = new File("/home/rukshan/log4j/log.out");
 		f.delete();
 
@@ -92,7 +100,7 @@ public class Standard {
 				res[0] = ele.getAttribute("stub");
 				res[1] = ele.getAttribute("wsdl");
 
-				ClientGenerator.generateClient(res);
+				new ClientGenerator().generateClient(res);
 
 			}
 			logger.debug("Standard class: Client Generated");
@@ -102,7 +110,7 @@ public class Standard {
 			logger.debug("Standard class: " + e.getMessage());
 		}
 	}
-	
+
 	public static void main(String[] args) {
 		log();
 	}

@@ -6,6 +6,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Method;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
@@ -14,7 +15,6 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
 import org.apache.log4j.Logger;
-import org.apache.log4j.PropertyConfigurator;
 import org.stringtemplate.v4.ST;
 import org.stringtemplate.v4.STGroup;
 import org.stringtemplate.v4.STGroupFile;
@@ -30,126 +30,44 @@ import com.predic8.wsdl.WSDLParser;
 public class ClientGenerator {
 	static Logger log = Logger.getLogger(ClientGenerator.class.getName());
 	static ArrayList<String> operations;
+	private static String path="/src/main/java"; 
 
 	public static void main(String[] args) {
 		System.out.println(System.getProperty("user.dir"));
-		GenerateLibraries();
-	}
-	
-	public static void generate(String library) {
-		Set<String> importLib = new HashSet<String>();
-		STGroup group = new STGroupFile(
-				"src/main/resources/templateR.stg");
-		try {
-			log.info("Hello this is an info message");
-			String[] res = getServiceInfor(library);
-			if (res == null) {
-				System.out.println("error: No Service named " + library);
-				return;
-			}
-
-			String servicestub = res[0];
-			String wsdl = "/" + res[1] + ".wsdl";
-
-			Class<?> c = Class.forName(servicestub);
-
-			System.out.println(c.getPackage().getName());
-			importLib.add(servicestub);
-
-			String methods = "";
-
-			operations = getOperations(c, wsdl);
-
-			for (Method m : c.getMethods()) {
-				if (!isMethodNameValid(m.getName())) {
-					continue;
-				}
-
-				ST methodTem = group.getInstanceOf("method");
-				methodTem.add("returnType", m.getReturnType().getSimpleName());
-				methodTem.add("methodName", m.getName());
-				String retType = m.getReturnType().getSimpleName();
-				retType = retType.replace("[]", "");
-				if (isNameValid(retType)) {
-					importLib.add(m.getReturnType().getCanonicalName()
-							.replace("[]", ""));
-				}
-				String paras = "";
-				String parasRet = "";
-				int i = 0;
-				for (Class<?> pc : m.getParameterTypes()) {
-					String retType1 = pc.getSimpleName();
-					// System.out.println(retType1);
-					retType1 = retType1.replace("[]", "");
-					if (isNameValid(retType1)) {
-						importLib.add(pc.getCanonicalName().replace("[]", ""));
-					}
-					paras += pc.getSimpleName() + " " + "arg" + (i) + ",";
-					parasRet += "arg" + (i++) + ",";
-				}
-				if (!paras.equals("")) {
-					methodTem.add("paras",
-							paras.substring(0, paras.length() - 2));
-					methodTem.add("parasRet",
-							parasRet.substring(0, parasRet.length() - 2));
-
-				}
-
-				methodTem.add("cond", !m.getReturnType().getSimpleName()
-						.equals("void"));
-				methods += methodTem.render();
-			}
-
-			ST classTem = group.getInstanceOf("class");
-
-			String serviceName = getServiceName(c, wsdl);
-			System.out.println("className " + serviceName);
-
-			classTem.add("name", serviceName);
-			classTem.add("namestub", serviceName + "Stub");
-			classTem.add("methods", methods);
-
-			String imports = "";
-			for (String s : importLib) {
-				imports += "import " + s + ";\n";
-			}
-
-			classTem.add("clsimport", imports);
-
-			save(serviceName, classTem.render());
-			System.out.println("info: generated " + serviceName);
-		} catch (ClassNotFoundException e) {
-			System.out.println("error " + e.getMessage());
-		}
+		ClientGenerator g=new ClientGenerator();
+		g.GenerateLibraries();
 	}
 
 	private static void save(String className, String result) {
 		try {
-//			String loc = AutomationContext
-//					.context(AutomationContext.PROJECT_LOCATION);
-			
-			String loc=System.getProperty("user.dir");
-			File ff1 = new File(loc + "/src/main/java");
-			if(!ff1.exists()){
+			// String loc = AutomationContext
+			// .context(AutomationContext.PROJECT_LOCATION);
+
+			String loc = System.getProperty("user.dir");
+			System.out.println("user dir: "+loc);
+			File ff1 = new File(loc + path);
+			if (!ff1.exists()) {
 				ff1.mkdir();
-				log.debug("Client Gen: Create "+ff1.getAbsolutePath());
+				log.debug("Client Gen: Create " + ff1.getAbsolutePath());
 			}
-			
-			File ff2 = new File(loc + "/src/main/java/robotlib");
-			if(!ff2.exists()){
-				ff2.mkdir();
-				log.debug("Client Gen: Create "+ff2.getAbsolutePath());
+
+			File ff2 = new File(loc + path+"/robotlib");
+			if (!ff2.exists()) {
+				ff2.mkdir();				
+				log.debug("Client Gen: Create " + ff2.getAbsolutePath());
 			}
-			
-			File f = new File(loc + "/src/main/java/robotlib/" + className
+
+			File f = new File(loc +  path+"/robotlib/" + className
 					+ "Library.java");
 			BufferedWriter wri = new BufferedWriter(new FileWriter(f));
 			wri.write(result);
 			wri.close();
+			System.out.println("Client Gen: Create " + f.getAbsolutePath());
 			log.debug("ClientGen Created " + f.getAbsolutePath());
 		} catch (IOException e) {
 			log.debug("ClientGen Created " + e.getMessage());
 			System.out.println(e.getMessage());
+			e.printStackTrace();
 		}
 	}
 
@@ -210,41 +128,20 @@ public class ClientGenerator {
 
 	}
 
-	public static String[] getServiceInfor(String lib) {
-		File pomfile = new File("service.xml");
-		String[] res;
-		try {
-
-			DocumentBuilder dBuilder = DocumentBuilderFactory.newInstance()
-					.newDocumentBuilder();
-			Document doc = dBuilder.parse(pomfile);
-			System.out.println("Root element :"
-					+ doc.getDocumentElement().getNodeName());
-
-			NodeList service = doc.getElementsByTagName("service");
-			for (int i = 0; i < service.getLength(); i++) {
-				Element ele = (Element) service.item(i);
-				if (ele.getAttribute("lib").equals(lib)) {
-					res = new String[2];
-					res[0] = ele.getAttribute("stub");
-					res[1] = ele.getAttribute("wsdl");
-					return res;
-				}
-
-			}
-			return null;
-
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-			return null;
-		}
-	}
-
-	public static void generateClient(String[] res) {
+	public void generateClient(String[] res) {
 		Set<String> importLib = new HashSet<String>();
+//		URL url=ClientGenerator.class.getResource("src/main/resources/templateR.stg");
+		URL url=null;
+		try {
+			url=ClassLoader.getSystemResource("templateR.stg");
+		} catch (Exception e) {
+			System.out.println("here"+e.getMessage());
+		}
 		
-		STGroup group = new STGroupFile(
-				"src/main/resources/templateR.stg");
+				//ClientGenerator.class.getResource("src/main/resources/templateR.stg");
+		
+		STGroup group = new STGroupFile(url,"UTF-8",'<','>');
+//		STGroup group = new STGroupFile("src/main/resources/templateR.stg");
 		try {
 			if (res == null) {
 				System.out.println("error: No Service named ");
@@ -283,14 +180,16 @@ public class ClientGenerator {
 				int i = 0;
 				for (Class<?> pc : m.getParameterTypes()) {
 					String retType1 = pc.getSimpleName();
-					 
+
 					retType1 = retType1.replace("[]", "");
 					if (isNameValid(retType1)) {
 						importLib.add(pc.getCanonicalName().replace("[]", ""));
 						System.out.println("------------------------");
-						System.out.println("complex: "+retType1);
-						//String mm=creatMethods(pc.getCanonicalName().replace("[]", ""));
-						//poolmethods+=mm;
+						System.out.println("complex: " + retType1);
+						// String
+						// mm=creatMethods(pc.getCanonicalName().replace("[]",
+						// ""));
+						// poolmethods+=mm;
 						System.out.println("------------------------");
 					}
 					paras += pc.getSimpleName() + " " + "arg" + (i) + ",";
@@ -310,7 +209,7 @@ public class ClientGenerator {
 			}
 
 			methods += poolmethods;
-			
+
 			ST classTem = group.getInstanceOf("class");
 
 			String serviceName = getServiceName(c, wsdl);
@@ -334,20 +233,24 @@ public class ClientGenerator {
 		}
 	}
 
-	public static void GenerateLibraries() {
+	public void GenerateLibraries() {
 		
-		PropertyConfigurator.configure("src/main/resources/log4j.properties");
+//		PropertyConfigurator.configure("src/main/resources/log4j.properties");
 
 		File f = new File("/home/rukshan/log4j/log.out");
 		f.delete();
 
-		File pomfile = new File("src/main/resources/service.xml");
+//		InputStream s=ClientGenerator.class.getResourceAsStream("src/main/resources/service.xml");
+		InputStream s=getClass().getResourceAsStream("src/main/resources/service.xml");
+//		File pomfile = new File("src/main/resources/service.xml");
+		s=ClassLoader.getSystemResourceAsStream("service.xml");
 		String[] res;
 		try {
 
 			DocumentBuilder dBuilder = DocumentBuilderFactory.newInstance()
 					.newDocumentBuilder();
-			Document doc = dBuilder.parse(pomfile);
+//			Document doc = dBuilder.parse(pomfile);
+			Document doc = dBuilder.parse(s);
 			System.out.println("Root element :"
 					+ doc.getDocumentElement().getNodeName());
 
@@ -358,54 +261,16 @@ public class ClientGenerator {
 				res[0] = ele.getAttribute("stub");
 				res[1] = ele.getAttribute("wsdl");
 
-				ClientGenerator.generateClient(res);
+				generateClient(res);
 
 			}
 			log.debug("Standard class: Client Generated");
 			System.out.println("Standard class: Client Generated");
 		} catch (Exception e) {
-			System.out.println(e.getMessage());
+			e.printStackTrace();
+			System.out.println("er"+e.getMessage());
 			log.debug("Standard class: " + e.getMessage());
 		}
 	}
 
-	public static String creatMethods(String cls) {
-
-		Class<?> s=null;
-		try {
-			s = Class.forName(cls);
-		} catch (ClassNotFoundException e) {
-			System.out.println(e.getMessage());
-			return "";
-		}
-		String ms="",Simplename;
-		for (Method st : s.getMethods()) {
-//			System.out.println(st.getName());
-			Class<?>[] cl = st.getParameterTypes();
-			String parasTyp = "";
-			String paras = "";
-			int i = 0;
-			for (Class<?> pa : cl) {
-//				System.out.print(pa.getSimpleName() + " ");
-				Simplename=pa.getSimpleName();
-				if(isNameValid(Simplename)){
-					Simplename="Object";
-				}else{
-					
-				}
-				paras += "args" + (i) + ", ";				
-				parasTyp += Simplename + " " + "args" + (i++) + ", ";
-			}
-			if (paras.length() > 2) {
-				paras = paras.substring(0, paras.length() - 3);
-				parasTyp = parasTyp.substring(0, parasTyp.length() - 3);
-			}
-
-			String me = "public "+st.getReturnType().getSimpleName()+" " + st.getName() + "(" + parasTyp
-					+ "){Assert." + st.getName() + "(" + paras + "); }";
-//			System.out.println(me);
-			ms+=me+"\n";
-		}
-		return ms;
-	}
 }
