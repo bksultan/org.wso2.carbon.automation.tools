@@ -1,13 +1,21 @@
 package generator;
 
 import java.io.File;
+import java.io.InputStream;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.net.URL;
 import java.util.ArrayList;
 
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+
+import org.stringtemplate.v4.STGroup;
+import org.stringtemplate.v4.STGroupFile;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import org.w3c.dom.Document;
 
 public class ClientGeneratorTest {
 
@@ -15,17 +23,17 @@ public class ClientGeneratorTest {
 	public void testSave() {
 
 		// System.setProperty("user.dir","src/test/resources/testng");
-		File target=new File("testout/src/main/java");
-		if(!target.exists()){
-				target.mkdirs();
+		File target = new File("testout/src/main/java");
+		if (!target.exists()) {
+			target.mkdirs();
 		}
-		
+
 		try {
 			String loc = "/testout/src/main/java";
 
 			File f = new File(
 					"testout/src/main/java/robotlib/TestngtestingclassLibrary.java");
-			//f=new File(url.toURI());
+			// f=new File(url.toURI());
 			System.out.println(f.exists());
 			if (f.exists()) {
 				f.delete();
@@ -196,11 +204,31 @@ public class ClientGeneratorTest {
 
 	@Test
 	public void testGenerateClient() {
-		File target=new File("testout/src/main/java");
-		if(!target.exists()){
-				target.mkdirs();
-		}
 		ClientGenerator g = new ClientGenerator();
+		g.setPackageName("robotlib");
+		try {
+
+			URL url = null;
+			try {
+				url = ClassLoader.getSystemResource("templateR.stg");
+			} catch (Exception e) {
+				System.out.println("here" + e.getMessage());
+			}
+			STGroup group = new STGroupFile(url, "UTF-8", '<', '>');
+
+			Class<?> c = ClientGenerator.class;
+			Field fgroup = c.getDeclaredField("group");
+			fgroup.setAccessible(true);
+			fgroup.set(g, group);
+
+		} catch (Exception e1) {
+			System.out.println(e1.getMessage());
+		}
+
+		File target = new File("testout/src/main/java");
+		if (!target.exists()) {
+			target.mkdirs();
+		}
 
 		try {
 			String loc = "/testout/src/main/java";
@@ -231,12 +259,43 @@ public class ClientGeneratorTest {
 
 	@Test
 	public void testGenerateLibraries() {
-		File target=new File("testout/src/main/java");
-		if(!target.exists()){
-				target.mkdirs();
+		File target = new File("testout/src/main/java");
+		if (!target.exists()) {
+			target.mkdirs();
 		}
-		
+
 		ClientGenerator g = new ClientGenerator();
+
+		g.setPackageName("robotlib");
+		try {
+
+			URL url = null;
+			try {
+				url = ClassLoader.getSystemResource("templateR.stg");
+			} catch (Exception e) {
+				System.out.println("here" + e.getMessage());
+			}
+			STGroup group = new STGroupFile(url, "UTF-8", '<', '>');
+
+			Class<?> c = ClientGenerator.class;
+			Field fgroup = c.getDeclaredField("group");
+			fgroup.setAccessible(true);
+			fgroup.set(g, group);
+
+			Field docf = c.getDeclaredField("doc");
+			docf.setAccessible(true);
+			
+			InputStream s = ClassLoader
+					.getSystemResourceAsStream("service.xml");
+			DocumentBuilder dBuilder = DocumentBuilderFactory.newInstance()
+					.newDocumentBuilder();
+			Document doc = dBuilder.parse(s);
+			docf.set(g, doc);
+
+		} catch (Exception e1) {
+			System.out.println(e1.getMessage());
+			e1.printStackTrace();
+		}
 
 		try {
 			String loc = "/testout/src/main/java";
@@ -250,9 +309,7 @@ public class ClientGeneratorTest {
 					"ServiceAdminLibrary.java", "ServiceUploaderLibrary.java",
 					"StatisticsAdminLibrary.java", "UserAdminLibrary.java" };
 			for (String fi : files) {
-				File f = new File(
-						"testout/src/main/java/robotlib/"
-								+ fi);
+				File f = new File("testout/src/main/java/robotlib/" + fi);
 				if (f.exists()) {
 					f.delete();
 				}
@@ -263,12 +320,10 @@ public class ClientGeneratorTest {
 			path.setAccessible(true);
 			path.set(g, loc);
 
-			new ClientGenerator().GenerateLibraries();
+			new ClientGenerator().GenerateLibraries("robotlib");
 
 			for (String fi : files) {
-				File f = new File(
-						"testout/src/main/java/robotlib/"
-								+ fi);
+				File f = new File("testout/src/main/java/robotlib/" + fi);
 				Assert.assertTrue(f.exists());
 
 				if (f.exists()) {
@@ -281,4 +336,6 @@ public class ClientGeneratorTest {
 			Assert.fail();
 		}
 	}
+
+	
 }

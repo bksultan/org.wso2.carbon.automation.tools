@@ -3,11 +3,11 @@
 <suite name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="lib.AxisServiceClientTest">
+      <class name="generator.ClientGeneratorTest">
         <methods>
-          <include name="getValue"/>
+          <include name="testGenerateClient"/>
         </methods>
-      </class> <!-- lib.AxisServiceClientTest -->
+      </class> <!-- generator.ClientGeneratorTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

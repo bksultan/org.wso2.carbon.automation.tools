@@ -1,4 +1,6 @@
+//package robotlib;
 package robotlib;
+
 import lib.AuthenticationLibrary;
 import org.apache.axis2.AxisFault;
 import org.apache.axis2.client.Options;
@@ -21,18 +23,6 @@ public class AdminManagementServiceLibrary{
 
 	}		
 
-	public boolean initiatePasswordReset(AdminMgtInfoBean arg0,CaptchaInfoBean arg)  throws java.lang.Exception{
-
-		this.initiatePasswordReset=stub.initiatePasswordReset(arg0,arg);
-		return this.initiatePasswordReset;
-
-	}
-
-	private boolean initiatePasswordReset;
-
-	public void  AssertinitiatePasswordReset(boolean expected) {	
-		Assert.assertEquals(initiatePasswordReset , expected );		
-	}
 	public CaptchaInfoBean generateRandomCaptcha()  throws java.lang.Exception{
 
 		this.generateRandomCaptcha=stub.generateRandomCaptcha();
@@ -56,6 +46,18 @@ public class AdminManagementServiceLibrary{
 
 	public void  AssertupdatePasswordWithUserInput(boolean expected) {	
 		Assert.assertEquals(updatePasswordWithUserInput , expected );		
+	}
+	public boolean initiatePasswordReset(AdminMgtInfoBean arg0,CaptchaInfoBean arg)  throws java.lang.Exception{
+
+		this.initiatePasswordReset=stub.initiatePasswordReset(arg0,arg);
+		return this.initiatePasswordReset;
+
+	}
+
+	private boolean initiatePasswordReset;
+
+	public void  AssertinitiatePasswordReset(boolean expected) {	
+		Assert.assertEquals(initiatePasswordReset , expected );		
 	}
 
 

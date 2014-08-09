@@ -2,40 +2,40 @@
 <testng-results skipped="0" failed="0" total="8" passed="8">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="9160" started-at="2014-08-09T12:00:22Z" finished-at="2014-08-09T12:00:31Z">
+  <suite name="Default suite" duration-ms="9413" started-at="2014-08-09T18:04:54Z" finished-at="2014-08-09T18:05:03Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="9160" started-at="2014-08-09T12:00:22Z" finished-at="2014-08-09T12:00:31Z">
+    <test name="Default test" duration-ms="9413" started-at="2014-08-09T18:04:54Z" finished-at="2014-08-09T18:05:03Z">
       <class name="lib.AxisServiceClientTest">
-        <test-method status="PASS" signature="clearServiceHttpHeader()[pri:0, instance:lib.AxisServiceClientTest@25a226eb]" name="clearServiceHttpHeader" duration-ms="482" started-at="2014-08-09T17:30:22Z" finished-at="2014-08-09T17:30:22Z">
+        <test-method status="PASS" signature="clearServiceHttpHeader()[pri:0, instance:lib.AxisServiceClientTest@35622eb]" name="clearServiceHttpHeader" duration-ms="417" started-at="2014-08-09T23:34:54Z" finished-at="2014-08-09T23:34:54Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- clearServiceHttpHeader -->
-        <test-method status="PASS" signature="clearServiceParas()[pri:0, instance:lib.AxisServiceClientTest@25a226eb]" name="clearServiceParas" duration-ms="1" started-at="2014-08-09T17:30:22Z" finished-at="2014-08-09T17:30:22Z">
+        <test-method status="PASS" signature="clearServiceParas()[pri:0, instance:lib.AxisServiceClientTest@35622eb]" name="clearServiceParas" duration-ms="1" started-at="2014-08-09T23:34:54Z" finished-at="2014-08-09T23:34:54Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- clearServiceParas -->
-        <test-method status="PASS" signature="createArrayFromOMElement()[pri:0, instance:lib.AxisServiceClientTest@25a226eb]" name="createArrayFromOMElement" duration-ms="486" started-at="2014-08-09T17:30:22Z" finished-at="2014-08-09T17:30:23Z">
+        <test-method status="PASS" signature="createArrayFromOMElement()[pri:0, instance:lib.AxisServiceClientTest@35622eb]" name="createArrayFromOMElement" duration-ms="580" started-at="2014-08-09T23:34:54Z" finished-at="2014-08-09T23:34:55Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- createArrayFromOMElement -->
-        <test-method status="PASS" signature="createPayloadWithText()[pri:0, instance:lib.AxisServiceClientTest@25a226eb]" name="createPayloadWithText" duration-ms="1" started-at="2014-08-09T17:30:23Z" finished-at="2014-08-09T17:30:23Z">
+        <test-method status="PASS" signature="createPayloadWithText()[pri:0, instance:lib.AxisServiceClientTest@35622eb]" name="createPayloadWithText" duration-ms="1" started-at="2014-08-09T23:34:55Z" finished-at="2014-08-09T23:34:55Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- createPayloadWithText -->
-        <test-method status="PASS" signature="getMethod()[pri:0, instance:lib.AxisServiceClientTest@25a226eb]" name="getMethod" duration-ms="122" started-at="2014-08-09T17:30:23Z" finished-at="2014-08-09T17:30:23Z">
+        <test-method status="PASS" signature="getMethod()[pri:0, instance:lib.AxisServiceClientTest@35622eb]" name="getMethod" duration-ms="181" started-at="2014-08-09T23:34:55Z" finished-at="2014-08-09T23:34:55Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getMethod -->
-        <test-method status="PASS" signature="getResponseAttributeValue()[pri:0, instance:lib.AxisServiceClientTest@25a226eb]" name="getResponseAttributeValue" duration-ms="6" started-at="2014-08-09T17:30:23Z" finished-at="2014-08-09T17:30:23Z">
+        <test-method status="PASS" signature="getResponseAttributeValue()[pri:0, instance:lib.AxisServiceClientTest@35622eb]" name="getResponseAttributeValue" duration-ms="9" started-at="2014-08-09T23:34:55Z" finished-at="2014-08-09T23:34:55Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getResponseAttributeValue -->
-        <test-method status="PASS" signature="getTargetNamespace()[pri:0, instance:lib.AxisServiceClientTest@25a226eb]" name="getTargetNamespace" duration-ms="7986" started-at="2014-08-09T17:30:23Z" finished-at="2014-08-09T17:30:31Z">
+        <test-method status="PASS" signature="getTargetNamespace()[pri:0, instance:lib.AxisServiceClientTest@35622eb]" name="getTargetNamespace" duration-ms="8159" started-at="2014-08-09T23:34:55Z" finished-at="2014-08-09T23:35:03Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getTargetNamespace -->
-        <test-method status="PASS" signature="getValue()[pri:0, instance:lib.AxisServiceClientTest@25a226eb]" name="getValue" duration-ms="2" started-at="2014-08-09T17:30:31Z" finished-at="2014-08-09T17:30:31Z">
+        <test-method status="PASS" signature="getValue()[pri:0, instance:lib.AxisServiceClientTest@35622eb]" name="getValue" duration-ms="1" started-at="2014-08-09T23:35:03Z" finished-at="2014-08-09T23:35:03Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getValue -->

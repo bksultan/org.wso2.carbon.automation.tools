@@ -1,4 +1,6 @@
+//package robotlib;
 package robotlib;
+
 import lib.AuthenticationLibrary;
 import org.apache.axis2.AxisFault;
 import org.apache.axis2.client.Options;
@@ -23,24 +25,6 @@ public class DiscoveryAdminLibrary{
 
 	}		
 
-	public void updateDiscoveryProxy(DiscoveryProxyDetails arg)  throws java.lang.Exception{
-
-	stub.updateDiscoveryProxy(arg);
-
-	}
-
-	public DiscoveryProxyDetails getDiscoveryProxy(String arg)  throws java.lang.Exception{
-
-		this.getDiscoveryProxy=stub.getDiscoveryProxy(arg);
-		return this.getDiscoveryProxy;
-
-	}
-
-	private DiscoveryProxyDetails getDiscoveryProxy;
-
-	public void  AssertgetDiscoveryProxy(DiscoveryProxyDetails expected) {	
-		Assert.assertEquals(getDiscoveryProxy , expected );		
-	}
 	public TargetServiceDetails resolveTargetService(String arg0,String arg)  throws java.lang.Exception{
 
 		this.resolveTargetService=stub.resolveTargetService(arg0,arg);
@@ -52,24 +36,6 @@ public class DiscoveryAdminLibrary{
 
 	public void  AssertresolveTargetService(TargetServiceDetails expected) {	
 		Assert.assertEquals(resolveTargetService , expected );		
-	}
-	public void enableServiceDiscovery(String arg)  throws java.lang.Exception{
-
-	stub.enableServiceDiscovery(arg);
-
-	}
-
-	public ServiceDiscoveryConfig getServiceDiscoveryConfig()  throws java.lang.Exception{
-
-		this.getServiceDiscoveryConfig=stub.getServiceDiscoveryConfig();
-		return this.getServiceDiscoveryConfig;
-
-	}
-
-	private ServiceDiscoveryConfig getServiceDiscoveryConfig;
-
-	public void  AssertgetServiceDiscoveryConfig(ServiceDiscoveryConfig expected) {	
-		Assert.assertEquals(getServiceDiscoveryConfig , expected );		
 	}
 	public void removeDiscoveryProxy(String arg)  throws java.lang.Exception{
 
@@ -101,6 +67,18 @@ public class DiscoveryAdminLibrary{
 	public void  AssertprobeDiscoveryProxy(TargetServiceDetails[] expected) {	
 		Assert.assertEquals(probeDiscoveryProxy , expected );		
 	}
+	public void enableServiceDiscovery(String arg)  throws java.lang.Exception{
+
+	stub.enableServiceDiscovery(arg);
+
+	}
+
+	public void updateDiscoveryProxy(DiscoveryProxyDetails arg)  throws java.lang.Exception{
+
+	stub.updateDiscoveryProxy(arg);
+
+	}
+
 	public void disableServiceDiscovery(boolean arg)  throws java.lang.Exception{
 
 	stub.disableServiceDiscovery(arg);
@@ -113,6 +91,30 @@ public class DiscoveryAdminLibrary{
 
 	}
 
+	public ServiceDiscoveryConfig getServiceDiscoveryConfig()  throws java.lang.Exception{
+
+		this.getServiceDiscoveryConfig=stub.getServiceDiscoveryConfig();
+		return this.getServiceDiscoveryConfig;
+
+	}
+
+	private ServiceDiscoveryConfig getServiceDiscoveryConfig;
+
+	public void  AssertgetServiceDiscoveryConfig(ServiceDiscoveryConfig expected) {	
+		Assert.assertEquals(getServiceDiscoveryConfig , expected );		
+	}
+	public DiscoveryProxyDetails getDiscoveryProxy(String arg)  throws java.lang.Exception{
+
+		this.getDiscoveryProxy=stub.getDiscoveryProxy(arg);
+		return this.getDiscoveryProxy;
+
+	}
+
+	private DiscoveryProxyDetails getDiscoveryProxy;
+
+	public void  AssertgetDiscoveryProxy(DiscoveryProxyDetails expected) {	
+		Assert.assertEquals(getDiscoveryProxy , expected );		
+	}
 
 
 	public static void main(String[] args) {

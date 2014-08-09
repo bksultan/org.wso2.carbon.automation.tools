@@ -3,7 +3,6 @@ package property;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
-
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.xpath.XPath;
@@ -12,7 +11,7 @@ import javax.xml.xpath.XPathFactory;
 import org.w3c.dom.Document;
 
 public class AutomationContext {
-	
+
 	public static final String PRODUCT_AXIS2 = "/automation/robotconfig/server/axis2";
 	public static final String PRODUCT_LOCATION = "/automation/robotconfig/product/location";
 	public static final String PRODUCT_HOST = "/automation/robotconfig/product/host";
@@ -20,27 +19,46 @@ public class AutomationContext {
 	public static final String PROJECT_LOCATION = "/automation/robotconfig/project/location";
 	public static final String ATTEMPTS = "/automation/robotconfig/exe/attemt";
 
-	public static String context(String xpath) {
+	private static Document xmlDocument;
+
+	static {
+		// TODO Auto-generated constructor stub
 		FileInputStream file;
+
 		try {
-			String s="src/main/resources/automation.xml";
+			String s = "src/main/resources/automation.xml";
 			file = new FileInputStream(new File(s));
-			InputStream is=ClassLoader.getSystemResourceAsStream("automation.xml");
-//			file=new 
-			
-			DocumentBuilderFactory builderFactory = DocumentBuilderFactory.newInstance();
+			DocumentBuilderFactory builderFactory = DocumentBuilderFactory
+					.newInstance();
 			DocumentBuilder builder = builderFactory.newDocumentBuilder();
-			Document xmlDocument = builder.parse(file);
-//			Document xmlDocument = builder.parse(is);
+			xmlDocument = builder.parse(file);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+
+	}
+
+	public static String context(String xpath) {
+		try {
+			// String s="src/main/resources/automation.xml";
+			// file = new FileInputStream(new File(s));
+			// InputStream
+			// is=ClassLoader.getSystemResourceAsStream("automation.xml");
+
+			// DocumentBuilderFactory builderFactory =
+			// DocumentBuilderFactory.newInstance();
+			// DocumentBuilder builder = builderFactory.newDocumentBuilder();
+			// Document xmlDocument = builder.parse(file);
+			// Document xmlDocument = builder.parse(is);
 			XPath xPath = XPathFactory.newInstance().newXPath();
 
 			String val = xPath.compile(xpath).evaluate(xmlDocument);
 			return val;
-			
+
 		} catch (Exception e) {
-			
+
 			System.out.println(e.getMessage());
-		
+
 			return null;
 		}
 

@@ -8,11 +8,11 @@
 		</classes>
 	</test>
 
-<!-- 	<test name="AxisServiceClientTest"> -->
-<!-- 		<classes> -->
-<!-- 			<class name="lib.AxisServiceClientTest" /> -->
-<!-- 		</classes> -->
-<!-- 	</test> -->
+	<test name="AxisServiceClientTest">
+		<classes>
+			<class name="lib.AxisServiceClientTest" />
+		</classes>
+	</test>
 
 	<test name="ObjectPoolTest">
 		<classes>

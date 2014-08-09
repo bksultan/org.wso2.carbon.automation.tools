@@ -1,12 +1,14 @@
+//package robotlib;
 package robotlib;
+
 import lib.AuthenticationLibrary;
 import org.apache.axis2.AxisFault;
 import org.apache.axis2.client.Options;
 import org.apache.axis2.client.ServiceClient;
 import org.testng.Assert;
 import property.AutomationContext;
-import org.wso2.carbon.user.mgt.stub.types.carbon.UIPermissionNode;
 import org.wso2.carbon.user.mgt.stub.types.carbon.UserRealmInfo;
+import org.wso2.carbon.user.mgt.stub.types.carbon.UIPermissionNode;
 import org.wso2.carbon.user.mgt.stub.types.carbon.FlaggedName;
 import org.wso2.carbon.user.mgt.stub.types.carbon.ClaimValue;
 import org.wso2.carbon.user.mgt.stub.UserAdminStub;
@@ -27,48 +29,6 @@ public class UserAdminLibrary{
 	public void setRoleUIPermission(String arg0,String[] arg)  throws java.lang.Exception{
 
 	stub.setRoleUIPermission(arg0,arg);
-
-	}
-
-	public void changePasswordByUser(String arg0,String arg)  throws java.lang.Exception{
-
-	stub.changePasswordByUser(arg0,arg);
-
-	}
-
-	public void addUser(String arg0,String arg1,String[] arg2,ClaimValue[] arg3,String arg)  throws java.lang.Exception{
-
-	stub.addUser(arg0,arg1,arg2,arg3,arg);
-
-	}
-
-	public boolean hasMultipleUserStores()  throws java.lang.Exception{
-
-		this.hasMultipleUserStores=stub.hasMultipleUserStores();
-		return this.hasMultipleUserStores;
-
-	}
-
-	private boolean hasMultipleUserStores;
-
-	public void  AsserthasMultipleUserStores(boolean expected) {	
-		Assert.assertEquals(hasMultipleUserStores , expected );		
-	}
-	public UserRealmInfo getUserRealmInfo()  throws java.lang.Exception{
-
-		this.getUserRealmInfo=stub.getUserRealmInfo();
-		return this.getUserRealmInfo;
-
-	}
-
-	private UserRealmInfo getUserRealmInfo;
-
-	public void  AssertgetUserRealmInfo(UserRealmInfo expected) {	
-		Assert.assertEquals(getUserRealmInfo , expected );		
-	}
-	public void updateRoleName(String arg0,String arg)  throws java.lang.Exception{
-
-	stub.updateRoleName(arg0,arg);
 
 	}
 
@@ -234,18 +194,6 @@ public class UserAdminLibrary{
 
 	}
 
-	public String[] listUsers(String arg0,int arg)  throws java.lang.Exception{
-
-		this.listUsers=stub.listUsers(arg0,arg);
-		return this.listUsers;
-
-	}
-
-	private String[] listUsers;
-
-	public void  AssertlistUsers(String[] expected) {	
-		Assert.assertEquals(listUsers , expected );		
-	}
 	public boolean isSharedRolesEnabled()  throws java.lang.Exception{
 
 		this.isSharedRolesEnabled=stub.isSharedRolesEnabled();
@@ -258,9 +206,63 @@ public class UserAdminLibrary{
 	public void  AssertisSharedRolesEnabled(boolean expected) {	
 		Assert.assertEquals(isSharedRolesEnabled , expected );		
 	}
+	public String[] listUsers(String arg0,int arg)  throws java.lang.Exception{
+
+		this.listUsers=stub.listUsers(arg0,arg);
+		return this.listUsers;
+
+	}
+
+	private String[] listUsers;
+
+	public void  AssertlistUsers(String[] expected) {	
+		Assert.assertEquals(listUsers , expected );		
+	}
 	public void addRemoveUsersOfRole(String arg0,String[] arg1,String[] arg)  throws java.lang.Exception{
 
 	stub.addRemoveUsersOfRole(arg0,arg1,arg);
+
+	}
+
+	public void changePasswordByUser(String arg0,String arg)  throws java.lang.Exception{
+
+	stub.changePasswordByUser(arg0,arg);
+
+	}
+
+	public void addUser(String arg0,String arg1,String[] arg2,ClaimValue[] arg3,String arg)  throws java.lang.Exception{
+
+	stub.addUser(arg0,arg1,arg2,arg3,arg);
+
+	}
+
+	public boolean hasMultipleUserStores()  throws java.lang.Exception{
+
+		this.hasMultipleUserStores=stub.hasMultipleUserStores();
+		return this.hasMultipleUserStores;
+
+	}
+
+	private boolean hasMultipleUserStores;
+
+	public void  AsserthasMultipleUserStores(boolean expected) {	
+		Assert.assertEquals(hasMultipleUserStores , expected );		
+	}
+	public UserRealmInfo getUserRealmInfo()  throws java.lang.Exception{
+
+		this.getUserRealmInfo=stub.getUserRealmInfo();
+		return this.getUserRealmInfo;
+
+	}
+
+	private UserRealmInfo getUserRealmInfo;
+
+	public void  AssertgetUserRealmInfo(UserRealmInfo expected) {	
+		Assert.assertEquals(getUserRealmInfo , expected );		
+	}
+	public void updateRoleName(String arg0,String arg)  throws java.lang.Exception{
+
+	stub.updateRoleName(arg0,arg);
 
 	}
 

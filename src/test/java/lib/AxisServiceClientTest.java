@@ -5,13 +5,18 @@ import java.lang.reflect.Field;
 import java.net.URL;
 import java.util.ArrayList;
 
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.stream.XMLStreamException;
 
-import org.testng.Assert;
-import org.testng.annotations.Test;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.util.AXIOMUtil;
 import org.apache.commons.httpclient.Header;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+import org.w3c.dom.Document;
+
+import property.AutomationContext;
 
 public class AxisServiceClientTest {
 
@@ -179,10 +184,29 @@ public class AxisServiceClientTest {
 		AxisServiceClient c = new AxisServiceClient();
 
 		try {
+			Class<?> cls = AutomationContext.class;
+			Field xmlDocument = cls.getDeclaredField("xmlDocument");
+			xmlDocument.setAccessible(true);
+
+			InputStream is = ClassLoader
+					.getSystemResourceAsStream("automation.xml");
+
+			DocumentBuilderFactory builderFactory = DocumentBuilderFactory
+					.newInstance();
+			DocumentBuilder builder = builderFactory.newDocumentBuilder();
+			Document xmlDoc = builder.parse(is);
+			xmlDocument.set(null, xmlDoc);
+		} catch (Exception e1) {
+			System.out.println(e1.getMessage());
+		}
+
+		try {
 			URL url = ClassLoader.getSystemResource("echo.wsdl");
+			System.out.println("echo url: " + url.getFile());
 			String ns = c.getTargetNamespace(url.getFile());
 			Assert.assertEquals(ns, "http://echo.services.core.carbon.wso2.org");
 		} catch (Exception e) {
+			e.printStackTrace();
 			Assert.fail();
 		}
 
@@ -197,11 +221,11 @@ public class AxisServiceClientTest {
 	@Test
 	public void getValue() {
 		String req = "<ns:echoIntResponse xmlns:ns=\"http://echo.services.core.carbon.wso2.org\"><return>100</return></ns:echoIntResponse>";
-		AxisServiceClient c=new AxisServiceClient();
+		AxisServiceClient c = new AxisServiceClient();
 		try {
 			OMElement om = AXIOMUtil.stringToOM(req);
-			String ou=c.getValue(om);
-			Assert.assertEquals(ou,"100");
+			String ou = c.getValue(om);
+			Assert.assertEquals(ou, "100");
 		} catch (XMLStreamException e) {
 			System.out.println(e.getMessage());
 		}

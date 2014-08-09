@@ -1,4 +1,6 @@
+//package robotlib;
 package robotlib;
+
 import lib.AuthenticationLibrary;
 import org.apache.axis2.AxisFault;
 import org.apache.axis2.client.Options;
@@ -33,18 +35,6 @@ public class ProxyServiceAdminLibrary{
 	public void  AssertgetEndpoint(String expected) {	
 		Assert.assertEquals(getEndpoint , expected );		
 	}
-	public String disableStatistics(String arg)  throws java.lang.Exception{
-
-		this.disableStatistics=stub.disableStatistics(arg);
-		return this.disableStatistics;
-
-	}
-
-	private String disableStatistics;
-
-	public void  AssertdisableStatistics(String expected) {	
-		Assert.assertEquals(disableStatistics , expected );		
-	}
 	public String[] getAvailableEndpoints()  throws java.lang.Exception{
 
 		this.getAvailableEndpoints=stub.getAvailableEndpoints();
@@ -57,18 +47,6 @@ public class ProxyServiceAdminLibrary{
 	public void  AssertgetAvailableEndpoints(String[] expected) {	
 		Assert.assertEquals(getAvailableEndpoints , expected );		
 	}
-	public String redeployProxyService(String arg)  throws java.lang.Exception{
-
-		this.redeployProxyService=stub.redeployProxyService(arg);
-		return this.redeployProxyService;
-
-	}
-
-	private String redeployProxyService;
-
-	public void  AssertredeployProxyService(String expected) {	
-		Assert.assertEquals(redeployProxyService , expected );		
-	}
 	public String addProxy(ProxyData arg)  throws java.lang.Exception{
 
 		this.addProxy=stub.addProxy(arg);
@@ -80,6 +58,30 @@ public class ProxyServiceAdminLibrary{
 
 	public void  AssertaddProxy(String expected) {	
 		Assert.assertEquals(addProxy , expected );		
+	}
+	public String disableStatistics(String arg)  throws java.lang.Exception{
+
+		this.disableStatistics=stub.disableStatistics(arg);
+		return this.disableStatistics;
+
+	}
+
+	private String disableStatistics;
+
+	public void  AssertdisableStatistics(String expected) {	
+		Assert.assertEquals(disableStatistics , expected );		
+	}
+	public String redeployProxyService(String arg)  throws java.lang.Exception{
+
+		this.redeployProxyService=stub.redeployProxyService(arg);
+		return this.redeployProxyService;
+
+	}
+
+	private String redeployProxyService;
+
+	public void  AssertredeployProxyService(String expected) {	
+		Assert.assertEquals(redeployProxyService , expected );		
 	}
 	public String modifyProxy(ProxyData arg)  throws java.lang.Exception{
 

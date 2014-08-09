@@ -6,7 +6,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Method;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
@@ -30,12 +29,43 @@ import com.predic8.wsdl.WSDLParser;
 public class ClientGenerator {
 	static Logger log = Logger.getLogger(ClientGenerator.class.getName());
 	static ArrayList<String> operations;
-	private static String path="/src/main/java"; 
+	private static String path = "/src/main/java";
+	private static String packageName;
+	private static Document doc;
+	private static STGroup group;
+
+	public ClientGenerator() {
+		// TODO Auto-generated constructor stub
+
+		File pomfile = new File("src/main/resources/service.xml");
+		try {
+			DocumentBuilder dBuilder = DocumentBuilderFactory.newInstance()
+					.newDocumentBuilder();
+			doc = dBuilder.parse(pomfile);
+			group = new STGroupFile("src/main/resources/templateR.stg");
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+
+		
+		
+	}
 
 	public static void main(String[] args) {
 		System.out.println(System.getProperty("user.dir"));
-		ClientGenerator g=new ClientGenerator();
-		g.GenerateLibraries();
+		ClientGenerator g = new ClientGenerator();
+		 g.GenerateLibraries("robotlib");
+//		if (args.length == 0) {
+//			System.out.println("INFO: using default package");
+//			g.GenerateLibraries();
+//		} else if (args.length > 0) {
+//			g.GenerateLibraries(args[0]);
+//		}
+
+	}
+
+	public void setPackageName(String name) {
+		packageName = name;
 	}
 
 	private static void save(String className, String result) {
@@ -44,20 +74,26 @@ public class ClientGenerator {
 			// .context(AutomationContext.PROJECT_LOCATION);
 
 			String loc = System.getProperty("user.dir");
-			System.out.println("user dir: "+loc);
-			File ff1 = new File(loc + path);
-			if (!ff1.exists()) {
-				ff1.mkdir();
-				log.debug("Client Gen: Create " + ff1.getAbsolutePath());
+			System.out.println("user dir: " + loc);
+			// File ff1 = new File(loc + path);
+			// if (!ff1.exists()) {
+			// ff1.mkdir();
+			// log.debug("Client Gen: Create " + ff1.getAbsolutePath());
+			// }
+			String pName;
+			if (packageName != null) {
+				pName = packageName + "/";
+			} else {
+				pName = "";
 			}
 
-			File ff2 = new File(loc + path+"/robotlib");
+			File ff2 = new File(loc + path + "/" + pName);
 			if (!ff2.exists()) {
-				ff2.mkdir();				
+				ff2.mkdirs();
 				log.debug("Client Gen: Create " + ff2.getAbsolutePath());
 			}
 
-			File f = new File(loc +  path+"/robotlib/" + className
+			File f = new File(loc + path + "/" + pName + className
 					+ "Library.java");
 			BufferedWriter wri = new BufferedWriter(new FileWriter(f));
 			wri.write(result);
@@ -130,17 +166,18 @@ public class ClientGenerator {
 
 	public void generateClient(String[] res) {
 		Set<String> importLib = new HashSet<String>();
-//		URL url=ClientGenerator.class.getResource("src/main/resources/templateR.stg");
-		URL url=null;
-		try {
-			url=ClassLoader.getSystemResource("templateR.stg");
-		} catch (Exception e) {
-			System.out.println("here"+e.getMessage());
-		}
-		
-				//ClientGenerator.class.getResource("src/main/resources/templateR.stg");
-		
-		STGroup group = new STGroupFile(url,"UTF-8",'<','>');
+		// URL
+		// url=ClientGenerator.class.getResource("src/main/resources/templateR.stg");
+		// URL url = null;
+		// try {
+		// url = ClassLoader.getSystemResource("templateR.stg");
+		// } catch (Exception e) {
+		// System.out.println("here" + e.getMessage());
+		// }
+
+		// ClientGenerator.class.getResource("src/main/resources/templateR.stg");
+
+		// STGroup group = new STGroupFile(url,"UTF-8",'<','>');
 //		STGroup group = new STGroupFile("src/main/resources/templateR.stg");
 		try {
 			if (res == null) {
@@ -219,6 +256,10 @@ public class ClientGenerator {
 			classTem.add("namestub", serviceName + "Stub");
 			classTem.add("methods", methods);
 
+			if (packageName != null) {
+				classTem.add("package", "package " + packageName + ";");
+			}
+
 			String imports = "";
 			for (String s : importLib) {
 				imports += "import " + s + ";\n";
@@ -234,23 +275,35 @@ public class ClientGenerator {
 	}
 
 	public void GenerateLibraries() {
-		
-//		PropertyConfigurator.configure("src/main/resources/log4j.properties");
+		GenerateLibraries(null);
+	}
+
+	public void GenerateLibraries(String pName) {
+
+		if (pName == "" || pName == null) {
+			setPackageName(null);
+		} else {
+			setPackageName(pName);
+		}
+
+		// PropertyConfigurator.configure("src/main/resources/log4j.properties");
 
 		File f = new File("/home/rukshan/log4j/log.out");
 		f.delete();
 
-//		InputStream s=ClientGenerator.class.getResourceAsStream("src/main/resources/service.xml");
-		InputStream s=getClass().getResourceAsStream("src/main/resources/service.xml");
-//		File pomfile = new File("src/main/resources/service.xml");
-		s=ClassLoader.getSystemResourceAsStream("service.xml");
+		// InputStream
+		// s=ClientGenerator.class.getResourceAsStream("src/main/resources/service.xml");
+		// InputStream
+		// s=getClass().getResourceAsStream("src/main/resources/service.xml");
+		// File pomfile = new File("src/main/resources/service.xml");
+		// InputStream s=ClassLoader.getSystemResourceAsStream("service.xml");
 		String[] res;
 		try {
 
-			DocumentBuilder dBuilder = DocumentBuilderFactory.newInstance()
-					.newDocumentBuilder();
-//			Document doc = dBuilder.parse(pomfile);
-			Document doc = dBuilder.parse(s);
+			// DocumentBuilder dBuilder = DocumentBuilderFactory.newInstance()
+			// .newDocumentBuilder();
+			// Document doc = dBuilder.parse(pomfile);
+			// Document doc = dBuilder.parse(s);
 			System.out.println("Root element :"
 					+ doc.getDocumentElement().getNodeName());
 
@@ -268,7 +321,7 @@ public class ClientGenerator {
 			System.out.println("Standard class: Client Generated");
 		} catch (Exception e) {
 			e.printStackTrace();
-			System.out.println("er"+e.getMessage());
+			System.out.println("er" + e.getMessage());
 			log.debug("Standard class: " + e.getMessage());
 		}
 	}
