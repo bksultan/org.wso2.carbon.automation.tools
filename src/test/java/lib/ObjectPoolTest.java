@@ -36,7 +36,6 @@ public class ObjectPoolTest {
 	public void createProxyData() {
 		ObjectPool p = new ObjectPool();
 		ProxyData data = p.createProxyData("proxy",
-				"https://localhost:8243/services/proxyadminservice.wsdl",
 				"https://localhost:8243/services/proxyadminservice.wsdl");
 		Assert.assertNotNull(data);
 	}

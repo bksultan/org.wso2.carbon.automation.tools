@@ -63,8 +63,8 @@ public class ObjectPool {
 		return carbonAppArray;
 	}
 
-	public ProxyData createProxyData(String name, String wsdlURI,
-			String serviceEndPoint) {
+	public ProxyData createProxyData(String name, String wsdlURI) {
+		String serviceEndPoint=wsdlURI;
 		String[] transport = { "http", "https" };
 		ProxyData data = new ProxyData();
 		data.setName(name);
