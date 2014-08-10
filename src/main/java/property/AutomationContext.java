@@ -2,7 +2,7 @@ package property;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.InputStream;
+
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.xpath.XPath;

@@ -35,8 +35,6 @@ public class ClientGenerator {
 	private static STGroup group;
 
 	public ClientGenerator() {
-		// TODO Auto-generated constructor stub
-
 		File pomfile = new File("src/main/resources/service.xml");
 		try {
 			DocumentBuilder dBuilder = DocumentBuilderFactory.newInstance()
@@ -54,13 +52,13 @@ public class ClientGenerator {
 	public static void main(String[] args) {
 		System.out.println(System.getProperty("user.dir"));
 		ClientGenerator g = new ClientGenerator();
-		 g.GenerateLibraries("robotlib");
-//		if (args.length == 0) {
-//			System.out.println("INFO: using default package");
-//			g.GenerateLibraries();
-//		} else if (args.length > 0) {
-//			g.GenerateLibraries(args[0]);
-//		}
+//		 g.GenerateLibraries("robotlib");
+		if (args.length == 0) {
+			System.out.println("INFO: using default package");
+			g.GenerateLibraries();
+		} else if (args.length > 0) {
+			g.GenerateLibraries(args[0]);
+		}
 
 	}
 
@@ -70,9 +68,6 @@ public class ClientGenerator {
 
 	private static void save(String className, String result) {
 		try {
-			// String loc = AutomationContext
-			// .context(AutomationContext.PROJECT_LOCATION);
-
 			String loc = System.getProperty("user.dir");
 			System.out.println("user dir: " + loc);
 			// File ff1 = new File(loc + path);
@@ -82,7 +77,7 @@ public class ClientGenerator {
 			// }
 			String pName;
 			if (packageName != null) {
-				pName = packageName + "/";
+				pName = packageName.replaceAll("\\.","/") + "/";
 			} else {
 				pName = "";
 			}

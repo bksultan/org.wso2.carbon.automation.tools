@@ -1,9 +1,5 @@
 package lib;
 
-import java.rmi.RemoteException;
-
-import org.apache.axiom.om.OMElement;
-import org.wso2.carbon.authenticator.stub.LoginAuthenticationExceptionException;
 
 //
 //import javax.xml.namespace.QName;
@@ -459,28 +455,6 @@ public class Test {
 	// }
 	
 	public static void main(String[] args) {
-		AuthenticationLibrary a=new AuthenticationLibrary();
-		AxisServiceClient c=new AxisServiceClient();
-		try {
-			String l=a.LoginAs("admin", "admin","localhost");
-			
-//			c.setServiceName("quote");
-//			c.setServiceOperation("getQuote");
-//			c.setServiceParentChild("request");
-//			c.setServiceParas("symbol","WSO2");			
-//			OMElement o=c.InvokeOperation();
-			
-			c.setServiceName("echo");
-			c.setServiceOperation("echoInt");
-			c.setServiceParentChild(null);
-			c.setServiceParas("in","100");			
-			OMElement o=c.InvokeOperation();
-			
-			System.out.println(o);
-//			System.out.println);
-			
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-		}
+		System.out.println("".replaceAll("\\.", "/"));
 	}
 }

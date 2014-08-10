@@ -24,6 +24,8 @@ public class ClientGeneratorTest {
 
 		// System.setProperty("user.dir","src/test/resources/testng");
 		File target = new File("testout/src/main/java");
+		ClientGenerator g=new ClientGenerator();
+		g.setPackageName("robotlib");
 		if (!target.exists()) {
 			target.mkdirs();
 		}
@@ -40,7 +42,7 @@ public class ClientGeneratorTest {
 			}
 
 			Class<?> c = ClientGenerator.class;
-			Object client = c.newInstance();
+			Object client = g;
 
 			Field path = c.getDeclaredField("path");
 			path.setAccessible(true);
@@ -205,7 +207,7 @@ public class ClientGeneratorTest {
 	@Test
 	public void testGenerateClient() {
 		ClientGenerator g = new ClientGenerator();
-		g.setPackageName("robotlib");
+		g.setPackageName("robot.lib");
 		try {
 
 			URL url = null;
@@ -234,7 +236,7 @@ public class ClientGeneratorTest {
 			String loc = "/testout/src/main/java";
 
 			File f = new File(
-					"testout/src/main/java/robotlib/StatisticsAdminLibrary.java");
+					"testout/src/main/java/robot/lib/StatisticsAdminLibrary.java");
 			if (f.exists()) {
 				f.delete();
 			}
@@ -309,7 +311,7 @@ public class ClientGeneratorTest {
 					"ServiceAdminLibrary.java", "ServiceUploaderLibrary.java",
 					"StatisticsAdminLibrary.java", "UserAdminLibrary.java" };
 			for (String fi : files) {
-				File f = new File("testout/src/main/java/robotlib/" + fi);
+				File f = new File("testout/src/main/java/robot/lib/" + fi);
 				if (f.exists()) {
 					f.delete();
 				}
@@ -320,10 +322,10 @@ public class ClientGeneratorTest {
 			path.setAccessible(true);
 			path.set(g, loc);
 
-			new ClientGenerator().GenerateLibraries("robotlib");
+			new ClientGenerator().GenerateLibraries("robot.lib");
 
 			for (String fi : files) {
-				File f = new File("testout/src/main/java/robotlib/" + fi);
+				File f = new File("testout/src/main/java/robot/lib/" + fi);
 				Assert.assertTrue(f.exists());
 
 				if (f.exists()) {

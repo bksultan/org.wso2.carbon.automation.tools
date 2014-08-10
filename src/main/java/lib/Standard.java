@@ -3,8 +3,6 @@ package lib;
 import generator.ClientGenerator;
 
 import java.io.File;
-import java.io.InputStream;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -14,7 +12,6 @@ import javax.xml.xpath.XPathExpressionException;
 
 import org.apache.axiom.om.OMElement;
 import org.apache.log4j.Logger;
-import org.apache.log4j.PropertyConfigurator;
 import org.testng.Assert;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -27,10 +24,10 @@ public class Standard {
 
 	public Standard() {
 		// TODO Auto-generated constructor stub
-		InputStream is = ClassLoader
-				.getSystemResourceAsStream("log4j.properties");
-		URL url=ClassLoader
-				.getSystemResource("log4j.properties");
+//		InputStream is = ClassLoader
+//				.getSystemResourceAsStream("log4j.properties");
+//		URL url=ClassLoader
+//				.getSystemResource("log4j.properties");
 		// PropertyConfigurator.configure("src/main/resources/log4j.properties");
 //		PropertyConfigurator.configure(is);
 		//PropertyConfigurator.configure(url);
