@@ -4,6 +4,13 @@ import java.lang.reflect.Method;
 
 import org.testng.Assert;
 
+/**
+ * implementation of org.testng.Assert as library to robot script
+ * main method will output to standard console with the following assert method
+ * 
+ * @author rukshan
+ *
+ */
 public class AssertLibrary {
 	public static void main(String[] args) {
 

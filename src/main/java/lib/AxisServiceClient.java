@@ -33,6 +33,15 @@ import com.predic8.wsdl.WSDLParser;
 public class AxisServiceClient {
 	private static final Log log = LogFactory.getLog(AxisServiceClient.class);
 
+	/**
+	 * send the request and get the response
+	 * 
+	 * @param payload, request payload as omelemet
+	 * @param endPointReference, service url		
+	 * @param operation, operation name
+	 * @return	response as omelemet
+	 * @throws AxisFault
+	 */
 	public OMElement sendReceive(OMElement payload, String endPointReference,
 			String operation) throws AxisFault {
 		ServiceClient sender;
@@ -44,22 +53,22 @@ public class AxisServiceClient {
 			log.debug("Payload : " + payload);
 		}
 		try {
-			sender = new ServiceClient();
+			sender = new ServiceClient();		// create service client
 
 			options = new Options();
-			if (httpHeaders != null && !httpHeaders.isEmpty()) {
+			if (httpHeaders != null && !httpHeaders.isEmpty()) {					// if header declaration is not empty 
 				// sender.addStringHeader(new QName(ns, localName), value); //
 				// Set headers
-				options.setProperty(HTTPConstants.HTTP_HEADERS, httpHeaders);
+				options.setProperty(HTTPConstants.HTTP_HEADERS, httpHeaders);		// set the header to option
 			}
-			options.setTo(new EndpointReference(endPointReference));
+			options.setTo(new EndpointReference(endPointReference));				// set the endpoint url
 			options.setProperty(
 					org.apache.axis2.transport.http.HTTPConstants.CHUNKED,
 					Boolean.FALSE);
-			options.setTimeOutInMilliSeconds(45000);
+			options.setTimeOutInMilliSeconds(45000);								// set the timeout
 			options.setAction("urn:" + operation);
-			sender.setOptions(options);
-			response = sender.sendReceive(payload);
+			sender.setOptions(options);												// set the option to sender
+			response = sender.sendReceive(payload);									// send the payload
 			if (log.isDebugEnabled()) {
 				log.debug("Response Message : " + response);
 			}
@@ -68,8 +77,8 @@ public class AxisServiceClient {
 			throw new AxisFault("AxisFault while getting response :"
 					+ axisFault.getMessage(), axisFault);
 		}
-		Assert.assertNotNull(response);
-		return response;
+		Assert.assertNotNull(response);	
+		return response;															// return the response
 	}
 
 	// axis2 client with header setting
@@ -197,30 +206,41 @@ public class AxisServiceClient {
 		}
 	}
 
-	// create OMElement for method
+	/**
+	 * create OMElement for method
+	 * 
+	 * @param method	operation name
+	 * @param namespace	namespace of operation
+	 * @param paras		parameter name and values 
+	 * 
+	 * {"paraname1","val1","paraname2","val2"}
+	 * 
+	 * @return	omelement
+	 */
 	public OMElement getMethod(String method, String namespace, Object... paras) {
 		int l = paras.length;
 		if (l % 2 != 0) {
-			return null;
+			return null;	// if paras is odd, wrong parameters
 		}
 
 		OMFactory fac = OMAbstractFactory.getOMFactory();
-		OMNamespace omNs = fac.createOMNamespace(namespace, "tns");
-		OMElement meth = fac.createOMElement(method, omNs);
+		OMNamespace omNs = fac.createOMNamespace(namespace, "tns");		// create namespace
+		OMElement meth = fac.createOMElement(method, omNs);				// create element for operation
 
-		for (int i = 0; i < l; i += 2) {
-			if (paras[i + 1].getClass().getCanonicalName()
+		// odd items are parameter variable name and even are parameter value 
+		for (int i = 0; i < l; i += 2) {								// iterate over parameters
+			if (paras[i + 1].getClass().getCanonicalName()				// parameter value is array
 					.equals("java.lang.Object[]")) {
 				Object[] s = (Object[]) paras[i + 1];
-				for (int j = 0; j < s.length; j++) {
+				for (int j = 0; j < s.length; j++) {					// iterate over array
 					OMElement value = fac.createOMElement((String) paras[i],
 							omNs);
-					value.addChild(fac.createOMText(value, (String) s[j]));
+					value.addChild(fac.createOMText(value, (String) s[j]));		// create each element for array
 					meth.addChild(value);
 				}
 			} else {
 				OMElement value = fac.createOMElement((String) paras[i], omNs);
-				value.addChild(fac.createOMText(value, (String) paras[i + 1]));
+				value.addChild(fac.createOMText(value, (String) paras[i + 1]));	// if value is not a array
 				meth.addChild(value);
 			}
 		}
@@ -260,49 +280,68 @@ public class AxisServiceClient {
 	private Object[] invokeOperation = null;
 	private OMElement getOperationResponse = null;
 
+	/**
+	 * Assert the last request with expected result as array
+	 * @param expected	expected array of values
+	 */
 	public void AssertInvokeOperation(Object... expected) {
 		System.out.println(invokeOperation.length);
 		System.out.println(expected.length);
 
-		Assert.assertEquals(invokeOperation.length, expected.length);
+		Assert.assertEquals(invokeOperation.length, expected.length);	// assert the length first
 
+		// then assert the element of each considering order
 		for (int i = 0; i < expected.length; i++) {
 			Assert.assertEquals(invokeOperation[i], expected[i]);
 		}
 		// Assert.assertEquals(invokeOperation, expected);
 	}
 
-	public void test1(String[] a) {
-		for (int i = 0; i < a.length; i++) {
-			System.out.println(a[i]);
-		}
-	}
-
+	/**
+	 * get response as array of element
+	 * @param result
+	 * @return
+	 */
 	public Object[] createArrayFromOMElement(OMElement result) {
 		ArrayList<Object> q = new ArrayList<Object>();
 		Iterator<?> ite = result.getChildren();
+		
+		//iterate over child element
 		for (Iterator<?> iterator = ite; iterator.hasNext();) {
 			OMElement type = (OMElement) iterator.next();
 			System.out.println(type.getText());
-			q.add(type.getText());
+			q.add(type.getText());		// add child element to list
 		}
-		return q.toArray();
+		return q.toArray();		//return as array
 	}
 
+	/**
+	 * get response as array of element
+	 * @param result	response
+	 * @return	array of response child element
+	 */
 	public Object[] getResponseValue(OMElement result) {
 		return createArrayFromOMElement(result);
 	}
 
+	/**
+	 * get the target namespace of service using wsdl
+	 * @param wsdlUrl	wsdl url
+	 * @return	namespace
+	 * @throws Exception
+	 */
 	public String getTargetNamespace(String wsdlUrl) throws Exception{
-		int num=Integer.parseInt(AutomationContext.context(AutomationContext.ATTEMPTS).trim());
+		int num=Integer.parseInt(AutomationContext.context(AutomationContext.ATTEMPTS).trim());	// no of attempts
 		int times=0;
 		while (true) {
 			times++;
 			try {
 				WSDLParser parser = new WSDLParser();
-				Definitions defs = parser.parse(wsdlUrl);
-				return defs.getTargetNamespace();
+				Definitions defs = parser.parse(wsdlUrl);	// if wsdl available return the namespace 
+				return defs.getTargetNamespace();			
 			} catch (Exception e) {
+				
+				// if wsdl not available re-attempt
 				System.out.println("INFO: WSDL download exception retrying......");				
 				
 				if(times>num){
@@ -341,6 +380,10 @@ public class AxisServiceClient {
 		return re;
 	}
 
+	/**
+	 * get the response of last request
+	 * @return OMElement
+	 */
 	public OMElement getOperationResponse() {
 		return getOperationResponse;
 	}
@@ -354,77 +397,111 @@ public class AxisServiceClient {
 	private String setServiceParentChild, namespace;
 	private List<Header> httpHeaders = new ArrayList<Header>();
 
+	/**
+	 * set the service name
+	 * @param name	service name
+	 */
 	public void setServiceName(String name) {
 		setServiceName = name;
 	}
 
+	/**
+	 * set the operation should be use
+	 * @param name operation name
+	 */
 	public void setServiceOperation(String name) {
 		setServiceOperation = name;
 	}
 
+	/**
+	 * set the parameters of  operation
+	 * @param name	parameter variable name
+	 * @param val	parameter value
+	 */
 	public void setServiceParas(String name, Object val) {
-		setServiceParas.add(new Object[] { name, val });
+		setServiceParas.add(new Object[] { name, val });	// add name and value as array 
 	}
 
+	/**
+	 * if request should have parent element set the element name
+	 * @param name	element name
+	 */
 	public void setServiceParentChild(String name) {
 		setServiceParentChild = name;
 	}
 
+	/**
+	 * if request need http headers,
+	 * @param name	header name
+	 * @param value	header value
+	 */
 	public void setServiceHttpHeader(String name, String value) {
-		httpHeaders.add(new Header(name, value));
+		httpHeaders.add(new Header(name, value));	// add as header
 	}
 
+	/**
+	 * clear the http header details used in previous request
+	 */
 	public void clearServiceHttpHeader() {
 		if (httpHeaders != null) {
-			httpHeaders.clear();
+			httpHeaders.clear();	// clear the list
 		}
 
 	}
 
+	/**
+	 * clear the opearion's parameter details used in previous request
+	 */
 	public void clearServiceParas() {
 		if (setServiceParas != null) {
 			setServiceParas.clear();
 		}
 	}
 
+	/**
+	 * invoke the web service
+	 * @return	response as OMElement
+	 * @throws Exception
+	 */
 	public OMElement InvokeOperation() throws Exception {
-		String endPoint = setServiceName;
-		String operationName = setServiceOperation;
+		String endPoint = setServiceName;										// get the service name
+		String operationName = setServiceOperation;								// get the operation name
 		String a = AutomationContext.context(AutomationContext.PRODUCT_AXIS2);
-		endPoint = a + "/" + endPoint;
+		endPoint = a + "/" + endPoint;											// set the service url
 		// System.out.println(endPoint);
-		namespace = getTargetNamespace(endPoint + "?wsdl");
+		namespace = getTargetNamespace(endPoint + "?wsdl");						// get the namespace from wsdl
 
 		OMFactory fac = OMAbstractFactory.getOMFactory();
-		OMNamespace omNs = fac.createOMNamespace(namespace, "tns");
-		OMElement meth = fac.createOMElement(operationName, omNs);
+		OMNamespace omNs = fac.createOMNamespace(namespace, "tns");				// create element with namespace
+		OMElement meth = fac.createOMElement(operationName, omNs);				// create element for opeartion
 
 		OMElement parent = null;
 		// for (String par : setServiceParentChild) {
-		if (setServiceParentChild != null)
-			parent = fac.createOMElement(setServiceParentChild, omNs);
+		if (setServiceParentChild != null)										
+			parent = fac.createOMElement(setServiceParentChild, omNs);			// if parent element is required, create element
 		// }
 
+		//iterate over list of parameter values 
 		for (Object[] para : setServiceParas) {
 
 			if (para[1].getClass().getCanonicalName()
-					.equals("java.lang.Object[]")) {
-
+					.equals("java.lang.Object[]")) {		// if parameter is object array
+				
 				Object[] s = (Object[]) para[1];
 				for (int j = 0; j < s.length; j++) {
 					OMElement value = fac.createOMElement((String) para[0],
 							omNs);
-					value.addChild(fac.createOMText(value, (String) s[j]));
+					value.addChild(fac.createOMText(value, (String) s[j]));		// create one element for each objects in array
 
 					if (parent == null) {
-						meth.addChild(value);
+						meth.addChild(value);		// if parent element is present add as child element
 					} else {
 						parent.addChild(value);
 					}
 
 				}
 
-			} else {
+			} else {		// if parameter is not array
 				OMElement value = fac.createOMElement((String) para[0], omNs);
 				value.addChild(fac.createOMText(value, (String) para[1]));
 
@@ -446,13 +523,13 @@ public class AxisServiceClient {
 		// System.out.println(method);
 		OMElement res = null;
 		try {
-			res = sendReceive(method, endPoint, operationName);
+			res = sendReceive(method, endPoint, operationName);			// request the operation
 			// setServiceParas.clear();
-			clearServiceHttpHeader();
-			clearServiceParas();
-			getOperationResponse = res;
+			clearServiceHttpHeader();									// clear the header each time after invoke
+			clearServiceParas();										// clear the parameters each time after invoke
+			getOperationResponse = res;									// set the operation response
 			try {
-				invokeOperation = createArrayFromOMElement(res);
+				invokeOperation = createArrayFromOMElement(res);		// set the response as array of element
 			} catch (Exception e) {
 				System.out.println(e.getMessage());
 			}
@@ -547,22 +624,30 @@ public class AxisServiceClient {
 
 	}
 
+	/**
+	 * wait until service is deploy
+	 * @param service service name
+	 * @throws Exception
+	 */
 	public void waitDeployService(String service) throws Exception {
-		String a = AutomationContext.context(AutomationContext.PRODUCT_AXIS2);
-		service = a + "/" + service + "?wsdl";
+		String a = AutomationContext.context(AutomationContext.PRODUCT_AXIS2);	//get the axis service url
+		service = a + "/" + service + "?wsdl";									// set the wsdl url
 		int times = 0;
-		while (true) {
+		while (true) {				// wait 
 			times++;
 			try {
-				new URL(service);
+				new URL(service);							// check service wsdl it available
 				System.out.println("deploied " + times);
-				return;
+				return;										// if available return 
 			} catch (Exception e) {
+				// if not available
 				System.out.println(e.getMessage());
+				// check the no of attempts is exceeded
 				if (times+"" == AutomationContext.context(AutomationContext.ATTEMPTS)) {
 					throw new Exception("Service not Available");
 				}
 			}
+			//sleep 1 sec
 			try {
 				Thread.sleep(1000);
 			} catch (InterruptedException e) {

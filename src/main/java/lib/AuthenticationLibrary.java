@@ -13,7 +13,14 @@ import org.wso2.carbon.authenticator.stub.LoginAuthenticationExceptionException;
 import org.wso2.carbon.authenticator.stub.LogoutAuthenticationExceptionException;
 
 import property.AutomationContext;
-
+/**
+ * 
+ * @author rukshan
+ * 
+ * Auto generated class of AuthenticationAdminStub
+ * have override some methods
+ *
+ */
 public class AuthenticationLibrary {
 
 	public String name() {
@@ -24,38 +31,58 @@ public class AuthenticationLibrary {
 	private static AuthenticationLibrary c;
 	private static final Log log = LogFactory
 			.getLog(AuthenticationLibrary.class);
-	private AuthenticationAdminStub authenticationAdminStub;
-	public static String sessionString;
+	private AuthenticationAdminStub authenticationAdminStub;	// stub instance
+	public static String sessionString;							// hold the session cookie
 
+	/**
+	 *  
+	 * @param backendUrl service url
+	 * @throws AxisFault
+	 */
 	public AuthenticationLibrary(String backendUrl) throws AxisFault {
-		String serviceName = "AuthenticationAdmin";
-		String endPoint = backendUrl + serviceName;
+		String serviceName = "AuthenticationAdmin";				// set the service name
+		String endPoint = backendUrl + serviceName;				//set the service url with service name
 		if (log.isDebugEnabled()) {
 			log.debug("EndPoint" + endPoint);
 		}
 		try {
-			authenticationAdminStub = new AuthenticationAdminStub(endPoint);
+			authenticationAdminStub = new AuthenticationAdminStub(endPoint);		// create stub instance
 		} catch (AxisFault axisFault) {
 			log.info("authenticationAdminStub initialization fails");
 			throw new AxisFault("authenticationAdminStub initialization fails");
 		}
 	}
 
+	/**
+	 * 
+	 * @return service stub
+	 */
 	public Stub getServiceStub() {
 		return this.authenticationAdminStub;
 	}
 
+	/**
+	 * lower layer method to login to the product. 
+	 * 
+	 * @param userName		user name
+	 * @param password		password
+	 * @param host			host 
+	 * @return				return successfull or not
+	 * @throws LoginAuthenticationExceptionException
+	 * @throws RemoteException
+	 */
 	public String login(String userName, String password, String host)
 			throws LoginAuthenticationExceptionException, RemoteException {
-		Boolean loginStatus;
+		Boolean loginStatus;			//keep the login status
 		ServiceContext serviceContext;
-		String sessionCookie;
-		loginStatus = authenticationAdminStub.login(userName, password, host);
+		String sessionCookie;			// keep the session cookie
+		loginStatus = authenticationAdminStub.login(userName, password, host);	//try to login
 		if (!loginStatus) {
 			throw new LoginAuthenticationExceptionException(
 					"Login Unsuccessful. Return false as a login status by Server");
 		}
 		log.info("Login Successful");
+		// extract the session cookie 
 		serviceContext = authenticationAdminStub._getServiceClient()
 				.getLastOperationContext().getServiceContext();
 		sessionCookie = (String) serviceContext
@@ -66,48 +93,79 @@ public class AuthenticationLibrary {
 		return sessionCookie;
 	}
 
+	/**
+	 * 
+	 * @param userName
+	 * @param password
+	 * @param backEndURL
+	 * @return
+	 * @throws LoginAuthenticationExceptionException
+	 * @throws RemoteException
+	 */
 	public Boolean unsuccessfulLogin(String userName, String password,
 			String backEndURL) throws LoginAuthenticationExceptionException,
 			RemoteException {
 		return authenticationAdminStub.login(userName, password, backEndURL);
 	}
 
+	/**
+	 * logout from product
+	 * @throws LogoutAuthenticationExceptionException
+	 * @throws RemoteException
+	 */
 	public void logOut() throws LogoutAuthenticationExceptionException,
 			RemoteException {
 		authenticationAdminStub.logout();
 		log.info("log out");
 	}
 
+	/**
+	 * 
+	 * @return authentication Admin Stub
+	 */
 	public Stub getAuthenticationAdminStub() {
 		return authenticationAdminStub;
 	}
 
+	/**
+	 * used create object with default configuration
+	 */
 	 public AuthenticationLibrary() {
+		 //get the jks file
 		String jks = AutomationContext.context(AutomationContext.PRODUCT_LOCATION)+"/repository/resources/security/client-truststore.jks";
 //		String jks = "/media/rukshan/Stuff/ubunto back/wso2esb-4.8.1"+"/repository/resources/security/client-truststore.jks";
 		String pass = "wso2carbon";// wso2Carbon
-//System.out.println(jks);
+		
+		//set the security configuration
 		System.setProperty("javax.net.ssl.trustStore", jks);
 		System.setProperty("javax.net.ssl.trustStorePassword", pass);
 
-		String host = AutomationContext.context(AutomationContext.PRODUCT_HOST);
-		String port = AutomationContext.context(AutomationContext.PRODUCT_PORT);
-		String backEndUrl = "https://" + host + ":" + port + "/services/";
+		String host = AutomationContext.context(AutomationContext.PRODUCT_HOST); //get the host name from automation.xml
+		String port = AutomationContext.context(AutomationContext.PRODUCT_PORT);	//get the port name from the automation.xml
+		String backEndUrl = "https://" + host + ":" + port + "/services/";			//set the service  url 
 //		String u = "https://localhost:9443/services/";
-//		System.out.println(backEndUrl);
 		try {
-			c = new AuthenticationLibrary(backEndUrl);
+			c = new AuthenticationLibrary(backEndUrl);								// create the new object 
 			
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
 	}
 
+	 /**
+	  * Login to the product.
+	  * 
+	  * @param userName  user name
+	  * @param password		password
+	  * @param host			host name 
+	  * @return				return whether login is success. success if successfull
+	  * @throws Exception	
+	  */
 	public String LoginAs(String userName, String password, String host) throws Exception {
 		try {
-			String log = c.login(userName, password, host);
-			System.out.println(log);
-			sessionString=log;
+			String log = c.login(userName, password, host);				// login using stub
+			System.out.println(log);		
+			sessionString=log;											// get the session cookie
 			return log;
 		} catch (AxisFault e) {
 			System.out.println(e.getMessage());
