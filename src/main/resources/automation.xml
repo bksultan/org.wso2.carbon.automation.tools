@@ -280,7 +280,7 @@
 		<product>
 			<location>/home/rukshan/Desktop/wso2as-5.2.1</location>
 			<host>localhost</host>
-			<port>9443</port>
+			<port>9449</port>
 		</product>
 		<server>
 			<!-- <axis2>http://localhost:9763/services</axis2> -->

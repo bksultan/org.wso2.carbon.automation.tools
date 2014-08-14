@@ -25,4 +25,9 @@
 			<class name="lib.StandardTest" />
 		</classes>
 	</test>
+	<test name="AutomationContextTest">
+		<classes>
+			<class name="property.AutomationContextTest" />
+		</classes>
+	</test>
 </suite> 

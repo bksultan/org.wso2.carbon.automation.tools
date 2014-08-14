@@ -3,11 +3,12 @@
 <suite name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="generator.ClientGeneratorTest">
+      <class name="property.AutomationContextTest">
         <methods>
-          <include name="testGenerateClient"/>
+          <include name="setXML"/>
+          <include name="getHostName"/>
         </methods>
-      </class> <!-- generator.ClientGeneratorTest -->
+      </class> <!-- property.AutomationContextTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

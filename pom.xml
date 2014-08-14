@@ -139,7 +139,8 @@
 					</execution>
 				</executions>
 				<configuration>
-					<mainClass>generator.ClientGen</mainClass>
+<!-- 					<mainClass>generator.ClientGen</mainClass> -->
+					<mainClass>lib.Test</mainClass>
 				</configuration>
 			</plugin>
 
@@ -422,12 +423,49 @@
 		</dependency>
 		
 <!-- 		stockquoteclient -->
+
+		<dependency>
+            <groupId>org.wso2.carbon</groupId>
+            <artifactId>org.wso2.carbon.application.mgt.stub</artifactId>
+            <version>4.2.0</version>
+        </dependency>       
 		
 		<dependency>
+            <groupId>org.wso2.carbon</groupId>
+            <artifactId>org.wso2.carbon.user.api</artifactId>
+            <version>4.2.0</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.wso2.carbon</groupId>
+            <artifactId>org.wso2.carbon.logging</artifactId>
+            <version>4.2.0</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.wso2.carbon</groupId>
+            <artifactId>org.wso2.carbon.bootstrap</artifactId>
+            <version>4.2.0</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.wso2.carbon</groupId>
+            <artifactId>org.wso2.carbon.base</artifactId>
+            <version>4.2.0</version>
+        </dependency>
+		
+		
+<!-- 		<dependency> -->
+<!--             <groupId>org.wso2.carbon.automation</groupId> -->
+<!--             <artifactId>org.wso2.carbon.automation.utils</artifactId> -->
+<!--             <version>4.2.7</version> -->
+<!--         </dependency>        -->
+        
+        <dependency>
             <groupId>org.wso2.carbon.automation</groupId>
-            <artifactId>org.wso2.carbon.automation.utils</artifactId>
-            <version>4.2.7</version>
-        </dependency>        
+            <artifactId>org.wso2.carbon.automation.engine</artifactId>
+            <version>4.3.1-SNAPSHOT</version>
+        </dependency>   
         
 
 	</dependencies>

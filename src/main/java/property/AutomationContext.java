@@ -6,12 +6,17 @@ import java.io.FileInputStream;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.xpath.XPath;
+import javax.xml.xpath.XPathExpressionException;
 import javax.xml.xpath.XPathFactory;
 
 import org.w3c.dom.Document;
+import org.wso2.carbon.automation.engine.configurations.AutomationConfiguration;
 
 public class AutomationContext {
 
+	/**
+	 * list of default xpath of configuration values
+	 */
 	public static final String PRODUCT_AXIS2 = "/automation/robotconfig/server/axis2";
 	public static final String PRODUCT_LOCATION = "/automation/robotconfig/product/location";
 	public static final String PRODUCT_HOST = "/automation/robotconfig/product/host";
@@ -21,6 +26,9 @@ public class AutomationContext {
 
 	private static Document xmlDocument;
 
+	/**
+	 * Load the automation.xml, read to the document
+	 */
 	static {
 		// TODO Auto-generated constructor stub
 		FileInputStream file;
@@ -38,18 +46,16 @@ public class AutomationContext {
 
 	}
 
+	/**
+	 * Get the specific attribute value from the automation.xml
+	 * 
+	 * @param xpath
+	 *            xpath of the attribute
+	 * @return return value as string
+	 */
 	public static String context(String xpath) {
 		try {
-			// String s="src/main/resources/automation.xml";
-			// file = new FileInputStream(new File(s));
-			// InputStream
-			// is=ClassLoader.getSystemResourceAsStream("automation.xml");
 
-			// DocumentBuilderFactory builderFactory =
-			// DocumentBuilderFactory.newInstance();
-			// DocumentBuilder builder = builderFactory.newDocumentBuilder();
-			// Document xmlDocument = builder.parse(file);
-			// Document xmlDocument = builder.parse(is);
 			XPath xPath = XPathFactory.newInstance().newXPath();
 
 			String val = xPath.compile(xpath).evaluate(xmlDocument);
@@ -62,5 +68,25 @@ public class AutomationContext {
 			return null;
 		}
 
+	}
+
+	public static String getUserName(String tenet, String user)
+			throws XPathExpressionException {
+		return AutomationConfiguration
+				.getConfigurationValue("//userManagement/tenants/tenant[@key='wso2']/"
+						+ tenet + "/user[@key='" + user + "']/userName");
+	}
+
+	public static String getPassword(String tenet, String user)
+			throws XPathExpressionException {
+		return AutomationConfiguration
+				.getConfigurationValue("//userManagement/tenants/tenant[@key='wso2']/"
+						+ tenet + "/user[@key='" + user + "']/password");
+	}
+	
+	public static String getHostName()
+			throws XPathExpressionException {
+		return AutomationConfiguration
+				.getConfigurationValue("//platform/productGroup[@name='ESB']/instance[@name='esbs001']/hosts/host[@type='default']");
 	}
 }
