@@ -277,11 +277,11 @@
 			<groupId>org.wso2.carbon</groupId>
 			<artifactId>org.wso2.carbon.authenticator.stub</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>org.wso2.carbon</groupId>
-			<artifactId>org.wso2.carbon.statistics.stub</artifactId>
-			<version>4.0.0</version>
-		</dependency>
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.wso2.carbon</groupId> -->
+<!-- 			<artifactId>org.wso2.carbon.statistics.stub</artifactId> -->
+<!-- 			<version>4.0.0</version> -->
+<!-- 		</dependency> -->
 
 		<dependency>
 			<groupId>org.apache.axis2.wso2</groupId>
@@ -341,17 +341,17 @@
 			<version>4.3.0-SNAPSHOT</version>
 		</dependency>
 
-		<dependency>
-			<groupId>org.wso2.carbon</groupId>
-			<artifactId>org.wso2.carbon.aarservices.stub</artifactId>
-			<version>4.2.0</version>
-		</dependency>
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.wso2.carbon</groupId> -->
+<!-- 			<artifactId>org.wso2.carbon.aarservices.stub</artifactId> -->
+<!-- 			<version>4.2.0</version> -->
+<!-- 		</dependency> -->
 
-		<dependency>
-			<groupId>org.wso2.carbon</groupId>
-			<artifactId>org.wso2.carbon.jarservices.stub</artifactId>
-			<version>4.2.0</version>
-		</dependency>
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.wso2.carbon</groupId> -->
+<!-- 			<artifactId>org.wso2.carbon.jarservices.stub</artifactId> -->
+<!-- 			<version>4.2.0</version> -->
+<!-- 		</dependency> -->
 		<!-- <dependency> -->
 		<!-- <groupId>org.wso2.carbon</groupId> -->
 		<!-- <artifactId>org.wso2.carbon.service.mgt.stub</artifactId> -->
@@ -480,7 +480,6 @@
 <dependency><groupId>org.wso2.carbon</groupId><artifactId>org.wso2.carbon.caching.stub</artifactId><version>4.2.0</version></dependency>
 <dependency><groupId>org.wso2.carbon</groupId><artifactId>org.wso2.carbon.jarservices.stub</artifactId><version>4.2.0</version></dependency>
 <dependency><groupId>org.wso2.carbon</groupId><artifactId>org.wso2.carbon.registry.indexing.stub</artifactId><version>4.2.0</version></dependency>
-<dependency><groupId>org.wso2.carbon</groupId><artifactId>org.wso2.carbon.registry.search.stub</artifactId><version>4.2.0</version></dependency>
 <dependency><groupId>org.wso2.carbon</groupId><artifactId>org.wso2.carbon.transport.jms.stub</artifactId><version>4.2.0</version></dependency>
 <dependency><groupId>org.wso2.carbon</groupId><artifactId>org.wso2.carbon.throttle.stub</artifactId><version>4.2.0</version></dependency>
 <dependency><groupId>org.wso2.carbon</groupId><artifactId>org.wso2.carbon.module.mgt.stub</artifactId><version>4.2.0</version></dependency>
