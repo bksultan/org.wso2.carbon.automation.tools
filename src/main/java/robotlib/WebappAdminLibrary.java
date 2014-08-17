@@ -80,90 +80,6 @@ public class WebappAdminLibrary{
 	public void  AssertisDefaultVersionManagementEnabled(boolean expected) {	
 		Assert.assertEquals(isDefaultVersionManagementEnabled , expected );		
 	}
-	public void deleteAllStartedWebapps()  throws java.lang.Exception{
-
-	stub.deleteAllStartedWebapps();
-
-	}
-
-	public void changeDefaultAppVersion(String arg0,String arg)  throws java.lang.Exception{
-
-	stub.changeDefaultAppVersion(arg0,arg);
-
-	}
-
-	public void reloadWebapps(String[] arg)  throws java.lang.Exception{
-
-	stub.reloadWebapps(arg);
-
-	}
-
-	public boolean uploadWebapp(WebappUploadData[] arg)  throws java.lang.Exception{
-
-		this.uploadWebapp=stub.uploadWebapp(arg);
-		return this.uploadWebapp;
-
-	}
-
-	private boolean uploadWebapp;
-
-	public void  AssertuploadWebapp(boolean expected) {	
-		Assert.assertEquals(uploadWebapp , expected );		
-	}
-	public void expireAllSessions(String arg)  throws java.lang.Exception{
-
-	stub.expireAllSessions(arg);
-
-	}
-
-	public WebappMetadata getStartedWebapp(String arg)  throws java.lang.Exception{
-
-		this.getStartedWebapp=stub.getStartedWebapp(arg);
-		return this.getStartedWebapp;
-
-	}
-
-	private WebappMetadata getStartedWebapp;
-
-	public void  AssertgetStartedWebapp(WebappMetadata expected) {	
-		Assert.assertEquals(getStartedWebapp , expected );		
-	}
-	public DataHandler downloadWarFileHandler(String arg0,String arg)  throws java.lang.Exception{
-
-		this.downloadWarFileHandler=stub.downloadWarFileHandler(arg0,arg);
-		return this.downloadWarFileHandler;
-
-	}
-
-	private DataHandler downloadWarFileHandler;
-
-	public void  AssertdownloadWarFileHandler(DataHandler expected) {	
-		Assert.assertEquals(downloadWarFileHandler , expected );		
-	}
-	public void startAllWebapps()  throws java.lang.Exception{
-
-	stub.startAllWebapps();
-
-	}
-
-	public void deleteFaultyWebapps(String[] arg)  throws java.lang.Exception{
-
-	stub.deleteFaultyWebapps(arg);
-
-	}
-
-	public String getBamConfiguration(String arg)  throws java.lang.Exception{
-
-		this.getBamConfiguration=stub.getBamConfiguration(arg);
-		return this.getBamConfiguration;
-
-	}
-
-	private String getBamConfiguration;
-
-	public void  AssertgetBamConfiguration(String expected) {	
-		Assert.assertEquals(getBamConfiguration , expected );		
-	}
 	public void setBamConfiguration(String arg0,String arg)  throws java.lang.Exception{
 
 	stub.setBamConfiguration(arg0,arg);
@@ -254,6 +170,96 @@ public class WebappAdminLibrary{
 	public void  AssertgetStoppedWebapp(WebappMetadata expected) {	
 		Assert.assertEquals(getStoppedWebapp , expected );		
 	}
+	public void deleteAllStartedWebapps()  throws java.lang.Exception{
+
+	stub.deleteAllStartedWebapps();
+
+	}
+
+	public void changeDefaultAppVersion(String arg0,String arg)  throws java.lang.Exception{
+
+	stub.changeDefaultAppVersion(arg0,arg);
+
+	}
+
+	public void reloadWebapps(String[] arg)  throws java.lang.Exception{
+
+	stub.reloadWebapps(arg);
+
+	}
+
+	public boolean uploadWebapp(WebappUploadData[] arg)  throws java.lang.Exception{
+
+		this.uploadWebapp=stub.uploadWebapp(arg);
+		return this.uploadWebapp;
+
+	}
+
+	private boolean uploadWebapp;
+
+	public void  AssertuploadWebapp(boolean expected) {	
+		Assert.assertEquals(uploadWebapp , expected );		
+	}
+	public void expireAllSessions(String arg)  throws java.lang.Exception{
+
+	stub.expireAllSessions(arg);
+
+	}
+
+	public WebappMetadata getStartedWebapp(String arg)  throws java.lang.Exception{
+
+		this.getStartedWebapp=stub.getStartedWebapp(arg);
+		return this.getStartedWebapp;
+
+	}
+
+	private WebappMetadata getStartedWebapp;
+
+	public void  AssertgetStartedWebapp(WebappMetadata expected) {	
+		Assert.assertEquals(getStartedWebapp , expected );		
+	}
+	public DataHandler downloadWarFileHandler(String arg0,String arg)  throws java.lang.Exception{
+
+		this.downloadWarFileHandler=stub.downloadWarFileHandler(arg0,arg);
+		return this.downloadWarFileHandler;
+
+	}
+
+	private DataHandler downloadWarFileHandler;
+
+	public void  AssertdownloadWarFileHandler(DataHandler expected) {	
+		Assert.assertEquals(downloadWarFileHandler , expected );		
+	}
+	public void startAllWebapps()  throws java.lang.Exception{
+
+	stub.startAllWebapps();
+
+	}
+
+	public void deleteFaultyWebapps(String[] arg)  throws java.lang.Exception{
+
+	stub.deleteFaultyWebapps(arg);
+
+	}
+
+	public String getBamConfiguration(String arg)  throws java.lang.Exception{
+
+		this.getBamConfiguration=stub.getBamConfiguration(arg);
+		return this.getBamConfiguration;
+
+	}
+
+	private String getBamConfiguration;
+
+	public void  AssertgetBamConfiguration(String expected) {	
+		Assert.assertEquals(getBamConfiguration , expected );		
+	}
+	public void stopAllWebapps()  throws java.lang.Exception{
+
+	stub.stopAllWebapps();
+
+	}
+
 	public WebappsWrapper getPagedFaultyWebappsSummary(String arg0,String arg1,int arg)  throws java.lang.Exception{
 
 		this.getPagedFaultyWebappsSummary=stub.getPagedFaultyWebappsSummary(arg0,arg1,arg);
@@ -266,12 +272,6 @@ public class WebappAdminLibrary{
 	public void  AssertgetPagedFaultyWebappsSummary(WebappsWrapper expected) {	
 		Assert.assertEquals(getPagedFaultyWebappsSummary , expected );		
 	}
-	public void stopAllWebapps()  throws java.lang.Exception{
-
-	stub.stopAllWebapps();
-
-	}
-
 
 
 	public static void main(String[] args) {

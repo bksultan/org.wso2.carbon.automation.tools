@@ -1,5 +1,5 @@
 //package robotlib;
-package robotlib;
+package robot.lib;
 
 import lib.AuthenticationLibrary;
 import org.apache.axis2.AxisFault;
@@ -23,6 +23,72 @@ public class ModuleAdminServiceLibrary{
 
 	}		
 
+	public boolean disengageModuleForService(String arg0,String arg)  throws java.lang.Exception{
+
+		this.disengageModuleForService=stub.disengageModuleForService(arg0,arg);
+		return this.disengageModuleForService;
+
+	}
+
+	private boolean disengageModuleForService;
+
+	public void  AssertdisengageModuleForService(boolean expected) {	
+		Assert.assertEquals(disengageModuleForService , expected );		
+	}
+	public void setModuleParameters(String arg0,String arg1,String[] arg)  throws java.lang.Exception{
+
+	stub.setModuleParameters(arg0,arg1,arg);
+
+	}
+
+	public String removeModuleParameter(String arg0,String arg1,String arg)  throws java.lang.Exception{
+
+		this.removeModuleParameter=stub.removeModuleParameter(arg0,arg1,arg);
+		return this.removeModuleParameter;
+
+	}
+
+	private String removeModuleParameter;
+
+	public void  AssertremoveModuleParameter(String expected) {	
+		Assert.assertEquals(removeModuleParameter , expected );		
+	}
+	public boolean disengageModuleFromSystem(String arg)  throws java.lang.Exception{
+
+		this.disengageModuleFromSystem=stub.disengageModuleFromSystem(arg);
+		return this.disengageModuleFromSystem;
+
+	}
+
+	private boolean disengageModuleFromSystem;
+
+	public void  AssertdisengageModuleFromSystem(boolean expected) {	
+		Assert.assertEquals(disengageModuleFromSystem , expected );		
+	}
+	public String removeModule(String arg)  throws java.lang.Exception{
+
+		this.removeModule=stub.removeModule(arg);
+		return this.removeModule;
+
+	}
+
+	private String removeModule;
+
+	public void  AssertremoveModule(String expected) {	
+		Assert.assertEquals(removeModule , expected );		
+	}
+	public boolean engageModuleForService(String arg0,String arg)  throws java.lang.Exception{
+
+		this.engageModuleForService=stub.engageModuleForService(arg0,arg);
+		return this.engageModuleForService;
+
+	}
+
+	private boolean engageModuleForService;
+
+	public void  AssertengageModuleForService(boolean expected) {	
+		Assert.assertEquals(engageModuleForService , expected );		
+	}
 	public String[] getModuleParameters(String arg0,String arg)  throws java.lang.Exception{
 
 		this.getModuleParameters=stub.getModuleParameters(arg0,arg);
@@ -58,18 +124,6 @@ public class ModuleAdminServiceLibrary{
 
 	public void  AssertlistGloballyEngagedModules(ModuleMetaData[] expected) {	
 		Assert.assertEquals(listGloballyEngagedModules , expected );		
-	}
-	public boolean disengageModuleFromSystem(String arg)  throws java.lang.Exception{
-
-		this.disengageModuleFromSystem=stub.disengageModuleFromSystem(arg);
-		return this.disengageModuleFromSystem;
-
-	}
-
-	private boolean disengageModuleFromSystem;
-
-	public void  AssertdisengageModuleFromSystem(boolean expected) {	
-		Assert.assertEquals(disengageModuleFromSystem , expected );		
 	}
 	public boolean globallyEngageModule(String arg)  throws java.lang.Exception{
 
@@ -167,48 +221,6 @@ public class ModuleAdminServiceLibrary{
 	public void  AssertlistModules(ModuleMetaData[] expected) {	
 		Assert.assertEquals(listModules , expected );		
 	}
-	public boolean engageModuleForService(String arg0,String arg)  throws java.lang.Exception{
-
-		this.engageModuleForService=stub.engageModuleForService(arg0,arg);
-		return this.engageModuleForService;
-
-	}
-
-	private boolean engageModuleForService;
-
-	public void  AssertengageModuleForService(boolean expected) {	
-		Assert.assertEquals(engageModuleForService , expected );		
-	}
-	public boolean disengageModuleForService(String arg0,String arg)  throws java.lang.Exception{
-
-		this.disengageModuleForService=stub.disengageModuleForService(arg0,arg);
-		return this.disengageModuleForService;
-
-	}
-
-	private boolean disengageModuleForService;
-
-	public void  AssertdisengageModuleForService(boolean expected) {	
-		Assert.assertEquals(disengageModuleForService , expected );		
-	}
-	public void setModuleParameters(String arg0,String arg1,String[] arg)  throws java.lang.Exception{
-
-	stub.setModuleParameters(arg0,arg1,arg);
-
-	}
-
-	public String removeModuleParameter(String arg0,String arg1,String arg)  throws java.lang.Exception{
-
-		this.removeModuleParameter=stub.removeModuleParameter(arg0,arg1,arg);
-		return this.removeModuleParameter;
-
-	}
-
-	private String removeModuleParameter;
-
-	public void  AssertremoveModuleParameter(String expected) {	
-		Assert.assertEquals(removeModuleParameter , expected );		
-	}
 	public ModuleMetaData[] listModulesForServiceGroup(String arg)  throws java.lang.Exception{
 
 		this.listModulesForServiceGroup=stub.listModulesForServiceGroup(arg);
@@ -244,18 +256,6 @@ public class ModuleAdminServiceLibrary{
 
 	public void  AssertgetModuleInfo(ModuleMetaData expected) {	
 		Assert.assertEquals(getModuleInfo , expected );		
-	}
-	public String removeModule(String arg)  throws java.lang.Exception{
-
-		this.removeModule=stub.removeModule(arg);
-		return this.removeModule;
-
-	}
-
-	private String removeModule;
-
-	public void  AssertremoveModule(String expected) {	
-		Assert.assertEquals(removeModule , expected );		
 	}
 
 

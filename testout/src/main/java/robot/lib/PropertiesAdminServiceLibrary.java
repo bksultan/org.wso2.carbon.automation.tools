@@ -1,5 +1,5 @@
 //package robotlib;
-package robotlib;
+package robot.lib;
 
 import lib.AuthenticationLibrary;
 import org.apache.axis2.AxisFault;
@@ -23,42 +23,6 @@ public class PropertiesAdminServiceLibrary{
 
 	}		
 
-	public void removeProperty(String arg0,String arg)  throws java.lang.Exception{
-
-	stub.removeProperty(arg0,arg);
-
-	}
-
-	public void updateProperty(String arg0,String arg1,String arg2,String arg)  throws java.lang.Exception{
-
-	stub.updateProperty(arg0,arg1,arg2,arg);
-
-	}
-
-	public boolean setRetentionProperties(String arg0,RetentionBean arg)  throws java.lang.Exception{
-
-		this.setRetentionProperties=stub.setRetentionProperties(arg0,arg);
-		return this.setRetentionProperties;
-
-	}
-
-	private boolean setRetentionProperties;
-
-	public void  AssertsetRetentionProperties(boolean expected) {	
-		Assert.assertEquals(setRetentionProperties , expected );		
-	}
-	public RetentionBean getRetentionProperties(String arg)  throws java.lang.Exception{
-
-		this.getRetentionProperties=stub.getRetentionProperties(arg);
-		return this.getRetentionProperties;
-
-	}
-
-	private RetentionBean getRetentionProperties;
-
-	public void  AssertgetRetentionProperties(RetentionBean expected) {	
-		Assert.assertEquals(getRetentionProperties , expected );		
-	}
 	public void setProperty(String arg0,String arg1,String arg)  throws java.lang.Exception{
 
 	stub.setProperty(arg0,arg1,arg);
@@ -77,6 +41,42 @@ public class PropertiesAdminServiceLibrary{
 	public void  AssertgetProperties(PropertiesBean expected) {	
 		Assert.assertEquals(getProperties , expected );		
 	}
+	public RetentionBean getRetentionProperties(String arg)  throws java.lang.Exception{
+
+		this.getRetentionProperties=stub.getRetentionProperties(arg);
+		return this.getRetentionProperties;
+
+	}
+
+	private RetentionBean getRetentionProperties;
+
+	public void  AssertgetRetentionProperties(RetentionBean expected) {	
+		Assert.assertEquals(getRetentionProperties , expected );		
+	}
+	public void updateProperty(String arg0,String arg1,String arg2,String arg)  throws java.lang.Exception{
+
+	stub.updateProperty(arg0,arg1,arg2,arg);
+
+	}
+
+	public boolean setRetentionProperties(String arg0,RetentionBean arg)  throws java.lang.Exception{
+
+		this.setRetentionProperties=stub.setRetentionProperties(arg0,arg);
+		return this.setRetentionProperties;
+
+	}
+
+	private boolean setRetentionProperties;
+
+	public void  AssertsetRetentionProperties(boolean expected) {	
+		Assert.assertEquals(setRetentionProperties , expected );		
+	}
+	public void removeProperty(String arg0,String arg)  throws java.lang.Exception{
+
+	stub.removeProperty(arg0,arg);
+
+	}
+
 
 
 	public static void main(String[] args) {

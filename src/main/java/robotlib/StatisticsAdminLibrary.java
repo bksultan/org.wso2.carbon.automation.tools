@@ -38,6 +38,18 @@ public class StatisticsAdminLibrary{
 	public void  AssertgetServiceRequestCount(int expected) {	
 		Assert.assertEquals(getServiceRequestCount , expected );		
 	}
+	public OperationStatistics getOperationStatistics(String arg0,String arg)  throws java.lang.Exception{
+
+		this.getOperationStatistics=stub.getOperationStatistics(arg0,arg);
+		return this.getOperationStatistics;
+
+	}
+
+	private OperationStatistics getOperationStatistics;
+
+	public void  AssertgetOperationStatistics(OperationStatistics expected) {	
+		Assert.assertEquals(getOperationStatistics , expected );		
+	}
 	public int getSystemResponseCount()  throws java.lang.Exception{
 
 		this.getSystemResponseCount=stub.getSystemResponseCount();
@@ -61,42 +73,6 @@ public class StatisticsAdminLibrary{
 
 	public void  AssertgetOperationResponseCount(int expected) {	
 		Assert.assertEquals(getOperationResponseCount , expected );		
-	}
-	public double getAvgOperationResponseTime(String arg0,String arg)  throws java.lang.Exception{
-
-		this.getAvgOperationResponseTime=stub.getAvgOperationResponseTime(arg0,arg);
-		return this.getAvgOperationResponseTime;
-
-	}
-
-	private double getAvgOperationResponseTime;
-
-	public void  AssertgetAvgOperationResponseTime(double expected) {	
-		Assert.assertEquals(getAvgOperationResponseTime , expected );		
-	}
-	public OperationStatistics getOperationStatistics(String arg0,String arg)  throws java.lang.Exception{
-
-		this.getOperationStatistics=stub.getOperationStatistics(arg0,arg);
-		return this.getOperationStatistics;
-
-	}
-
-	private OperationStatistics getOperationStatistics;
-
-	public void  AssertgetOperationStatistics(OperationStatistics expected) {	
-		Assert.assertEquals(getOperationStatistics , expected );		
-	}
-	public int getSystemFaultCount()  throws java.lang.Exception{
-
-		this.getSystemFaultCount=stub.getSystemFaultCount();
-		return this.getSystemFaultCount;
-
-	}
-
-	private int getSystemFaultCount;
-
-	public void  AssertgetSystemFaultCount(int expected) {	
-		Assert.assertEquals(getSystemFaultCount , expected );		
 	}
 	public StatisticData getWebappRelatedData(String arg)  throws java.lang.Exception{
 
@@ -145,6 +121,42 @@ public class StatisticsAdminLibrary{
 
 	public void  AssertgetServiceFaultCount(int expected) {	
 		Assert.assertEquals(getServiceFaultCount , expected );		
+	}
+	public long getMaxServiceResponseTime(String arg)  throws java.lang.Exception{
+
+		this.getMaxServiceResponseTime=stub.getMaxServiceResponseTime(arg);
+		return this.getMaxServiceResponseTime;
+
+	}
+
+	private long getMaxServiceResponseTime;
+
+	public void  AssertgetMaxServiceResponseTime(long expected) {	
+		Assert.assertEquals(getMaxServiceResponseTime , expected );		
+	}
+	public double getAvgOperationResponseTime(String arg0,String arg)  throws java.lang.Exception{
+
+		this.getAvgOperationResponseTime=stub.getAvgOperationResponseTime(arg0,arg);
+		return this.getAvgOperationResponseTime;
+
+	}
+
+	private double getAvgOperationResponseTime;
+
+	public void  AssertgetAvgOperationResponseTime(double expected) {	
+		Assert.assertEquals(getAvgOperationResponseTime , expected );		
+	}
+	public int getSystemFaultCount()  throws java.lang.Exception{
+
+		this.getSystemFaultCount=stub.getSystemFaultCount();
+		return this.getSystemFaultCount;
+
+	}
+
+	private int getSystemFaultCount;
+
+	public void  AssertgetSystemFaultCount(int expected) {	
+		Assert.assertEquals(getSystemFaultCount , expected );		
 	}
 	public long getMinServiceResponseTime(String arg)  throws java.lang.Exception{
 
@@ -271,18 +283,6 @@ public class StatisticsAdminLibrary{
 
 	public void  AssertgetSystemStatistics(SystemStatistics expected) {	
 		Assert.assertEquals(getSystemStatistics , expected );		
-	}
-	public long getMaxServiceResponseTime(String arg)  throws java.lang.Exception{
-
-		this.getMaxServiceResponseTime=stub.getMaxServiceResponseTime(arg);
-		return this.getMaxServiceResponseTime;
-
-	}
-
-	private long getMaxServiceResponseTime;
-
-	public void  AssertgetMaxServiceResponseTime(long expected) {	
-		Assert.assertEquals(getMaxServiceResponseTime , expected );		
 	}
 	public int getOperationRequestCount(String arg0,String arg)  throws java.lang.Exception{
 

@@ -1,5 +1,5 @@
 //package robotlib;
-package robotlib;
+package robot.lib;
 
 import lib.AuthenticationLibrary;
 import org.apache.axis2.AxisFault;
@@ -22,6 +22,12 @@ public class ThrottleAdminServiceLibrary{
 
 	}		
 
+	public void disengageGlobalThrottling()  throws java.lang.Exception{
+
+	stub.disengageGlobalThrottling();
+
+	}
+
 	public ThrottlePolicy getOperationPolicyConfigs(String arg0,String arg)  throws java.lang.Exception{
 
 		this.getOperationPolicyConfigs=stub.getOperationPolicyConfigs(arg0,arg);
@@ -34,12 +40,6 @@ public class ThrottleAdminServiceLibrary{
 	public void  AssertgetOperationPolicyConfigs(ThrottlePolicy expected) {	
 		Assert.assertEquals(getOperationPolicyConfigs , expected );		
 	}
-	public void disengageGlobalThrottling()  throws java.lang.Exception{
-
-	stub.disengageGlobalThrottling();
-
-	}
-
 	public void enableThrottling(String arg0,ThrottlePolicy arg)  throws java.lang.Exception{
 
 	stub.enableThrottling(arg0,arg);

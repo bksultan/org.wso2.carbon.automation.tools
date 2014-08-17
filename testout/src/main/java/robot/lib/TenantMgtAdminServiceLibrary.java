@@ -1,5 +1,5 @@
 //package robotlib;
-package robotlib;
+package robot.lib;
 
 import lib.AuthenticationLibrary;
 import org.apache.axis2.AxisFault;
@@ -41,15 +41,21 @@ public class TenantMgtAdminServiceLibrary{
 
 	}
 
+	public void activateTenant(String arg)  throws java.lang.Exception{
+
+	stub.activateTenant(arg);
+
+	}
+
 	public void deleteTenant(String arg)  throws java.lang.Exception{
 
 	stub.deleteTenant(arg);
 
 	}
 
-	public void activateTenant(String arg)  throws java.lang.Exception{
+	public void updateTenant(TenantInfoBean arg)  throws java.lang.Exception{
 
-	stub.activateTenant(arg);
+	stub.updateTenant(arg);
 
 	}
 
@@ -125,12 +131,6 @@ public class TenantMgtAdminServiceLibrary{
 	public void  AssertaddTenant(String expected) {	
 		Assert.assertEquals(addTenant , expected );		
 	}
-	public void updateTenant(TenantInfoBean arg)  throws java.lang.Exception{
-
-	stub.updateTenant(arg);
-
-	}
-
 
 
 	public static void main(String[] args) {

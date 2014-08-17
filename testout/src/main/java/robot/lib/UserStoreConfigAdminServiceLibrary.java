@@ -1,5 +1,5 @@
 //package robotlib;
-package robotlib;
+package robot.lib;
 
 import lib.AuthenticationLibrary;
 import org.apache.axis2.AxisFault;
@@ -22,6 +22,30 @@ public class UserStoreConfigAdminServiceLibrary{
 	public UserStoreConfigAdminServiceLibrary(){
 
 	}		
+
+	public Properties getUserStoreManagerProperties(String arg)  throws java.lang.Exception{
+
+		this.getUserStoreManagerProperties=stub.getUserStoreManagerProperties(arg);
+		return this.getUserStoreManagerProperties;
+
+	}
+
+	private Properties getUserStoreManagerProperties;
+
+	public void  AssertgetUserStoreManagerProperties(Properties expected) {	
+		Assert.assertEquals(getUserStoreManagerProperties , expected );		
+	}
+	public void addUserStore(UserStoreDTO arg)  throws java.lang.Exception{
+
+	stub.addUserStore(arg);
+
+	}
+
+	public void editUserStore(UserStoreDTO arg)  throws java.lang.Exception{
+
+	stub.editUserStore(arg);
+
+	}
 
 	public UserStoreDTO[] getSecondaryRealmConfigurations()  throws java.lang.Exception{
 
@@ -47,36 +71,12 @@ public class UserStoreConfigAdminServiceLibrary{
 	public void  AssertgetAvailableUserStoreClasses(String[] expected) {	
 		Assert.assertEquals(getAvailableUserStoreClasses , expected );		
 	}
-	public void editUserStore(UserStoreDTO arg)  throws java.lang.Exception{
-
-	stub.editUserStore(arg);
-
-	}
-
 	public void deleteUserStore(String arg)  throws java.lang.Exception{
 
 	stub.deleteUserStore(arg);
 
 	}
 
-	public void addUserStore(UserStoreDTO arg)  throws java.lang.Exception{
-
-	stub.addUserStore(arg);
-
-	}
-
-	public Properties getUserStoreManagerProperties(String arg)  throws java.lang.Exception{
-
-		this.getUserStoreManagerProperties=stub.getUserStoreManagerProperties(arg);
-		return this.getUserStoreManagerProperties;
-
-	}
-
-	private Properties getUserStoreManagerProperties;
-
-	public void  AssertgetUserStoreManagerProperties(Properties expected) {	
-		Assert.assertEquals(getUserStoreManagerProperties , expected );		
-	}
 	public void editUserStoreWithDomainName(String arg0,UserStoreDTO arg)  throws java.lang.Exception{
 
 	stub.editUserStoreWithDomainName(arg0,arg);

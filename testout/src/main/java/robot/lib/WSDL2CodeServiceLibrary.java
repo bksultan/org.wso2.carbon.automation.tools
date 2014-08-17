@@ -1,5 +1,5 @@
 //package robotlib;
-package robotlib;
+package robot.lib;
 
 import lib.AuthenticationLibrary;
 import org.apache.axis2.AxisFault;
@@ -7,57 +7,57 @@ import org.apache.axis2.client.Options;
 import org.apache.axis2.client.ServiceClient;
 import org.testng.Assert;
 import property.AutomationContext;
-import org.wso2.carbon.application.mgt.webapp.stub.WarApplicationAdminStub;
-import org.wso2.carbon.application.mgt.webapp.stub.types.carbon.WarCappMetadata;
+import org.wso2.carbon.wsdl2code.stub.types.carbon.CodegenDownloadData;
+import org.wso2.carbon.wsdl2code.stub.WSDL2CodeServiceStub;
 
 
-public class WarApplicationAdminLibrary{
+public class WSDL2CodeServiceLibrary{
 	public static final String ROBOT_LIBRARY_SCOPE = "GLOBAL";
 
-	private WarApplicationAdminStub stub;
+	private WSDL2CodeServiceStub stub;
 
 
 	//Constructor		
-	public WarApplicationAdminLibrary(){
+	public WSDL2CodeServiceLibrary(){
 
 	}		
 
-	public WarCappMetadata[] getWarAppData(String arg)  throws java.lang.Exception{
+	public CodegenDownloadData codegenForCXF(String[] arg)  throws java.lang.Exception{
 
-		this.getWarAppData=stub.getWarAppData(arg);
-		return this.getWarAppData;
-
-	}
-
-	private WarCappMetadata[] getWarAppData;
-
-	public void  AssertgetWarAppData(WarCappMetadata[] expected) {	
-		Assert.assertEquals(getWarAppData , expected );		
-	}
-	public WarCappMetadata[] getJaxWSWarAppData(String arg)  throws java.lang.Exception{
-
-		this.getJaxWSWarAppData=stub.getJaxWSWarAppData(arg);
-		return this.getJaxWSWarAppData;
+		this.codegenForCXF=stub.codegenForCXF(arg);
+		return this.codegenForCXF;
 
 	}
 
-	private WarCappMetadata[] getJaxWSWarAppData;
+	private CodegenDownloadData codegenForCXF;
 
-	public void  AssertgetJaxWSWarAppData(WarCappMetadata[] expected) {	
-		Assert.assertEquals(getJaxWSWarAppData , expected );		
+	public void  AssertcodegenForCXF(CodegenDownloadData expected) {	
+		Assert.assertEquals(codegenForCXF , expected );		
+	}
+	public CodegenDownloadData codegen(String[] arg)  throws java.lang.Exception{
+
+		this.codegen=stub.codegen(arg);
+		return this.codegen;
+
+	}
+
+	private CodegenDownloadData codegen;
+
+	public void  Assertcodegen(CodegenDownloadData expected) {	
+		Assert.assertEquals(codegen , expected );		
 	}
 
 
 	public static void main(String[] args) {
-		//WarApplicationAdminLibrary l=new WarApplicationAdminLibrary();
+		//WSDL2CodeServiceLibrary l=new WSDL2CodeServiceLibrary();
 		//l.setX(10);
 		//l.setY(25);
 		//System.out.println(l.getSum());
 	}
 
-	public void initWarApplicationAdmin() throws AxisFault {
+	public void initWSDL2CodeService() throws AxisFault {
 		String sessionCookie=AuthenticationLibrary.sessionString;
-		String serviceName = "WarApplicationAdmin";
+		String serviceName = "WSDL2CodeService";
 		String endPoint;
 		//String host = PropertyInfo.read("host");
 		//String port = PropertyInfo.read("port");
@@ -65,7 +65,7 @@ public class WarApplicationAdminLibrary{
 		String port = AutomationContext.context(AutomationContext.PRODUCT_PORT);
 		String backEndUrl = "https://" + host + ":" + port + "/services/";
 		endPoint = backEndUrl + serviceName;//+ "/services/" 
-		stub = new WarApplicationAdminStub(endPoint);
+		stub = new WSDL2CodeServiceStub(endPoint);
 		// Authenticate Your stub from sessionCooke
 		ServiceClient serviceClient;
 		Options option;

@@ -1,5 +1,5 @@
 //package robotlib;
-package robotlib;
+package robot.lib;
 
 import lib.AuthenticationLibrary;
 import org.apache.axis2.AxisFault;
@@ -21,6 +21,24 @@ public class JMSTransportAdminLibrary{
 	public JMSTransportAdminLibrary(){
 
 	}		
+
+	public TransportParameter[] getGloballyDefinedOutParameters()  throws java.lang.Exception{
+
+		this.getGloballyDefinedOutParameters=stub.getGloballyDefinedOutParameters();
+		return this.getGloballyDefinedOutParameters;
+
+	}
+
+	private TransportParameter[] getGloballyDefinedOutParameters;
+
+	public void  AssertgetGloballyDefinedOutParameters(TransportParameter[] expected) {	
+		Assert.assertEquals(getGloballyDefinedOutParameters , expected );		
+	}
+	public void removeConnectionFactory(String arg0,String arg1,boolean arg)  throws java.lang.Exception{
+
+	stub.removeConnectionFactory(arg0,arg1,arg);
+
+	}
 
 	public void updateGloballyDefinedInParameters(TransportParameter[] arg)  throws java.lang.Exception{
 
@@ -52,12 +70,6 @@ public class JMSTransportAdminLibrary{
 	public void  AssertgetServiceSpecificOutParameters(TransportParameter[] expected) {	
 		Assert.assertEquals(getServiceSpecificOutParameters , expected );		
 	}
-	public void removeConnectionFactory(String arg0,String arg1,boolean arg)  throws java.lang.Exception{
-
-	stub.removeConnectionFactory(arg0,arg1,arg);
-
-	}
-
 	public TransportParameter[] getGloballyDefinedInParameters()  throws java.lang.Exception{
 
 		this.getGloballyDefinedInParameters=stub.getGloballyDefinedInParameters();
@@ -106,18 +118,6 @@ public class JMSTransportAdminLibrary{
 
 	}
 
-	public TransportParameter[] getGloballyDefinedOutParameters()  throws java.lang.Exception{
-
-		this.getGloballyDefinedOutParameters=stub.getGloballyDefinedOutParameters();
-		return this.getGloballyDefinedOutParameters;
-
-	}
-
-	private TransportParameter[] getGloballyDefinedOutParameters;
-
-	public void  AssertgetGloballyDefinedOutParameters(TransportParameter[] expected) {	
-		Assert.assertEquals(getGloballyDefinedOutParameters , expected );		
-	}
 
 
 	public static void main(String[] args) {

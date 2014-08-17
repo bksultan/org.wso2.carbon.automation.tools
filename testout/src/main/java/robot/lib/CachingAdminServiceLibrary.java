@@ -1,5 +1,5 @@
 //package robotlib;
-package robotlib;
+package robot.lib;
 
 import lib.AuthenticationLibrary;
 import org.apache.axis2.AxisFault;
@@ -22,6 +22,18 @@ public class CachingAdminServiceLibrary{
 
 	}		
 
+	public boolean isCachingEnabledForService(String arg)  throws java.lang.Exception{
+
+		this.isCachingEnabledForService=stub.isCachingEnabledForService(arg);
+		return this.isCachingEnabledForService;
+
+	}
+
+	private boolean isCachingEnabledForService;
+
+	public void  AssertisCachingEnabledForService(boolean expected) {	
+		Assert.assertEquals(isCachingEnabledForService , expected );		
+	}
 	public boolean isCachingEnabledForOperation(String arg0,String arg)  throws java.lang.Exception{
 
 		this.isCachingEnabledForOperation=stub.isCachingEnabledForOperation(arg0,arg);
@@ -130,18 +142,6 @@ public class CachingAdminServiceLibrary{
 
 	}
 
-	public boolean isCachingEnabledForService(String arg)  throws java.lang.Exception{
-
-		this.isCachingEnabledForService=stub.isCachingEnabledForService(arg);
-		return this.isCachingEnabledForService;
-
-	}
-
-	private boolean isCachingEnabledForService;
-
-	public void  AssertisCachingEnabledForService(boolean expected) {	
-		Assert.assertEquals(isCachingEnabledForService , expected );		
-	}
 
 
 	public static void main(String[] args) {

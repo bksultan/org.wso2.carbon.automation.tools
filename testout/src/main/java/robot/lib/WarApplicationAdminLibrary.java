@@ -1,5 +1,5 @@
 //package robotlib;
-package robotlib;
+package robot.lib;
 
 import lib.AuthenticationLibrary;
 import org.apache.axis2.AxisFault;
@@ -22,18 +22,6 @@ public class WarApplicationAdminLibrary{
 
 	}		
 
-	public WarCappMetadata[] getWarAppData(String arg)  throws java.lang.Exception{
-
-		this.getWarAppData=stub.getWarAppData(arg);
-		return this.getWarAppData;
-
-	}
-
-	private WarCappMetadata[] getWarAppData;
-
-	public void  AssertgetWarAppData(WarCappMetadata[] expected) {	
-		Assert.assertEquals(getWarAppData , expected );		
-	}
 	public WarCappMetadata[] getJaxWSWarAppData(String arg)  throws java.lang.Exception{
 
 		this.getJaxWSWarAppData=stub.getJaxWSWarAppData(arg);
@@ -45,6 +33,18 @@ public class WarApplicationAdminLibrary{
 
 	public void  AssertgetJaxWSWarAppData(WarCappMetadata[] expected) {	
 		Assert.assertEquals(getJaxWSWarAppData , expected );		
+	}
+	public WarCappMetadata[] getWarAppData(String arg)  throws java.lang.Exception{
+
+		this.getWarAppData=stub.getWarAppData(arg);
+		return this.getWarAppData;
+
+	}
+
+	private WarCappMetadata[] getWarAppData;
+
+	public void  AssertgetWarAppData(WarCappMetadata[] expected) {	
+		Assert.assertEquals(getWarAppData , expected );		
 	}
 
 

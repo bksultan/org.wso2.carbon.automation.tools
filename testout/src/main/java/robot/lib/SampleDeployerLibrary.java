@@ -1,5 +1,5 @@
 //package robotlib;
-package robotlib;
+package robot.lib;
 
 import lib.AuthenticationLibrary;
 import org.apache.axis2.AxisFault;
@@ -21,6 +21,24 @@ public class SampleDeployerLibrary{
 	public SampleDeployerLibrary(){
 
 	}		
+
+	public boolean deploySample(String arg0,String arg)  throws java.lang.Exception{
+
+		this.deploySample=stub.deploySample(arg0,arg);
+		return this.deploySample;
+
+	}
+
+	private boolean deploySample;
+
+	public void  AssertdeploySample(boolean expected) {	
+		Assert.assertEquals(deploySample , expected );		
+	}
+	public void setPolicyPermission()  throws java.lang.Exception{
+
+	stub.setPolicyPermission();
+
+	}
 
 	public SampleInformation[] getSampleInformation(String arg)  throws java.lang.Exception{
 
@@ -45,24 +63,6 @@ public class SampleDeployerLibrary{
 
 	public void  AssertuploadSample(boolean expected) {	
 		Assert.assertEquals(uploadSample , expected );		
-	}
-	public void setPolicyPermission()  throws java.lang.Exception{
-
-	stub.setPolicyPermission();
-
-	}
-
-	public boolean deploySample(String arg0,String arg)  throws java.lang.Exception{
-
-		this.deploySample=stub.deploySample(arg0,arg);
-		return this.deploySample;
-
-	}
-
-	private boolean deploySample;
-
-	public void  AssertdeploySample(boolean expected) {	
-		Assert.assertEquals(deploySample , expected );		
 	}
 
 

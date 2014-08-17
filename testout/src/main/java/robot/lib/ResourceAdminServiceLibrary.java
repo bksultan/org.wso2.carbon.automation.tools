@@ -1,5 +1,5 @@
 //package robotlib;
-package robotlib;
+package robot.lib;
 
 import lib.AuthenticationLibrary;
 import org.apache.axis2.AxisFault;
@@ -30,6 +30,72 @@ public class ResourceAdminServiceLibrary{
 
 	}		
 
+	public String getTextContent(String arg)  throws java.lang.Exception{
+
+		this.getTextContent=stub.getTextContent(arg);
+		return this.getTextContent;
+
+	}
+
+	private String getTextContent;
+
+	public void  AssertgetTextContent(String expected) {	
+		Assert.assertEquals(getTextContent , expected );		
+	}
+	public String getProperty(String arg0,String arg)  throws java.lang.Exception{
+
+		this.getProperty=stub.getProperty(arg0,arg);
+		return this.getProperty;
+
+	}
+
+	private String getProperty;
+
+	public void  AssertgetProperty(String expected) {	
+		Assert.assertEquals(getProperty , expected );		
+	}
+	public PermissionBean getPermissions(String arg)  throws java.lang.Exception{
+
+		this.getPermissions=stub.getPermissions(arg);
+		return this.getPermissions;
+
+	}
+
+	private PermissionBean getPermissions;
+
+	public void  AssertgetPermissions(PermissionBean expected) {	
+		Assert.assertEquals(getPermissions , expected );		
+	}
+	public boolean delete(String arg)  throws java.lang.Exception{
+
+		this.delete=stub.delete(arg);
+		return this.delete;
+
+	}
+
+	private boolean delete;
+
+	public void  Assertdelete(boolean expected) {	
+		Assert.assertEquals(delete , expected );		
+	}
+	public void setDescription(String arg0,String arg)  throws java.lang.Exception{
+
+	stub.setDescription(arg0,arg);
+
+	}
+
+	public boolean createVersion(String arg)  throws java.lang.Exception{
+
+		this.createVersion=stub.createVersion(arg);
+		return this.createVersion;
+
+	}
+
+	private boolean createVersion;
+
+	public void  AssertcreateVersion(boolean expected) {	
+		Assert.assertEquals(createVersion , expected );		
+	}
 	public boolean moveResource(String arg0,String arg1,String arg2,String arg)  throws java.lang.Exception{
 
 		this.moveResource=stub.moveResource(arg0,arg1,arg2,arg);
@@ -41,6 +107,30 @@ public class ResourceAdminServiceLibrary{
 
 	public void  AssertmoveResource(boolean expected) {	
 		Assert.assertEquals(moveResource , expected );		
+	}
+	public MetadataBean getMetadata(String arg)  throws java.lang.Exception{
+
+		this.getMetadata=stub.getMetadata(arg);
+		return this.getMetadata;
+
+	}
+
+	private MetadataBean getMetadata;
+
+	public void  AssertgetMetadata(MetadataBean expected) {	
+		Assert.assertEquals(getMetadata , expected );		
+	}
+	public boolean addExtension(String arg0,DataHandler arg)  throws java.lang.Exception{
+
+		this.addExtension=stub.addExtension(arg0,arg);
+		return this.addExtension;
+
+	}
+
+	private boolean addExtension;
+
+	public void  AssertaddExtension(boolean expected) {	
+		Assert.assertEquals(addExtension , expected );		
 	}
 	public boolean addTextResource(String arg0,String arg1,String arg2,String arg3,String arg)  throws java.lang.Exception{
 
@@ -114,6 +204,18 @@ public class ResourceAdminServiceLibrary{
 	public void  AssertlistExtensions(String[] expected) {	
 		Assert.assertEquals(listExtensions , expected );		
 	}
+	public boolean addResource(String arg0,String arg1,String arg2,DataHandler arg3,String arg)  throws java.lang.Exception{
+
+		this.addResource=stub.addResource(arg0,arg1,arg2,arg3,arg);
+		return this.addResource;
+
+	}
+
+	private boolean addResource;
+
+	public void  AssertaddResource(boolean expected) {	
+		Assert.assertEquals(addResource , expected );		
+	}
 	public ResourceTreeEntryBean getResourceTreeEntry(String arg)  throws java.lang.Exception{
 
 		this.getResourceTreeEntry=stub.getResourceTreeEntry(arg);
@@ -137,18 +239,6 @@ public class ResourceAdminServiceLibrary{
 
 	public void  AssertgetCustomUIMediatypeDefinitions(String expected) {	
 		Assert.assertEquals(getCustomUIMediatypeDefinitions , expected );		
-	}
-	public boolean createVersion(String arg)  throws java.lang.Exception{
-
-		this.createVersion=stub.createVersion(arg);
-		return this.createVersion;
-
-	}
-
-	private boolean createVersion;
-
-	public void  AssertcreateVersion(boolean expected) {	
-		Assert.assertEquals(createVersion , expected );		
 	}
 	public boolean updateTextContent(String arg0,String arg)  throws java.lang.Exception{
 
@@ -227,6 +317,18 @@ public class ResourceAdminServiceLibrary{
 
 	public void  AssertgetResourceData(ResourceData[] expected) {	
 		Assert.assertEquals(getResourceData , expected );		
+	}
+	public boolean removeExtension(String arg)  throws java.lang.Exception{
+
+		this.removeExtension=stub.removeExtension(arg);
+		return this.removeExtension;
+
+	}
+
+	private boolean removeExtension;
+
+	public void  AssertremoveExtension(boolean expected) {	
+		Assert.assertEquals(removeExtension , expected );		
 	}
 	public String getSessionResourcePath()  throws java.lang.Exception{
 
@@ -335,108 +437,6 @@ public class ResourceAdminServiceLibrary{
 
 	public void  AssertaddRolePermission(boolean expected) {	
 		Assert.assertEquals(addRolePermission , expected );		
-	}
-	public String getTextContent(String arg)  throws java.lang.Exception{
-
-		this.getTextContent=stub.getTextContent(arg);
-		return this.getTextContent;
-
-	}
-
-	private String getTextContent;
-
-	public void  AssertgetTextContent(String expected) {	
-		Assert.assertEquals(getTextContent , expected );		
-	}
-	public void setDescription(String arg0,String arg)  throws java.lang.Exception{
-
-	stub.setDescription(arg0,arg);
-
-	}
-
-	public boolean addResource(String arg0,String arg1,String arg2,DataHandler arg3,String arg)  throws java.lang.Exception{
-
-		this.addResource=stub.addResource(arg0,arg1,arg2,arg3,arg);
-		return this.addResource;
-
-	}
-
-	private boolean addResource;
-
-	public void  AssertaddResource(boolean expected) {	
-		Assert.assertEquals(addResource , expected );		
-	}
-	public boolean removeExtension(String arg)  throws java.lang.Exception{
-
-		this.removeExtension=stub.removeExtension(arg);
-		return this.removeExtension;
-
-	}
-
-	private boolean removeExtension;
-
-	public void  AssertremoveExtension(boolean expected) {	
-		Assert.assertEquals(removeExtension , expected );		
-	}
-	public boolean addExtension(String arg0,DataHandler arg)  throws java.lang.Exception{
-
-		this.addExtension=stub.addExtension(arg0,arg);
-		return this.addExtension;
-
-	}
-
-	private boolean addExtension;
-
-	public void  AssertaddExtension(boolean expected) {	
-		Assert.assertEquals(addExtension , expected );		
-	}
-	public MetadataBean getMetadata(String arg)  throws java.lang.Exception{
-
-		this.getMetadata=stub.getMetadata(arg);
-		return this.getMetadata;
-
-	}
-
-	private MetadataBean getMetadata;
-
-	public void  AssertgetMetadata(MetadataBean expected) {	
-		Assert.assertEquals(getMetadata , expected );		
-	}
-	public String getProperty(String arg0,String arg)  throws java.lang.Exception{
-
-		this.getProperty=stub.getProperty(arg0,arg);
-		return this.getProperty;
-
-	}
-
-	private String getProperty;
-
-	public void  AssertgetProperty(String expected) {	
-		Assert.assertEquals(getProperty , expected );		
-	}
-	public PermissionBean getPermissions(String arg)  throws java.lang.Exception{
-
-		this.getPermissions=stub.getPermissions(arg);
-		return this.getPermissions;
-
-	}
-
-	private PermissionBean getPermissions;
-
-	public void  AssertgetPermissions(PermissionBean expected) {	
-		Assert.assertEquals(getPermissions , expected );		
-	}
-	public boolean delete(String arg)  throws java.lang.Exception{
-
-		this.delete=stub.delete(arg);
-		return this.delete;
-
-	}
-
-	private boolean delete;
-
-	public void  Assertdelete(boolean expected) {	
-		Assert.assertEquals(delete , expected );		
 	}
 
 

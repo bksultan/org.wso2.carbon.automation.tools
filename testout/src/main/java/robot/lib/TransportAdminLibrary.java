@@ -1,5 +1,5 @@
 //package robotlib;
-package robotlib;
+package robot.lib;
 
 import lib.AuthenticationLibrary;
 import org.apache.axis2.AxisFault;
@@ -25,6 +25,18 @@ public class TransportAdminLibrary{
 
 	}		
 
+	public TransportParameter[] getGloballyDefinedOutParameters(String arg)  throws java.lang.Exception{
+
+		this.getGloballyDefinedOutParameters=stub.getGloballyDefinedOutParameters(arg);
+		return this.getGloballyDefinedOutParameters;
+
+	}
+
+	private TransportParameter[] getGloballyDefinedOutParameters;
+
+	public void  AssertgetGloballyDefinedOutParameters(TransportParameter[] expected) {	
+		Assert.assertEquals(getGloballyDefinedOutParameters , expected );		
+	}
 	public void updateGloballyDefinedInParameters(String arg0,TransportParameter[] arg)  throws java.lang.Exception{
 
 	stub.updateGloballyDefinedInParameters(arg0,arg);
@@ -85,18 +97,6 @@ public class TransportAdminLibrary{
 
 	}
 
-	public TransportParameter[] getGloballyDefinedOutParameters(String arg)  throws java.lang.Exception{
-
-		this.getGloballyDefinedOutParameters=stub.getGloballyDefinedOutParameters(arg);
-		return this.getGloballyDefinedOutParameters;
-
-	}
-
-	private TransportParameter[] getGloballyDefinedOutParameters;
-
-	public void  AssertgetGloballyDefinedOutParameters(TransportParameter[] expected) {	
-		Assert.assertEquals(getGloballyDefinedOutParameters , expected );		
-	}
 	public TransportData[] getAllTransportData()  throws java.lang.Exception{
 
 		this.getAllTransportData=stub.getAllTransportData();

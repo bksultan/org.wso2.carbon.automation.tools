@@ -262,6 +262,7 @@ public class ClientGeneratorTest {
 
 	@Test
 	public void testGenerateLibraries() {
+		System.out.println("----------testGenerateLibraries------------");
 		File target = new File("testout/src/main/java");
 		if (!target.exists()) {
 			target.mkdirs();
@@ -303,14 +304,18 @@ public class ClientGeneratorTest {
 		try {
 			String loc = "/testout/src/main/java";
 
-			String[] files = { "AdminManagementServiceLibrary.java",
+			String[] files = {
+					"AdminManagementServiceLibrary.java",
 					"ApplicationAdminLibrary.java",
 					"CarbonAppUploaderLibrary.java",
 					"DiscoveryAdminLibrary.java",
 					"JarServiceCreatorAdminLibrary.java",
 					"ProxyServiceAdminLibrary.java",
-					"ServiceAdminLibrary.java", "ServiceUploaderLibrary.java",
-					"StatisticsAdminLibrary.java", "UserAdminLibrary.java" };
+					"ServiceAdminLibrary.java",
+					"ServiceUploaderLibrary.java",
+					"StatisticsAdminLibrary.java",
+					"UserAdminLibrary.java"
+					};
 			for (String fi : files) {
 				File f = new File("testout/src/main/java/robot/lib/" + fi);
 				if (f.exists()) {
@@ -327,7 +332,8 @@ public class ClientGeneratorTest {
 
 			for (String fi : files) {
 				File f = new File("testout/src/main/java/robot/lib/" + fi);
-				Assert.assertTrue(f.exists());
+				System.out.println(fi);
+				Assert.assertTrue(f.exists(),fi);
 
 				if (f.exists()) {
 					f.delete();
@@ -337,6 +343,10 @@ public class ClientGeneratorTest {
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 			Assert.fail();
+		}
+		
+		if (target.exists()) {
+			target.delete();
 		}
 	}
 

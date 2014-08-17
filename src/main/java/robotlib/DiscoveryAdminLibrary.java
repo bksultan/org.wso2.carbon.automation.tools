@@ -25,6 +25,18 @@ public class DiscoveryAdminLibrary{
 
 	}		
 
+	public DiscoveryProxyDetails getDiscoveryProxy(String arg)  throws java.lang.Exception{
+
+		this.getDiscoveryProxy=stub.getDiscoveryProxy(arg);
+		return this.getDiscoveryProxy;
+
+	}
+
+	private DiscoveryProxyDetails getDiscoveryProxy;
+
+	public void  AssertgetDiscoveryProxy(DiscoveryProxyDetails expected) {	
+		Assert.assertEquals(getDiscoveryProxy , expected );		
+	}
 	public void enableServiceDiscovery(String arg)  throws java.lang.Exception{
 
 	stub.enableServiceDiscovery(arg);
@@ -37,6 +49,18 @@ public class DiscoveryAdminLibrary{
 
 	}
 
+	public TargetServiceDetails resolveTargetService(String arg0,String arg)  throws java.lang.Exception{
+
+		this.resolveTargetService=stub.resolveTargetService(arg0,arg);
+		return this.resolveTargetService;
+
+	}
+
+	private TargetServiceDetails resolveTargetService;
+
+	public void  AssertresolveTargetService(TargetServiceDetails expected) {	
+		Assert.assertEquals(resolveTargetService , expected );		
+	}
 	public void addDiscoveryProxy(DiscoveryProxyDetails arg)  throws java.lang.Exception{
 
 	stub.addDiscoveryProxy(arg);
@@ -54,30 +78,6 @@ public class DiscoveryAdminLibrary{
 
 	public void  AssertgetServiceDiscoveryConfig(ServiceDiscoveryConfig expected) {	
 		Assert.assertEquals(getServiceDiscoveryConfig , expected );		
-	}
-	public DiscoveryProxyDetails getDiscoveryProxy(String arg)  throws java.lang.Exception{
-
-		this.getDiscoveryProxy=stub.getDiscoveryProxy(arg);
-		return this.getDiscoveryProxy;
-
-	}
-
-	private DiscoveryProxyDetails getDiscoveryProxy;
-
-	public void  AssertgetDiscoveryProxy(DiscoveryProxyDetails expected) {	
-		Assert.assertEquals(getDiscoveryProxy , expected );		
-	}
-	public TargetServiceDetails resolveTargetService(String arg0,String arg)  throws java.lang.Exception{
-
-		this.resolveTargetService=stub.resolveTargetService(arg0,arg);
-		return this.resolveTargetService;
-
-	}
-
-	private TargetServiceDetails resolveTargetService;
-
-	public void  AssertresolveTargetService(TargetServiceDetails expected) {	
-		Assert.assertEquals(resolveTargetService , expected );		
 	}
 	public void removeDiscoveryProxy(String arg)  throws java.lang.Exception{
 

@@ -1,5 +1,5 @@
 //package robotlib;
-package robotlib;
+package robot.lib;
 
 import lib.AuthenticationLibrary;
 import org.apache.axis2.AxisFault;
@@ -29,54 +29,6 @@ public class OperationAdminLibrary{
 
 	}
 
-	public OperationMetaData[] listControlOperations(String arg)  throws java.lang.Exception{
-
-		this.listControlOperations=stub.listControlOperations(arg);
-		return this.listControlOperations;
-
-	}
-
-	private OperationMetaData[] listControlOperations;
-
-	public void  AssertlistControlOperations(OperationMetaData[] expected) {	
-		Assert.assertEquals(listControlOperations , expected );		
-	}
-	public String[] getDeclaredOperationParameters(String arg0,String arg)  throws java.lang.Exception{
-
-		this.getDeclaredOperationParameters=stub.getDeclaredOperationParameters(arg0,arg);
-		return this.getDeclaredOperationParameters;
-
-	}
-
-	private String[] getDeclaredOperationParameters;
-
-	public void  AssertgetDeclaredOperationParameters(String[] expected) {	
-		Assert.assertEquals(getDeclaredOperationParameters , expected );		
-	}
-	public OperationMetaDataWrapper listAllOperations(String arg)  throws java.lang.Exception{
-
-		this.listAllOperations=stub.listAllOperations(arg);
-		return this.listAllOperations;
-
-	}
-
-	private OperationMetaDataWrapper listAllOperations;
-
-	public void  AssertlistAllOperations(OperationMetaDataWrapper expected) {	
-		Assert.assertEquals(listAllOperations , expected );		
-	}
-	public OperationMetaData getOperationMetaData(String arg0,String arg)  throws java.lang.Exception{
-
-		this.getOperationMetaData=stub.getOperationMetaData(arg0,arg);
-		return this.getOperationMetaData;
-
-	}
-
-	private OperationMetaData getOperationMetaData;
-
-	public void  AssertgetOperationMetaData(OperationMetaData expected) {	
-		Assert.assertEquals(getOperationMetaData , expected );		
-	}
 	public String[] listOperationPhaseHandlers(String arg0,String arg1,int arg2,String arg)  throws java.lang.Exception{
 
 		this.listOperationPhaseHandlers=stub.listOperationPhaseHandlers(arg0,arg1,arg2,arg);
@@ -101,12 +53,18 @@ public class OperationAdminLibrary{
 	public void  AssertlistOperationPhases(String[] expected) {	
 		Assert.assertEquals(listOperationPhases , expected );		
 	}
-	public void setOperationParameters(String arg0,String arg1,String[] arg)  throws java.lang.Exception{
+	public OperationMetaData getOperationMetaData(String arg0,String arg)  throws java.lang.Exception{
 
-	stub.setOperationParameters(arg0,arg1,arg);
+		this.getOperationMetaData=stub.getOperationMetaData(arg0,arg);
+		return this.getOperationMetaData;
 
 	}
 
+	private OperationMetaData getOperationMetaData;
+
+	public void  AssertgetOperationMetaData(OperationMetaData expected) {	
+		Assert.assertEquals(getOperationMetaData , expected );		
+	}
 	public String[] getOperationParameters(String arg0,String arg)  throws java.lang.Exception{
 
 		this.getOperationParameters=stub.getOperationParameters(arg0,arg);
@@ -148,6 +106,48 @@ public class OperationAdminLibrary{
 
 	public void  AssertlistPublishedOperations(OperationMetaData[] expected) {	
 		Assert.assertEquals(listPublishedOperations , expected );		
+	}
+	public void setOperationParameters(String arg0,String arg1,String[] arg)  throws java.lang.Exception{
+
+	stub.setOperationParameters(arg0,arg1,arg);
+
+	}
+
+	public OperationMetaData[] listControlOperations(String arg)  throws java.lang.Exception{
+
+		this.listControlOperations=stub.listControlOperations(arg);
+		return this.listControlOperations;
+
+	}
+
+	private OperationMetaData[] listControlOperations;
+
+	public void  AssertlistControlOperations(OperationMetaData[] expected) {	
+		Assert.assertEquals(listControlOperations , expected );		
+	}
+	public String[] getDeclaredOperationParameters(String arg0,String arg)  throws java.lang.Exception{
+
+		this.getDeclaredOperationParameters=stub.getDeclaredOperationParameters(arg0,arg);
+		return this.getDeclaredOperationParameters;
+
+	}
+
+	private String[] getDeclaredOperationParameters;
+
+	public void  AssertgetDeclaredOperationParameters(String[] expected) {	
+		Assert.assertEquals(getDeclaredOperationParameters , expected );		
+	}
+	public OperationMetaDataWrapper listAllOperations(String arg)  throws java.lang.Exception{
+
+		this.listAllOperations=stub.listAllOperations(arg);
+		return this.listAllOperations;
+
+	}
+
+	private OperationMetaDataWrapper listAllOperations;
+
+	public void  AssertlistAllOperations(OperationMetaDataWrapper expected) {	
+		Assert.assertEquals(listAllOperations , expected );		
 	}
 
 

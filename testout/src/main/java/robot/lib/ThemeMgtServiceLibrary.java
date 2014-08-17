@@ -1,5 +1,5 @@
 //package robotlib;
-package robotlib;
+package robot.lib;
 
 import lib.AuthenticationLibrary;
 import org.apache.axis2.AxisFault;
@@ -28,6 +28,36 @@ public class ThemeMgtServiceLibrary{
 
 	}		
 
+	public String getTextContent(String arg)  throws java.lang.Exception{
+
+		this.getTextContent=stub.getTextContent(arg);
+		return this.getTextContent;
+
+	}
+
+	private String getTextContent;
+
+	public void  AssertgetTextContent(String expected) {	
+		Assert.assertEquals(getTextContent , expected );		
+	}
+	public void delete(String arg)  throws java.lang.Exception{
+
+	stub.delete(arg);
+
+	}
+
+	public MetadataBean getMetadata(String arg)  throws java.lang.Exception{
+
+		this.getMetadata=stub.getMetadata(arg);
+		return this.getMetadata;
+
+	}
+
+	private MetadataBean getMetadata;
+
+	public void  AssertgetMetadata(MetadataBean expected) {	
+		Assert.assertEquals(getMetadata , expected );		
+	}
 	public void addTextResource(String arg0,String arg1,String arg2,String arg3,String arg)  throws java.lang.Exception{
 
 	stub.addTextResource(arg0,arg1,arg2,arg3,arg);
@@ -37,6 +67,12 @@ public class ThemeMgtServiceLibrary{
 	public void importResource(String arg0,String arg1,String arg2,String arg3,String arg4,String arg5,String arg)  throws java.lang.Exception{
 
 	stub.importResource(arg0,arg1,arg2,arg3,arg4,arg5,arg);
+
+	}
+
+	public void addResource(String arg0,String arg1,String arg2,DataHandler arg3,String arg4,String arg)  throws java.lang.Exception{
+
+	stub.addResource(arg0,arg1,arg2,arg3,arg4,arg);
 
 	}
 
@@ -52,6 +88,18 @@ public class ThemeMgtServiceLibrary{
 	public void  AssertgetResourceTreeEntry(ResourceTreeEntryBean expected) {	
 		Assert.assertEquals(getResourceTreeEntry , expected );		
 	}
+	public void updateTextContent(String arg0,String arg)  throws java.lang.Exception{
+
+	stub.updateTextContent(arg0,arg);
+
+	}
+
+	public void renameResource(String arg0,String arg1,String arg)  throws java.lang.Exception{
+
+	stub.renameResource(arg0,arg1,arg);
+
+	}
+
 	public String[] getAllThemes(String arg)  throws java.lang.Exception{
 
 		this.getAllThemes=stub.getAllThemes(arg);
@@ -82,18 +130,6 @@ public class ThemeMgtServiceLibrary{
 	public void  AssertgetAllPaths(String[] expected) {	
 		Assert.assertEquals(getAllPaths , expected );		
 	}
-	public void updateTextContent(String arg0,String arg)  throws java.lang.Exception{
-
-	stub.updateTextContent(arg0,arg);
-
-	}
-
-	public void renameResource(String arg0,String arg1,String arg)  throws java.lang.Exception{
-
-	stub.renameResource(arg0,arg1,arg);
-
-	}
-
 	public ResourceData[] getResourceData(String[] arg)  throws java.lang.Exception{
 
 		this.getResourceData=stub.getResourceData(arg);
@@ -166,42 +202,6 @@ public class ThemeMgtServiceLibrary{
 	public void  AssertgetCollectionContent(CollectionContentBean expected) {	
 		Assert.assertEquals(getCollectionContent , expected );		
 	}
-	public String getTextContent(String arg)  throws java.lang.Exception{
-
-		this.getTextContent=stub.getTextContent(arg);
-		return this.getTextContent;
-
-	}
-
-	private String getTextContent;
-
-	public void  AssertgetTextContent(String expected) {	
-		Assert.assertEquals(getTextContent , expected );		
-	}
-	public void addResource(String arg0,String arg1,String arg2,DataHandler arg3,String arg4,String arg)  throws java.lang.Exception{
-
-	stub.addResource(arg0,arg1,arg2,arg3,arg4,arg);
-
-	}
-
-	public MetadataBean getMetadata(String arg)  throws java.lang.Exception{
-
-		this.getMetadata=stub.getMetadata(arg);
-		return this.getMetadata;
-
-	}
-
-	private MetadataBean getMetadata;
-
-	public void  AssertgetMetadata(MetadataBean expected) {	
-		Assert.assertEquals(getMetadata , expected );		
-	}
-	public void delete(String arg)  throws java.lang.Exception{
-
-	stub.delete(arg);
-
-	}
-
 
 
 	public static void main(String[] args) {
