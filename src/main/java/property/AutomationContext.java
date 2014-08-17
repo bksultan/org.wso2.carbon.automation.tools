@@ -70,6 +70,13 @@ public class AutomationContext {
 
 	}
 
+	/**
+	 * get the username of the user from tenet group
+	 * @param tenet	tenet group
+	 * @param user	user
+	 * @return	username
+	 * @throws XPathExpressionException
+	 */
 	public static String getUserName(String tenet, String user)
 			throws XPathExpressionException {
 		return AutomationConfiguration
@@ -77,16 +84,44 @@ public class AutomationContext {
 						+ tenet + "/user[@key='" + user + "']/userName");
 	}
 
+	/**
+	 * get the password of the user from tenet group
+	 * @param tenet	tenet group
+	 * @param user	user
+	 * @return	password
+	 * @throws XPathExpressionException
+	 */
 	public static String getPassword(String tenet, String user)
 			throws XPathExpressionException {
 		return AutomationConfiguration
 				.getConfigurationValue("//userManagement/tenants/tenant[@key='wso2']/"
 						+ tenet + "/user[@key='" + user + "']/password");
 	}
-	
-	public static String getHostName()
-			throws XPathExpressionException {
+
+	/**
+	 * get the default testing host
+	 * @return	host
+	 * @throws XPathExpressionException
+	 */
+	public static String getHostName() throws XPathExpressionException {
 		return AutomationConfiguration
 				.getConfigurationValue("//platform/productGroup[@name='ESB']/instance[@name='esbs001']/hosts/host[@type='default']");
+	}
+
+	/**
+	 * return the deployment delay
+	 * @return	return delay in int
+	 * @throws XPathExpressionException
+	 */
+	public static int getDeploymentDelay() throws XPathExpressionException {
+		String t=AutomationConfiguration
+				.getConfigurationValue("//configurations/deploymentDelay");
+		try {
+			int time=Integer.parseInt(t);
+			return time;
+		} catch (Exception e) {
+			System.out.println("error getting delaytime: use 60 000ms");
+			return 60000;
+		}
 	}
 }

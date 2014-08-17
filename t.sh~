@@ -1,0 +1,25 @@
+showHelp()
+{
+    echo "run sh generate.sh [package name]"
+    echo "[package name] is package name libraries should be generated!"
+}
+showError()
+{
+    echo "Invalid argumnet!"
+}
+generate()
+{
+    echo "show gen function"
+}
+echo "# of argument" $#
+
+if [ "$1" = "-help" ]; then
+    showHelp;
+elif [ "$#" = "0" ]; then
+    showError;
+    showHelp;
+else
+    generate;
+fi
+
+

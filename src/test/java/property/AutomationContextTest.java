@@ -86,4 +86,14 @@ public class AutomationContextTest {
 		}
 		
 	}
+	
+	@Test
+	public void getDelayTime() {
+		try {
+			Assert.assertEquals(AutomationContext.getDeploymentDelay(), 60000);
+		} catch (XPathExpressionException e) {
+			 Assert.fail();
+		}
+		
+	}
 }
