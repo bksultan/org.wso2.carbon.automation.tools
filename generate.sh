@@ -15,7 +15,7 @@ showError()
 generate()
 {
     echo "------------Generating libraries------------"
-    mvn exec:java -Dexec.mainClass="generator.ClientGenerator" -Dexec.args="extra.Lib"
+    mvn exec:java -Dexec.mainClass="generator.ClientGenerator" -Dexec.args="$1"
 }
 #echo "# of argument" $#
 

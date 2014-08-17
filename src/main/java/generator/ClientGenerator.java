@@ -105,6 +105,7 @@ public class ClientGenerator {
 				//package name format is robot.lib, to save create directory path 
 				//replacing "." with "/"
 				pName = packageName.replaceAll("\\.","/") + "/"; 
+				System.out.println("package dir: "+pName);
 			} else {
 				pName = "";
 			}

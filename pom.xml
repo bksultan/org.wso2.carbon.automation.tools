@@ -139,8 +139,8 @@
 					</execution>
 				</executions>
 				<configuration>
-<!-- 					<mainClass>generator.ClientGen</mainClass> -->
-					<mainClass>lib.Test</mainClass>
+					<mainClass>generator.ClientGenerator</mainClass>
+<!-- 					<mainClass>lib.Test</mainClass> -->
 				</configuration>
 			</plugin>
 
