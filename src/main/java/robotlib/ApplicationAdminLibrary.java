@@ -23,6 +23,18 @@ public class ApplicationAdminLibrary{
 
 	}		
 
+	public ApplicationMetadata getAppData(String arg)  throws java.lang.Exception{
+
+		this.getAppData=stub.getAppData(arg);
+		return this.getAppData;
+
+	}
+
+	private ApplicationMetadata getAppData;
+
+	public void  AssertgetAppData(ApplicationMetadata expected) {	
+		Assert.assertEquals(getAppData , expected );		
+	}
 	public void deleteFaultyApplication(String[] arg)  throws java.lang.Exception{
 
 	stub.deleteFaultyApplication(arg);
@@ -40,18 +52,6 @@ public class ApplicationAdminLibrary{
 
 	public void  AssertlistAllFaultyApplications(String[] expected) {	
 		Assert.assertEquals(listAllFaultyApplications , expected );		
-	}
-	public ApplicationMetadata getAppData(String arg)  throws java.lang.Exception{
-
-		this.getAppData=stub.getAppData(arg);
-		return this.getAppData;
-
-	}
-
-	private ApplicationMetadata getAppData;
-
-	public void  AssertgetAppData(ApplicationMetadata expected) {	
-		Assert.assertEquals(getAppData , expected );		
 	}
 	public String[] listAllApplications()  throws java.lang.Exception{
 

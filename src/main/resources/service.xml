@@ -33,6 +33,31 @@
 	<service stub="org.wso2.carbon.jarservices.stub.JarServiceCreatorAdminStub"
 		name="JarServiceCreatorAdmin" wsdl="JarServiceCreatorAdmin" lib="JarServiceCreatorAdminLibrary" />
 
+<service stub="org.wso2.carbon.operation.mgt.stub.OperationAdminStub" name="OperationAdmin" wsdl="OperationAdmin" lib="OperationAdminLibrary" />
+<service stub="org.wso2.carbon.statistics.stub.StatisticsAdminStub" name="StatisticsAdmin" wsdl="StatisticsAdmin" lib="StatisticsAdminLibrary" />
+<service stub="org.wso2.carbon.webapp.mgt.stub.WebappAdminStub" name="WebappAdmin" wsdl="WebappAdmin" lib="WebappAdminLibrary" />
+<service stub="org.wso2.carbon.caching.stub.CachingAdminServiceStub" name="CachingAdminService" wsdl="CachingAdminService" lib="CachingAdminServiceLibrary" />
+<service stub="org.wso2.carbon.jarservices.stub.JarServiceCreatorAdminStub" name="JarServiceCreatorAdmin" wsdl="JarServiceCreatorAdmin" lib="JarServiceCreatorAdminLibrary" />
+<service stub="org.wso2.carbon.registry.search.stub.SearchAdminServiceStub" name="SearchAdminService" wsdl="SearchAdminService" lib="SearchAdminServiceLibrary" />
+<service stub="org.wso2.carbon.transport.jms.stub.JMSTransportAdminStub" name="JMSTransportAdmin" wsdl="JMSTransportAdmin" lib="JMSTransportAdminLibrary" />
+<service stub="org.wso2.carbon.throttle.stub.ThrottleAdminServiceStub" name="ThrottleAdminService" wsdl="ThrottleAdminService" lib="ThrottleAdminServiceLibrary" />
+<service stub="org.wso2.carbon.module.mgt.stub.ModuleAdminServiceStub" name="ModuleAdminService" wsdl="ModuleAdminService" lib="ModuleAdminServiceLibrary" />
+<service stub="org.wso2.carbon.sample.installer.stub.SampleDeployerStub" name="SampleDeployer" wsdl="SampleDeployer" lib="SampleDeployerLibrary" />
+<service stub="org.wso2.carbon.application.mgt.webapp.stub.WarApplicationAdminStub" name="WarApplicationAdmin" wsdl="WarApplicationAdmin" lib="WarApplicationAdminLibrary" />
+<service stub="org.wso2.carbon.bam.service.data.publisher.stub.ServiceDataPublisherAdminStub" name="ServiceDataPublisherAdmin" wsdl="ServiceDataPublisherAdmin" lib="ServiceDataPublisherAdminLibrary" />
+<service stub="org.wso2.carbon.registry.extensions.stub.ResourceAdminServiceStub" name="ResourceAdminService" wsdl="ResourceAdminService" lib="ResourceAdminServiceLibrary" />
+<service stub="org.wso2.carbon.theme.mgt.stub.ThemeMgtServiceStub" name="ThemeMgtService" wsdl="ThemeMgtService" lib="ThemeMgtServiceLibrary" />
+<service stub="org.wso2.carbon.bam.webapp.stat.publisher.stub.WebappStatPublisherAdminStub" name="WebappStatPublisherAdmin" wsdl="WebappStatPublisherAdmin" lib="WebappStatPublisherAdminLibrary" />
+<service stub="org.wso2.carbon.aarservices.stub.ServiceUploaderStub" name="ServiceUploader" wsdl="ServiceUploader" lib="ServiceUploaderLibrary" />
+<service stub="org.wso2.carbon.tracer.stub.TracerAdminStub" name="TracerAdmin" wsdl="TracerAdmin" lib="TracerAdminLibrary" />
+<service stub="org.wso2.carbon.transport.mgt.stub.TransportAdminStub" name="TransportAdmin" wsdl="TransportAdmin" lib="TransportAdminLibrary" />
+<service stub="org.wso2.carbon.identity.user.store.configuration.stub.UserStoreConfigAdminServiceStub" name="UserStoreConfigAdminService" wsdl="UserStoreConfigAdminService" lib="UserStoreConfigAdminServiceLibrary" />
+<service stub="org.wso2.carbon.tenant.mgt.stub.TenantMgtAdminServiceStub" name="TenantMgtAdminService" wsdl="TenantMgtAdminService" lib="TenantMgtAdminServiceLibrary" />
+<service stub="org.wso2.carbon.viewflows.stub.FlowsAdminServiceStub" name="FlowsAdminService" wsdl="FlowsAdminService" lib="FlowsAdminServiceLibrary" />
+<service stub="org.wso2.carbon.registry.properties.stub.PropertiesAdminServiceStub" name="PropertiesAdminService" wsdl="PropertiesAdminService" lib="PropertiesAdminServiceLibrary" />
+<service stub="org.wso2.carbon.repomanager.axis2.stub.Axis2RepoManagerStub" name="Axis2RepoManager" wsdl="Axis2RepoManager" lib="Axis2RepoManagerLibrary" />
+<service stub="org.wso2.carbon.wsdl2code.stub.WSDL2CodeServiceStub" name="WSDL2CodeService" wsdl="WSDL2CodeService" lib="WSDL2CodeServiceLibrary" />
+
 
 </adminservices>
 

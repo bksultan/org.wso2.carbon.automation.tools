@@ -1,7 +1,5 @@
 package lib;
 
-import java.net.URL;
-
 import property.AutomationContext;
 
 //
