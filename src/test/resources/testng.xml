@@ -2,32 +2,32 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="Suite1">
 
-	<test name="ClientGeneratorTest">
+	<test name="ServiceStubClientGeneratorTest">
 		<classes>
-			<class name="generator.ClientGeneratorTest" />
+			<class name="client.generation.ServiceStubClientGeneratorTest" />
 		</classes>
 	</test>
 
 	<test name="AxisServiceClientTest">
 		<classes>
-			<class name="lib.AxisServiceClientTest" />
+			<class name="client.support.modules.AxisServiceClientTest" />
 		</classes>
 	</test>
 
 	<test name="ObjectPoolTest">
 		<classes>
-			<class name="lib.ObjectPoolTest" />
+			<class name="client.support.modules.ObjectPoolTest" />
 		</classes>
 	</test>
 
 	<test name="StandardTest">
 		<classes>
-			<class name="lib.StandardTest" />
+			<class name="client.support.modules.StandardTest" />
 		</classes>
 	</test>
-	<test name="AutomationContextTest">
+	<test name="AutomationConfigurationReaderTest">
 		<classes>
-			<class name="property.AutomationContextTest" />
+			<class name="client.configuration.AutomationConfigurationReaderTest" />
 		</classes>
 	</test>
 </suite> 

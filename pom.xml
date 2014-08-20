@@ -10,7 +10,7 @@
 	<name>WSO2 Carbon - Robot Testing Pom</name>
 	<url>http://wso2.org</url>
 
-	
+
 	<properties>
 		<carbon.stub.version>4.3.0-SNAPSHOT</carbon.stub.version>
 	</properties>
@@ -92,7 +92,7 @@
 		<plugins>
 
 
-<!-- uncomment robot framework plugin for debug purposes -->
+			<!-- uncomment robot framework plugin for debug purposes -->
 
 			<!-- <plugin> -->
 			<!-- <groupId>com.googlecode.robotframework-maven-plugin</groupId> -->
@@ -118,8 +118,8 @@
 					<target>1.6</target>
 				</configuration>
 			</plugin>
-			
-<!-- to do: use mojo -->
+
+			<!-- to do: use mojo -->
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>exec-maven-plugin</artifactId>
@@ -166,6 +166,35 @@
 				</configuration>
 			</plugin>
 
+			<!-- report of test coverage -->
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>0.7.1.201405082137</version>
+				<executions>
+					<execution>
+						<id>default-prepare-agent</id>
+						<goals>
+							<goal>prepare-agent</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>default-report</id>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>report</goal>
+						</goals>
+					</execution>
+					<!-- <execution> <id>default-check</id> <goals> <goal>check</goal> </goals> 
+						<configuration> <rules> &lt;!&ndash; implmentation is needed only for Maven 
+						2 &ndash;&gt; <rule implementation="org.jacoco.maven.RuleConfiguration"> 
+						<element>BUNDLE</element> <limits> &lt;!&ndash; implmentation is needed only 
+						for Maven 2 &ndash;&gt; <limit implementation="org.jacoco.report.check.Limit"> 
+						<counter>COMPLEXITY</counter> <value>COVEREDRATIO</value> <minimum>0.60</minimum> 
+						</limit> </limits> </rule> </rules> </configuration> </execution> -->
+				</executions>
+			</plugin>
+
 		</plugins>
 
 	</build>
@@ -177,7 +206,7 @@
 				<activeByDefault>true</activeByDefault>
 			</activation>
 			<modules>
-				
+
 			</modules>
 		</profile>
 		<profile>
@@ -190,7 +219,7 @@
 			</activation>
 
 			<modules>
-				
+
 			</modules>
 		</profile>
 		<profile>
@@ -263,7 +292,7 @@
 			<artifactId>ST4</artifactId>
 			<version>4.0.7</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.testng</groupId>
 			<artifactId>testng</artifactId>
@@ -409,37 +438,162 @@
 			<version>4.3.1-SNAPSHOT</version>
 		</dependency>
 
-<dependency><groupId>org.wso2.carbon</groupId><artifactId>org.wso2.carbon.registry.search.stub</artifactId><version>4.2.0</version></dependency>
-<dependency><groupId>org.wso2.carbon</groupId><artifactId>org.wso2.carbon.operation.mgt.stub</artifactId><version>4.2.0</version></dependency>
-<dependency><groupId>org.wso2.carbon</groupId><artifactId>org.wso2.carbon.statistics.stub</artifactId><version>4.2.0</version></dependency>
-<dependency><groupId>org.wso2.carbon</groupId><artifactId>org.wso2.carbon.webapp.mgt.stub</artifactId><version>4.2.0</version></dependency>
-<dependency><groupId>org.wso2.carbon</groupId><artifactId>org.wso2.carbon.ndatasource.stub</artifactId><version>4.2.0</version></dependency>
-<dependency><groupId>org.wso2.carbon</groupId><artifactId>org.wso2.carbon.dataservices.fileupload.stub</artifactId><version>4.2.0</version></dependency>
-<dependency><groupId>org.wso2.carbon</groupId><artifactId>org.wso2.carbon.caching.stub</artifactId><version>4.2.0</version></dependency>
-<dependency><groupId>org.wso2.carbon</groupId><artifactId>org.wso2.carbon.jarservices.stub</artifactId><version>4.2.0</version></dependency>
-<dependency><groupId>org.wso2.carbon</groupId><artifactId>org.wso2.carbon.registry.indexing.stub</artifactId><version>4.2.0</version></dependency>
-<dependency><groupId>org.wso2.carbon</groupId><artifactId>org.wso2.carbon.transport.jms.stub</artifactId><version>4.2.0</version></dependency>
-<dependency><groupId>org.wso2.carbon</groupId><artifactId>org.wso2.carbon.throttle.stub</artifactId><version>4.2.0</version></dependency>
-<dependency><groupId>org.wso2.carbon</groupId><artifactId>org.wso2.carbon.module.mgt.stub</artifactId><version>4.2.0</version></dependency>
-<dependency><groupId>org.wso2.carbon</groupId><artifactId>org.wso2.carbon.sample.installer.stub</artifactId><version>4.2.0</version></dependency>
-<dependency><groupId>org.wso2.carbon</groupId><artifactId>org.wso2.carbon.application.mgt.webapp.stub</artifactId><version>4.2.0</version></dependency>
-<dependency><groupId>org.wso2.carbon</groupId><artifactId>org.wso2.carbon.bam.service.data.publisher.stub</artifactId><version>4.2.0</version></dependency>
-<dependency><groupId>org.wso2.carbon</groupId><artifactId>org.wso2.carbon.registry.extensions.stub</artifactId><version>4.2.0</version></dependency>
-<dependency><groupId>org.wso2.carbon</groupId><artifactId>org.wso2.carbon.dataservices.stub</artifactId><version>4.2.0</version></dependency>
-<dependency><groupId>org.wso2.carbon</groupId><artifactId>org.wso2.carbon.theme.mgt.stub</artifactId><version>4.2.0</version></dependency>
-<dependency><groupId>org.wso2.carbon</groupId><artifactId>org.wso2.carbon.bam.webapp.stat.publisher.stub</artifactId><version>4.2.0</version></dependency>
-<dependency><groupId>org.wso2.carbon</groupId><artifactId>org.wso2.carbon.aarservices.stub</artifactId><version>4.2.0</version></dependency>
-<dependency><groupId>org.wso2.carbon</groupId><artifactId>org.wso2.carbon.tracer.stub</artifactId><version>4.2.0</version></dependency>
-<dependency><groupId>org.wso2.carbon</groupId><artifactId>org.wso2.carbon.transport.mgt.stub</artifactId><version>4.2.0</version></dependency>
-<dependency><groupId>org.wso2.carbon</groupId><artifactId>org.wso2.carbon.identity.user.store.configuration.stub</artifactId><version>4.2.0</version></dependency>
-<dependency><groupId>org.wso2.carbon</groupId><artifactId>org.wso2.carbon.tenant.mgt.stub</artifactId><version>4.2.0</version></dependency>
-<dependency><groupId>org.wso2.carbon</groupId><artifactId>org.wso2.carbon.deployment.synchronizer.stub</artifactId><version>4.2.0</version></dependency>
-<dependency><groupId>org.wso2.carbon</groupId><artifactId>org.wso2.carbon.viewflows.stub</artifactId><version>4.2.0</version></dependency>
-<dependency><groupId>org.wso2.carbon</groupId><artifactId>org.wso2.carbon.registry.properties.stub</artifactId><version>4.2.0</version></dependency>
-<dependency><groupId>org.wso2.carbon</groupId><artifactId>org.wso2.carbon.repomanager.axis2.stub</artifactId><version>4.2.0</version></dependency>
-<dependency><groupId>org.wso2.carbon</groupId><artifactId>org.wso2.carbon.logging.view.stub</artifactId><version>4.2.0</version></dependency>
-<dependency><groupId>org.wso2.carbon</groupId><artifactId>org.wso2.carbon.wsdl2code.stub</artifactId><version>4.2.0</version></dependency>
+		<dependency>
+			<groupId>org.wso2.carbon</groupId>
+			<artifactId>org.wso2.carbon.registry.search.stub</artifactId>
+			<version>4.2.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.wso2.carbon</groupId>
+			<artifactId>org.wso2.carbon.operation.mgt.stub</artifactId>
+			<version>4.2.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.wso2.carbon</groupId>
+			<artifactId>org.wso2.carbon.statistics.stub</artifactId>
+			<version>4.2.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.wso2.carbon</groupId>
+			<artifactId>org.wso2.carbon.webapp.mgt.stub</artifactId>
+			<version>4.2.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.wso2.carbon</groupId>
+			<artifactId>org.wso2.carbon.ndatasource.stub</artifactId>
+			<version>4.2.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.wso2.carbon</groupId>
+			<artifactId>org.wso2.carbon.dataservices.fileupload.stub</artifactId>
+			<version>4.2.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.wso2.carbon</groupId>
+			<artifactId>org.wso2.carbon.caching.stub</artifactId>
+			<version>4.2.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.wso2.carbon</groupId>
+			<artifactId>org.wso2.carbon.jarservices.stub</artifactId>
+			<version>4.2.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.wso2.carbon</groupId>
+			<artifactId>org.wso2.carbon.registry.indexing.stub</artifactId>
+			<version>4.2.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.wso2.carbon</groupId>
+			<artifactId>org.wso2.carbon.transport.jms.stub</artifactId>
+			<version>4.2.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.wso2.carbon</groupId>
+			<artifactId>org.wso2.carbon.throttle.stub</artifactId>
+			<version>4.2.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.wso2.carbon</groupId>
+			<artifactId>org.wso2.carbon.module.mgt.stub</artifactId>
+			<version>4.2.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.wso2.carbon</groupId>
+			<artifactId>org.wso2.carbon.sample.installer.stub</artifactId>
+			<version>4.2.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.wso2.carbon</groupId>
+			<artifactId>org.wso2.carbon.application.mgt.webapp.stub</artifactId>
+			<version>4.2.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.wso2.carbon</groupId>
+			<artifactId>org.wso2.carbon.bam.service.data.publisher.stub</artifactId>
+			<version>4.2.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.wso2.carbon</groupId>
+			<artifactId>org.wso2.carbon.registry.extensions.stub</artifactId>
+			<version>4.2.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.wso2.carbon</groupId>
+			<artifactId>org.wso2.carbon.dataservices.stub</artifactId>
+			<version>4.2.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.wso2.carbon</groupId>
+			<artifactId>org.wso2.carbon.theme.mgt.stub</artifactId>
+			<version>4.2.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.wso2.carbon</groupId>
+			<artifactId>org.wso2.carbon.bam.webapp.stat.publisher.stub</artifactId>
+			<version>4.2.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.wso2.carbon</groupId>
+			<artifactId>org.wso2.carbon.aarservices.stub</artifactId>
+			<version>4.2.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.wso2.carbon</groupId>
+			<artifactId>org.wso2.carbon.tracer.stub</artifactId>
+			<version>4.2.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.wso2.carbon</groupId>
+			<artifactId>org.wso2.carbon.transport.mgt.stub</artifactId>
+			<version>4.2.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.wso2.carbon</groupId>
+			<artifactId>org.wso2.carbon.identity.user.store.configuration.stub</artifactId>
+			<version>4.2.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.wso2.carbon</groupId>
+			<artifactId>org.wso2.carbon.tenant.mgt.stub</artifactId>
+			<version>4.2.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.wso2.carbon</groupId>
+			<artifactId>org.wso2.carbon.deployment.synchronizer.stub</artifactId>
+			<version>4.2.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.wso2.carbon</groupId>
+			<artifactId>org.wso2.carbon.viewflows.stub</artifactId>
+			<version>4.2.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.wso2.carbon</groupId>
+			<artifactId>org.wso2.carbon.registry.properties.stub</artifactId>
+			<version>4.2.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.wso2.carbon</groupId>
+			<artifactId>org.wso2.carbon.repomanager.axis2.stub</artifactId>
+			<version>4.2.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.wso2.carbon</groupId>
+			<artifactId>org.wso2.carbon.logging.view.stub</artifactId>
+			<version>4.2.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.wso2.carbon</groupId>
+			<artifactId>org.wso2.carbon.wsdl2code.stub</artifactId>
+			<version>4.2.0</version>
+		</dependency>
 
+		<!-- test coverage -->
+<!-- 		<dependency> -->
+<!-- 			<groupId>emma</groupId> -->
+<!-- 			<artifactId>emma</artifactId> -->
+<!-- 		</dependency> -->
 
 	</dependencies>
 

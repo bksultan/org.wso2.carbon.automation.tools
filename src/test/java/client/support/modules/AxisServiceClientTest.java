@@ -1,4 +1,4 @@
-package lib;
+package client.support.modules;
 
 import java.io.InputStream;
 import java.lang.reflect.Field;

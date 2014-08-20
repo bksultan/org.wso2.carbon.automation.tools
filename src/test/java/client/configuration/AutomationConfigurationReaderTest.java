@@ -1,4 +1,4 @@
-package property;
+package client.configuration;
 
 import java.io.File;
 import java.net.URL;
@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 
 import client.configuration.AutomationConfigurationReader;
 
-public class AutomationContextTest {
+public class AutomationConfigurationReaderTest {
 
 	@BeforeClass
 	public void setXML() {

@@ -1,4 +1,4 @@
-package lib;
+package client.support.modules;
 
 import javax.xml.stream.XMLStreamException;
 

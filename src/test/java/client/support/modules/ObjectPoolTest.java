@@ -1,4 +1,4 @@
-package lib;
+package client.support.modules;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;

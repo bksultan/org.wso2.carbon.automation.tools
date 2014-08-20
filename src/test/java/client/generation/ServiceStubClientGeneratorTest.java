@@ -1,4 +1,4 @@
-package generator;
+package client.generation;
 
 import java.io.File;
 import java.io.InputStream;
@@ -19,7 +19,7 @@ import org.w3c.dom.Document;
 
 import client.genration.ServiceStubClientGenerator;
 
-public class ClientGeneratorTest {
+public class ServiceStubClientGeneratorTest {
 
 	@Test
 	public void testSave() {
