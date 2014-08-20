@@ -23,6 +23,12 @@ public class TenantMgtAdminServiceLibrary{
 
 	}		
 
+	public void updateTenant(TenantInfoBean arg)  throws java.lang.Exception{
+
+	stub.updateTenant(arg);
+
+	}
+
 	public TenantInfoBean[] retrievePartialSearchTenants(String arg)  throws java.lang.Exception{
 
 		this.retrievePartialSearchTenants=stub.retrievePartialSearchTenants(arg);
@@ -47,18 +53,6 @@ public class TenantMgtAdminServiceLibrary{
 
 	}
 
-	public void deleteTenant(String arg)  throws java.lang.Exception{
-
-	stub.deleteTenant(arg);
-
-	}
-
-	public void updateTenant(TenantInfoBean arg)  throws java.lang.Exception{
-
-	stub.updateTenant(arg);
-
-	}
-
 	public TenantInfoBean[] retrieveTenants()  throws java.lang.Exception{
 
 		this.retrieveTenants=stub.retrieveTenants();
@@ -71,6 +65,12 @@ public class TenantMgtAdminServiceLibrary{
 	public void  AssertretrieveTenants(TenantInfoBean[] expected) {	
 		Assert.assertEquals(retrieveTenants , expected );		
 	}
+	public void deleteTenant(String arg)  throws java.lang.Exception{
+
+	stub.deleteTenant(arg);
+
+	}
+
 	public TenantInfoBean getTenant(String arg)  throws java.lang.Exception{
 
 		this.getTenant=stub.getTenant(arg);

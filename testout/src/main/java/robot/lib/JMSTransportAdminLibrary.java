@@ -34,9 +34,9 @@ public class JMSTransportAdminLibrary{
 	public void  AssertgetGloballyDefinedOutParameters(TransportParameter[] expected) {	
 		Assert.assertEquals(getGloballyDefinedOutParameters , expected );		
 	}
-	public void removeConnectionFactory(String arg0,String arg1,boolean arg)  throws java.lang.Exception{
+	public void updateServiceSpecificOutParameters(String arg0,TransportParameter[] arg)  throws java.lang.Exception{
 
-	stub.removeConnectionFactory(arg0,arg1,arg);
+	stub.updateServiceSpecificOutParameters(arg0,arg);
 
 	}
 
@@ -52,9 +52,9 @@ public class JMSTransportAdminLibrary{
 
 	}
 
-	public void updateServiceSpecificOutParameters(String arg0,TransportParameter[] arg)  throws java.lang.Exception{
+	public void removeConnectionFactory(String arg0,String arg1,boolean arg)  throws java.lang.Exception{
 
-	stub.updateServiceSpecificOutParameters(arg0,arg);
+	stub.removeConnectionFactory(arg0,arg1,arg);
 
 	}
 

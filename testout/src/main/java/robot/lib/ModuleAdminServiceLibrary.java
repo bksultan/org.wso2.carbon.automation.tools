@@ -23,36 +23,6 @@ public class ModuleAdminServiceLibrary{
 
 	}		
 
-	public boolean disengageModuleForService(String arg0,String arg)  throws java.lang.Exception{
-
-		this.disengageModuleForService=stub.disengageModuleForService(arg0,arg);
-		return this.disengageModuleForService;
-
-	}
-
-	private boolean disengageModuleForService;
-
-	public void  AssertdisengageModuleForService(boolean expected) {	
-		Assert.assertEquals(disengageModuleForService , expected );		
-	}
-	public void setModuleParameters(String arg0,String arg1,String[] arg)  throws java.lang.Exception{
-
-	stub.setModuleParameters(arg0,arg1,arg);
-
-	}
-
-	public String removeModuleParameter(String arg0,String arg1,String arg)  throws java.lang.Exception{
-
-		this.removeModuleParameter=stub.removeModuleParameter(arg0,arg1,arg);
-		return this.removeModuleParameter;
-
-	}
-
-	private String removeModuleParameter;
-
-	public void  AssertremoveModuleParameter(String expected) {	
-		Assert.assertEquals(removeModuleParameter , expected );		
-	}
 	public boolean disengageModuleFromSystem(String arg)  throws java.lang.Exception{
 
 		this.disengageModuleFromSystem=stub.disengageModuleFromSystem(arg);
@@ -89,6 +59,36 @@ public class ModuleAdminServiceLibrary{
 	public void  AssertengageModuleForService(boolean expected) {	
 		Assert.assertEquals(engageModuleForService , expected );		
 	}
+	public String removeModuleParameter(String arg0,String arg1,String arg)  throws java.lang.Exception{
+
+		this.removeModuleParameter=stub.removeModuleParameter(arg0,arg1,arg);
+		return this.removeModuleParameter;
+
+	}
+
+	private String removeModuleParameter;
+
+	public void  AssertremoveModuleParameter(String expected) {	
+		Assert.assertEquals(removeModuleParameter , expected );		
+	}
+	public boolean disengageModuleForService(String arg0,String arg)  throws java.lang.Exception{
+
+		this.disengageModuleForService=stub.disengageModuleForService(arg0,arg);
+		return this.disengageModuleForService;
+
+	}
+
+	private boolean disengageModuleForService;
+
+	public void  AssertdisengageModuleForService(boolean expected) {	
+		Assert.assertEquals(disengageModuleForService , expected );		
+	}
+	public void setModuleParameters(String arg0,String arg1,String[] arg)  throws java.lang.Exception{
+
+	stub.setModuleParameters(arg0,arg1,arg);
+
+	}
+
 	public String[] getModuleParameters(String arg0,String arg)  throws java.lang.Exception{
 
 		this.getModuleParameters=stub.getModuleParameters(arg0,arg);

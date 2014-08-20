@@ -9,6 +9,8 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import client.configuration.AutomationConfigurationReader;
+
 public class AutomationContextTest {
 
 	@BeforeClass
@@ -31,30 +33,30 @@ public class AutomationContextTest {
 	@Test
 	public void context() {
 		Assert.assertEquals(
-				AutomationContext.context(AutomationContext.PRODUCT_HOST),
+				AutomationConfigurationReader.context(AutomationConfigurationReader.PRODUCT_HOST),
 				"localhost");
 		Assert.assertEquals(
-				AutomationContext
+				AutomationConfigurationReader
 						.context("//userManagement/tenants/tenant[@key='wso2']/admin/user[@key='admin']/userName"),
 				"admin");
 
-		Assert.assertEquals(AutomationContext.context("//no/nosuh/re"), "");
+		Assert.assertEquals(AutomationConfigurationReader.context("//no/nosuh/re"), "");
 	}
 
 	@Test
 	public void getPassword() {
 		try {
 			Assert.assertEquals(
-					AutomationContext.getPassword("admin", "admin"), "admin");
+					AutomationConfigurationReader.getPassword("admin", "admin"), "admin");
 		} catch (XPathExpressionException e) {
 			 Assert.fail();
 		}
 		
 		try {
 			Assert.assertEquals(
-					AutomationContext.getPassword("admin", "admin1"), "");
+					AutomationConfigurationReader.getPassword("admin", "admin1"), "");
 			Assert.assertEquals(
-					AutomationContext.getPassword("admin1", "admin"), "");
+					AutomationConfigurationReader.getPassword("admin1", "admin"), "");
 		} catch (XPathExpressionException e) {
 		}
 	}
@@ -63,16 +65,16 @@ public class AutomationContextTest {
 	public void getUserName() {
 		try {
 			Assert.assertEquals(
-					AutomationContext.getUserName("admin", "admin"), "admin");
+					AutomationConfigurationReader.getUserName("admin", "admin"), "admin");
 		} catch (XPathExpressionException e) {
 			 Assert.fail();
 		}
 		
 		try {
 			Assert.assertEquals(
-					AutomationContext.getUserName("admin", "admin1"), "");
+					AutomationConfigurationReader.getUserName("admin", "admin1"), "");
 			Assert.assertEquals(
-					AutomationContext.getUserName("admin1", "admin"), "");
+					AutomationConfigurationReader.getUserName("admin1", "admin"), "");
 		} catch (XPathExpressionException e) {
 		}
 	}
@@ -80,7 +82,7 @@ public class AutomationContextTest {
 	@Test
 	public void getHostName() {
 		try {
-			Assert.assertEquals(AutomationContext.getHostName(), "localhost");
+			Assert.assertEquals(AutomationConfigurationReader.getHostName(), "localhost");
 		} catch (XPathExpressionException e) {
 			 Assert.fail();
 		}
@@ -90,7 +92,7 @@ public class AutomationContextTest {
 	@Test
 	public void getDelayTime() {
 		try {
-			Assert.assertEquals(AutomationContext.getDeploymentDelay(), 60000);
+			Assert.assertEquals(AutomationConfigurationReader.getDeploymentDelay(), 60000);
 		} catch (XPathExpressionException e) {
 			 Assert.fail();
 		}

@@ -7,6 +7,8 @@ import org.apache.axiom.om.util.AXIOMUtil;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import client.support.modules.Standard;
+
 public class StandardTest {
 
 	@Test

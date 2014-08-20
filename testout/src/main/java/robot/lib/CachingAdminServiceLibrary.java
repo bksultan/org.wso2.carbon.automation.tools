@@ -34,30 +34,6 @@ public class CachingAdminServiceLibrary{
 	public void  AssertisCachingEnabledForService(boolean expected) {	
 		Assert.assertEquals(isCachingEnabledForService , expected );		
 	}
-	public boolean isCachingEnabledForOperation(String arg0,String arg)  throws java.lang.Exception{
-
-		this.isCachingEnabledForOperation=stub.isCachingEnabledForOperation(arg0,arg);
-		return this.isCachingEnabledForOperation;
-
-	}
-
-	private boolean isCachingEnabledForOperation;
-
-	public void  AssertisCachingEnabledForOperation(boolean expected) {	
-		Assert.assertEquals(isCachingEnabledForOperation , expected );		
-	}
-	public CachingConfigData getCachingPolicyForOperation(String arg0,String arg)  throws java.lang.Exception{
-
-		this.getCachingPolicyForOperation=stub.getCachingPolicyForOperation(arg0,arg);
-		return this.getCachingPolicyForOperation;
-
-	}
-
-	private CachingConfigData getCachingPolicyForOperation;
-
-	public void  AssertgetCachingPolicyForOperation(CachingConfigData expected) {	
-		Assert.assertEquals(getCachingPolicyForOperation , expected );		
-	}
 	public boolean engageCachingForOperation(String arg0,String arg1,CachingConfigData arg)  throws java.lang.Exception{
 
 		this.engageCachingForOperation=stub.engageCachingForOperation(arg0,arg1,arg);
@@ -142,6 +118,30 @@ public class CachingAdminServiceLibrary{
 
 	}
 
+	public boolean isCachingEnabledForOperation(String arg0,String arg)  throws java.lang.Exception{
+
+		this.isCachingEnabledForOperation=stub.isCachingEnabledForOperation(arg0,arg);
+		return this.isCachingEnabledForOperation;
+
+	}
+
+	private boolean isCachingEnabledForOperation;
+
+	public void  AssertisCachingEnabledForOperation(boolean expected) {	
+		Assert.assertEquals(isCachingEnabledForOperation , expected );		
+	}
+	public CachingConfigData getCachingPolicyForOperation(String arg0,String arg)  throws java.lang.Exception{
+
+		this.getCachingPolicyForOperation=stub.getCachingPolicyForOperation(arg0,arg);
+		return this.getCachingPolicyForOperation;
+
+	}
+
+	private CachingConfigData getCachingPolicyForOperation;
+
+	public void  AssertgetCachingPolicyForOperation(CachingConfigData expected) {	
+		Assert.assertEquals(getCachingPolicyForOperation , expected );		
+	}
 
 
 	public static void main(String[] args) {

@@ -41,6 +41,12 @@ public class PropertiesAdminServiceLibrary{
 	public void  AssertgetProperties(PropertiesBean expected) {	
 		Assert.assertEquals(getProperties , expected );		
 	}
+	public void removeProperty(String arg0,String arg)  throws java.lang.Exception{
+
+	stub.removeProperty(arg0,arg);
+
+	}
+
 	public RetentionBean getRetentionProperties(String arg)  throws java.lang.Exception{
 
 		this.getRetentionProperties=stub.getRetentionProperties(arg);
@@ -71,12 +77,6 @@ public class PropertiesAdminServiceLibrary{
 	public void  AssertsetRetentionProperties(boolean expected) {	
 		Assert.assertEquals(setRetentionProperties , expected );		
 	}
-	public void removeProperty(String arg0,String arg)  throws java.lang.Exception{
-
-	stub.removeProperty(arg0,arg);
-
-	}
-
 
 
 	public static void main(String[] args) {

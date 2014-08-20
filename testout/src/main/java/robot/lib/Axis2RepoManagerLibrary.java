@@ -24,18 +24,6 @@ public class Axis2RepoManagerLibrary{
 
 	}		
 
-	public boolean uploadArtifact(Axis2ArtifactUploadData[] arg0,String arg)  throws java.lang.Exception{
-
-		this.uploadArtifact=stub.uploadArtifact(arg0,arg);
-		return this.uploadArtifact;
-
-	}
-
-	private boolean uploadArtifact;
-
-	public void  AssertuploadArtifact(boolean expected) {	
-		Assert.assertEquals(uploadArtifact , expected );		
-	}
 	public boolean deleteLib(String arg)  throws java.lang.Exception{
 
 		this.deleteLib=stub.deleteLib(arg);
@@ -47,6 +35,18 @@ public class Axis2RepoManagerLibrary{
 
 	public void  AssertdeleteLib(boolean expected) {	
 		Assert.assertEquals(deleteLib , expected );		
+	}
+	public boolean uploadArtifact(Axis2ArtifactUploadData[] arg0,String arg)  throws java.lang.Exception{
+
+		this.uploadArtifact=stub.uploadArtifact(arg0,arg);
+		return this.uploadArtifact;
+
+	}
+
+	private boolean uploadArtifact;
+
+	public void  AssertuploadArtifact(boolean expected) {	
+		Assert.assertEquals(uploadArtifact , expected );		
 	}
 	public DirectoryStructureMetaData getDirectoryStructure()  throws java.lang.Exception{
 

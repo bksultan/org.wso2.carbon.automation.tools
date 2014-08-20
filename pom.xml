@@ -10,9 +10,6 @@
 	<name>WSO2 Carbon - Robot Testing Pom</name>
 	<url>http://wso2.org</url>
 
-<!-- 	<modules>		 -->
-<!-- 		<module>stubDependency</module> -->
-<!-- 	</modules> -->
 	
 	<properties>
 		<carbon.stub.version>4.3.0-SNAPSHOT</carbon.stub.version>
@@ -95,6 +92,8 @@
 		<plugins>
 
 
+<!-- uncomment robot framework plugin for debug purposes -->
+
 			<!-- <plugin> -->
 			<!-- <groupId>com.googlecode.robotframework-maven-plugin</groupId> -->
 			<!-- <artifactId>robotframework-maven-plugin</artifactId> -->
@@ -108,18 +107,7 @@
 			<!-- </executions> -->
 			<!-- </plugin> -->
 
-			<!-- <plugin> -->
-			<!-- <groupId>org.jvnet.maven.incrementalbuild</groupId> -->
-			<!-- <artifactId>incremental-build-plugin</artifactId> -->
-			<!-- <version>1.3</version> -->
-			<!-- <executions> -->
-			<!-- <execution> -->
-			<!-- <goals> -->
-			<!-- <goal>incremental-build</goal> -->
-			<!-- </goals> -->
-			<!-- </execution> -->
-			<!-- </executions> -->
-			<!-- </plugin> -->
+
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -130,7 +118,8 @@
 					<target>1.6</target>
 				</configuration>
 			</plugin>
-
+			
+<!-- to do: use mojo -->
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>exec-maven-plugin</artifactId>
@@ -144,7 +133,6 @@
 				</executions>
 				<configuration>
 					<mainClass>generator.ClientGenerator</mainClass>
-					<!-- <mainClass>lib.Test</mainClass> -->
 				</configuration>
 			</plugin>
 
@@ -189,14 +177,7 @@
 				<activeByDefault>true</activeByDefault>
 			</activation>
 			<modules>
-				<!-- <module>parent</module> -->
-				<!-- <module>dependencies</module> -->
-				<!-- <module>service-stubs</module> -->
-				<!-- <module>components</module> -->
-				<!--module>platform-integration/test-automation-framework</module -->
-				<!-- <module>features</module> -->
-				<!--module>samples/shopping-cart</module> <module>samples/shopping-cart-global</module -->
-				<!--module>products</module -->
+				
 			</modules>
 		</profile>
 		<profile>
@@ -209,14 +190,7 @@
 			</activation>
 
 			<modules>
-				<!-- <module>parent</module> -->
-				<!-- <module>dependencies</module> -->
-				<!-- <module>service-stubs</module> -->
-				<!-- <module>components</module> -->
-				<!-- <module>platform-integration/clarity-framework</module> -->
-				<!-- <module>features</module> -->
-				<!-- <module>samples/shopping-cart</module> -->
-				<!-- <module>samples/shopping-cart-global</module> -->
+				
 			</modules>
 		</profile>
 		<profile>
@@ -277,11 +251,6 @@
 			<groupId>org.wso2.carbon</groupId>
 			<artifactId>org.wso2.carbon.authenticator.stub</artifactId>
 		</dependency>
-<!-- 		<dependency> -->
-<!-- 			<groupId>org.wso2.carbon</groupId> -->
-<!-- 			<artifactId>org.wso2.carbon.statistics.stub</artifactId> -->
-<!-- 			<version>4.0.0</version> -->
-<!-- 		</dependency> -->
 
 		<dependency>
 			<groupId>org.apache.axis2.wso2</groupId>
@@ -294,14 +263,7 @@
 			<artifactId>ST4</artifactId>
 			<version>4.0.7</version>
 		</dependency>
-
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>3.8.1</version>
-			<scope>test</scope>
-		</dependency>
-
+		
 		<dependency>
 			<groupId>org.testng</groupId>
 			<artifactId>testng</artifactId>
@@ -340,24 +302,6 @@
 			<artifactId>org.wso2.carbon.proxyadmin.stub</artifactId>
 			<version>4.3.0-SNAPSHOT</version>
 		</dependency>
-
-<!-- 		<dependency> -->
-<!-- 			<groupId>org.wso2.carbon</groupId> -->
-<!-- 			<artifactId>org.wso2.carbon.aarservices.stub</artifactId> -->
-<!-- 			<version>4.2.0</version> -->
-<!-- 		</dependency> -->
-
-<!-- 		<dependency> -->
-<!-- 			<groupId>org.wso2.carbon</groupId> -->
-<!-- 			<artifactId>org.wso2.carbon.jarservices.stub</artifactId> -->
-<!-- 			<version>4.2.0</version> -->
-<!-- 		</dependency> -->
-		<!-- <dependency> -->
-		<!-- <groupId>org.wso2.carbon</groupId> -->
-		<!-- <artifactId>org.wso2.carbon.service.mgt.stub</artifactId> -->
-		<!-- <version>4.2.0</version> -->
-		<!-- </dependency> -->
-		<!-- ServiceAdmin -->
 
 		<!-- soa -->
 
@@ -459,12 +403,6 @@
 		</dependency>
 
 
-		<!-- <dependency> -->
-		<!-- <groupId>org.wso2.carbon.automation</groupId> -->
-		<!-- <artifactId>org.wso2.carbon.automation.utils</artifactId> -->
-		<!-- <version>4.2.7</version> -->
-		<!-- </dependency> -->
-
 		<dependency>
 			<groupId>org.wso2.carbon.automation</groupId>
 			<artifactId>org.wso2.carbon.automation.engine</artifactId>
@@ -507,10 +445,6 @@
 
 	<repositories>
 
-		<!-- <repository> -->
-		<!-- <id>my-internal-site</id> -->
-		<!-- <url>/home/rukshan/.m2/repository/</url> -->
-		<!-- </repository> -->
 
 		<repository>
 			<id>wso2-nexus</id>

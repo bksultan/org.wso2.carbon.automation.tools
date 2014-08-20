@@ -94,12 +94,6 @@ public class ThemeMgtServiceLibrary{
 
 	}
 
-	public void renameResource(String arg0,String arg1,String arg)  throws java.lang.Exception{
-
-	stub.renameResource(arg0,arg1,arg);
-
-	}
-
 	public String[] getAllThemes(String arg)  throws java.lang.Exception{
 
 		this.getAllThemes=stub.getAllThemes(arg);
@@ -130,6 +124,12 @@ public class ThemeMgtServiceLibrary{
 	public void  AssertgetAllPaths(String[] expected) {	
 		Assert.assertEquals(getAllPaths , expected );		
 	}
+	public void renameResource(String arg0,String arg1,String arg)  throws java.lang.Exception{
+
+	stub.renameResource(arg0,arg1,arg);
+
+	}
+
 	public ResourceData[] getResourceData(String[] arg)  throws java.lang.Exception{
 
 		this.getResourceData=stub.getResourceData(arg);

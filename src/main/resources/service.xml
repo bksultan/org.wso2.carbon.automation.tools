@@ -3,7 +3,8 @@
 <adminservices>
 	
 	<service stub="org.wso2.carbon.proxyadmin.stub.ProxyServiceAdminStub"
-		name="ProxyServiceAdmin" wsdl="ProxyServiceAdmin" lib="ProxyServiceAdminLibrary" />
+		name="ProxyServiceAdmin" wsdl="ProxyServiceAdmin" lib="ProxyServiceAdminLibrary" /> 
+<!-- 		rename -->
 		
 	<service stub="org.wso2.carbon.user.mgt.stub.UserAdminStub"
 		name="UserAdmin" wsdl="UserAdmin" lib="UserAdminLibrary" />

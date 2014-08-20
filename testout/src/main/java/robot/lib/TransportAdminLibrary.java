@@ -37,6 +37,12 @@ public class TransportAdminLibrary{
 	public void  AssertgetGloballyDefinedOutParameters(TransportParameter[] expected) {	
 		Assert.assertEquals(getGloballyDefinedOutParameters , expected );		
 	}
+	public void updateServiceSpecificOutParameters(String arg0,String arg1,TransportParameter[] arg)  throws java.lang.Exception{
+
+	stub.updateServiceSpecificOutParameters(arg0,arg1,arg);
+
+	}
+
 	public void updateGloballyDefinedInParameters(String arg0,TransportParameter[] arg)  throws java.lang.Exception{
 
 	stub.updateGloballyDefinedInParameters(arg0,arg);
@@ -46,12 +52,6 @@ public class TransportAdminLibrary{
 	public void updateServiceSpecificInParameters(String arg0,String arg1,TransportParameter[] arg)  throws java.lang.Exception{
 
 	stub.updateServiceSpecificInParameters(arg0,arg1,arg);
-
-	}
-
-	public void updateServiceSpecificOutParameters(String arg0,String arg1,TransportParameter[] arg)  throws java.lang.Exception{
-
-	stub.updateServiceSpecificOutParameters(arg0,arg1,arg);
 
 	}
 
@@ -97,18 +97,6 @@ public class TransportAdminLibrary{
 
 	}
 
-	public TransportData[] getAllTransportData()  throws java.lang.Exception{
-
-		this.getAllTransportData=stub.getAllTransportData();
-		return this.getAllTransportData;
-
-	}
-
-	private TransportData[] getAllTransportData;
-
-	public void  AssertgetAllTransportData(TransportData[] expected) {	
-		Assert.assertEquals(getAllTransportData , expected );		
-	}
 	public void addExposedTransports(String arg0,String arg)  throws java.lang.Exception{
 
 	stub.addExposedTransports(arg0,arg);
@@ -192,6 +180,18 @@ public class TransportAdminLibrary{
 
 	public void  AssertdependenciesAvailable(boolean expected) {	
 		Assert.assertEquals(dependenciesAvailable , expected );		
+	}
+	public TransportData[] getAllTransportData()  throws java.lang.Exception{
+
+		this.getAllTransportData=stub.getAllTransportData();
+		return this.getAllTransportData;
+
+	}
+
+	private TransportData[] getAllTransportData;
+
+	public void  AssertgetAllTransportData(TransportData[] expected) {	
+		Assert.assertEquals(getAllTransportData , expected );		
 	}
 
 

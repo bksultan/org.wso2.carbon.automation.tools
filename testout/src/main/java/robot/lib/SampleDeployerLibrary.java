@@ -22,36 +22,6 @@ public class SampleDeployerLibrary{
 
 	}		
 
-	public boolean deploySample(String arg0,String arg)  throws java.lang.Exception{
-
-		this.deploySample=stub.deploySample(arg0,arg);
-		return this.deploySample;
-
-	}
-
-	private boolean deploySample;
-
-	public void  AssertdeploySample(boolean expected) {	
-		Assert.assertEquals(deploySample , expected );		
-	}
-	public void setPolicyPermission()  throws java.lang.Exception{
-
-	stub.setPolicyPermission();
-
-	}
-
-	public SampleInformation[] getSampleInformation(String arg)  throws java.lang.Exception{
-
-		this.getSampleInformation=stub.getSampleInformation(arg);
-		return this.getSampleInformation;
-
-	}
-
-	private SampleInformation[] getSampleInformation;
-
-	public void  AssertgetSampleInformation(SampleInformation[] expected) {	
-		Assert.assertEquals(getSampleInformation , expected );		
-	}
 	public boolean uploadSample(String arg0,String arg)  throws java.lang.Exception{
 
 		this.uploadSample=stub.uploadSample(arg0,arg);
@@ -64,6 +34,36 @@ public class SampleDeployerLibrary{
 	public void  AssertuploadSample(boolean expected) {	
 		Assert.assertEquals(uploadSample , expected );		
 	}
+	public boolean deploySample(String arg0,String arg)  throws java.lang.Exception{
+
+		this.deploySample=stub.deploySample(arg0,arg);
+		return this.deploySample;
+
+	}
+
+	private boolean deploySample;
+
+	public void  AssertdeploySample(boolean expected) {	
+		Assert.assertEquals(deploySample , expected );		
+	}
+	public SampleInformation[] getSampleInformation(String arg)  throws java.lang.Exception{
+
+		this.getSampleInformation=stub.getSampleInformation(arg);
+		return this.getSampleInformation;
+
+	}
+
+	private SampleInformation[] getSampleInformation;
+
+	public void  AssertgetSampleInformation(SampleInformation[] expected) {	
+		Assert.assertEquals(getSampleInformation , expected );		
+	}
+	public void setPolicyPermission()  throws java.lang.Exception{
+
+	stub.setPolicyPermission();
+
+	}
+
 
 
 	public static void main(String[] args) {

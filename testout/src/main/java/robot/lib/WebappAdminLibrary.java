@@ -38,6 +38,12 @@ public class WebappAdminLibrary{
 	public void  AssertgetPagedFaultyWebappsSummary(WebappsWrapper expected) {	
 		Assert.assertEquals(getPagedFaultyWebappsSummary , expected );		
 	}
+	public void stopAllWebapps()  throws java.lang.Exception{
+
+	stub.stopAllWebapps();
+
+	}
+
 	public void deleteStoppedWebapps(String[] arg)  throws java.lang.Exception{
 
 	stub.deleteStoppedWebapps(arg);
@@ -92,12 +98,6 @@ public class WebappAdminLibrary{
 	public void  AssertisDefaultVersionManagementEnabled(boolean expected) {	
 		Assert.assertEquals(isDefaultVersionManagementEnabled , expected );		
 	}
-	public void stopAllWebapps()  throws java.lang.Exception{
-
-	stub.stopAllWebapps();
-
-	}
-
 	public void deleteAllStartedWebapps()  throws java.lang.Exception{
 
 	stub.deleteAllStartedWebapps();

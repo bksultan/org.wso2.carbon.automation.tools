@@ -6,6 +6,8 @@ import org.wso2.carbon.aarservices.stub.types.carbon.AARServiceData;
 import org.wso2.carbon.application.mgt.stub.upload.types.carbon.UploadedFileItem;
 import org.wso2.carbon.proxyadmin.stub.types.carbon.ProxyData;
 
+import client.support.modules.ObjectPool;
+
 public class ObjectPoolTest {
 
 	@Test

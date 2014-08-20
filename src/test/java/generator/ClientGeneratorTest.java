@@ -17,6 +17,8 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.w3c.dom.Document;
 
+import client.genration.ClientGenerator;
+
 public class ClientGeneratorTest {
 
 	@Test

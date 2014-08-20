@@ -16,7 +16,8 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.w3c.dom.Document;
 
-import property.AutomationContext;
+import client.configuration.AutomationConfigurationReader;
+import client.support.modules.AxisServiceClient;
 
 public class AxisServiceClientTest {
 
@@ -184,7 +185,7 @@ public class AxisServiceClientTest {
 		AxisServiceClient c = new AxisServiceClient();
 
 		try {
-			Class<?> cls = AutomationContext.class;
+			Class<?> cls = AutomationConfigurationReader.class;
 			Field xmlDocument = cls.getDeclaredField("xmlDocument");
 			xmlDocument.setAccessible(true);
 

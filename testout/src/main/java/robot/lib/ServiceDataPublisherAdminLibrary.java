@@ -22,6 +22,18 @@ public class ServiceDataPublisherAdminLibrary{
 
 	}		
 
+	public boolean isCloudDeployment()  throws java.lang.Exception{
+
+		this.isCloudDeployment=stub.isCloudDeployment();
+		return this.isCloudDeployment;
+
+	}
+
+	private boolean isCloudDeployment;
+
+	public void  AssertisCloudDeployment(boolean expected) {	
+		Assert.assertEquals(isCloudDeployment , expected );		
+	}
 	public void configureEventing(EventingConfigData arg)  throws java.lang.Exception{
 
 	stub.configureEventing(arg);
@@ -51,18 +63,6 @@ public class ServiceDataPublisherAdminLibrary{
 
 	public void  AssertgetServerConfigBAMServerURL(String expected) {	
 		Assert.assertEquals(getServerConfigBAMServerURL , expected );		
-	}
-	public boolean isCloudDeployment()  throws java.lang.Exception{
-
-		this.isCloudDeployment=stub.isCloudDeployment();
-		return this.isCloudDeployment;
-
-	}
-
-	private boolean isCloudDeployment;
-
-	public void  AssertisCloudDeployment(boolean expected) {	
-		Assert.assertEquals(isCloudDeployment , expected );		
 	}
 
 

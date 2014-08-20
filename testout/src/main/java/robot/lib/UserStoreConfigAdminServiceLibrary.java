@@ -23,30 +23,6 @@ public class UserStoreConfigAdminServiceLibrary{
 
 	}		
 
-	public Properties getUserStoreManagerProperties(String arg)  throws java.lang.Exception{
-
-		this.getUserStoreManagerProperties=stub.getUserStoreManagerProperties(arg);
-		return this.getUserStoreManagerProperties;
-
-	}
-
-	private Properties getUserStoreManagerProperties;
-
-	public void  AssertgetUserStoreManagerProperties(Properties expected) {	
-		Assert.assertEquals(getUserStoreManagerProperties , expected );		
-	}
-	public void addUserStore(UserStoreDTO arg)  throws java.lang.Exception{
-
-	stub.addUserStore(arg);
-
-	}
-
-	public void editUserStore(UserStoreDTO arg)  throws java.lang.Exception{
-
-	stub.editUserStore(arg);
-
-	}
-
 	public UserStoreDTO[] getSecondaryRealmConfigurations()  throws java.lang.Exception{
 
 		this.getSecondaryRealmConfigurations=stub.getSecondaryRealmConfigurations();
@@ -58,6 +34,18 @@ public class UserStoreConfigAdminServiceLibrary{
 
 	public void  AssertgetSecondaryRealmConfigurations(UserStoreDTO[] expected) {	
 		Assert.assertEquals(getSecondaryRealmConfigurations , expected );		
+	}
+	public Properties getUserStoreManagerProperties(String arg)  throws java.lang.Exception{
+
+		this.getUserStoreManagerProperties=stub.getUserStoreManagerProperties(arg);
+		return this.getUserStoreManagerProperties;
+
+	}
+
+	private Properties getUserStoreManagerProperties;
+
+	public void  AssertgetUserStoreManagerProperties(Properties expected) {	
+		Assert.assertEquals(getUserStoreManagerProperties , expected );		
 	}
 	public String[] getAvailableUserStoreClasses()  throws java.lang.Exception{
 
@@ -71,6 +59,12 @@ public class UserStoreConfigAdminServiceLibrary{
 	public void  AssertgetAvailableUserStoreClasses(String[] expected) {	
 		Assert.assertEquals(getAvailableUserStoreClasses , expected );		
 	}
+	public void editUserStore(UserStoreDTO arg)  throws java.lang.Exception{
+
+	stub.editUserStore(arg);
+
+	}
+
 	public void deleteUserStore(String arg)  throws java.lang.Exception{
 
 	stub.deleteUserStore(arg);
@@ -92,6 +86,12 @@ public class UserStoreConfigAdminServiceLibrary{
 	public void changeUserStoreState(String arg0,boolean arg)  throws java.lang.Exception{
 
 	stub.changeUserStoreState(arg0,arg);
+
+	}
+
+	public void addUserStore(UserStoreDTO arg)  throws java.lang.Exception{
+
+	stub.addUserStore(arg);
 
 	}
 
