@@ -23,7 +23,7 @@ goto showHelp
 
 :generate
 echo ------------Generating libraries------------
-mvn exec:java -Dexec.mainClass="generator.ClientGenerator" -Dexec.args="%1"
+mvn exec:java -Dexec.mainClass="client.genration.ServiceStubClientGenerator" -Dexec.args="%1"
 goto end
 
 

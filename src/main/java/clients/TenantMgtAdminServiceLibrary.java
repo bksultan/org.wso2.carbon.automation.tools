@@ -1,17 +1,27 @@
-//package robotlib;
 package clients;
 
+import client.support.modules.AuthenticationLibrary;
 import org.apache.axis2.AxisFault;
 import org.apache.axis2.client.Options;
 import org.apache.axis2.client.ServiceClient;
 import org.testng.Assert;
+import client.configuration.AutomationConfigurationReader;
 import org.wso2.carbon.tenant.mgt.stub.beans.xsd.TenantInfoBean;
 import org.wso2.carbon.tenant.mgt.stub.TenantMgtAdminServiceStub;
 import org.wso2.carbon.tenant.mgt.stub.beans.xsd.PaginatedTenantInfoBean;
 
-import client.configuration.AutomationConfigurationReader;
-import client.support.modules.AuthenticationLibrary;
 
+/**
+ * Auto generated TenantMgtAdminService service Client
+ *
+ * Service name : TenantMgtAdminService
+ * Service WSDL : TenantMgtAdminService.wsdl
+ * Service stub class : TenantMgtAdminServiceStub
+ * Client Library : TenantMgtAdminServiceLibrary
+ *
+ * @author rukshan
+ * 
+ */
 
 public class TenantMgtAdminServiceLibrary{
 	public static final String ROBOT_LIBRARY_SCOPE = "GLOBAL";
@@ -23,6 +33,12 @@ public class TenantMgtAdminServiceLibrary{
 	public TenantMgtAdminServiceLibrary(){
 
 	}		
+
+	public void updateTenant(TenantInfoBean arg)  throws java.lang.Exception{
+
+	stub.updateTenant(arg);
+
+	}
 
 	public TenantInfoBean[] retrievePartialSearchTenants(String arg)  throws java.lang.Exception{
 
@@ -126,27 +142,13 @@ public class TenantMgtAdminServiceLibrary{
 	public void  AssertaddTenant(String expected) {	
 		Assert.assertEquals(addTenant , expected );		
 	}
-	public void updateTenant(TenantInfoBean arg)  throws java.lang.Exception{
-
-	stub.updateTenant(arg);
-
-	}
 
 
-
-	public static void main(String[] args) {
-		//TenantMgtAdminServiceLibrary l=new TenantMgtAdminServiceLibrary();
-		//l.setX(10);
-		//l.setY(25);
-		//System.out.println(l.getSum());
-	}
 
 	public void initTenantMgtAdminService() throws AxisFault {
 		String sessionCookie=AuthenticationLibrary.sessionString;
 		String serviceName = "TenantMgtAdminService";
 		String endPoint;
-		//String host = PropertyInfo.read("host");
-		//String port = PropertyInfo.read("port");
 		String host = AutomationConfigurationReader.context(AutomationConfigurationReader.PRODUCT_HOST);
 		String port = AutomationConfigurationReader.context(AutomationConfigurationReader.PRODUCT_PORT);
 		String backEndUrl = "https://" + host + ":" + port + "/services/";

@@ -132,7 +132,7 @@
 					</execution>
 				</executions>
 				<configuration>
-					<mainClass>generator.ClientGenerator</mainClass>
+					<mainClass>client.genration.ServiceStubClientGenerator</mainClass>
 				</configuration>
 			</plugin>
 

@@ -1,18 +1,27 @@
-//package robotlib;
 package clients;
 
+import client.support.modules.AuthenticationLibrary;
 import org.apache.axis2.AxisFault;
 import org.apache.axis2.client.Options;
 import org.apache.axis2.client.ServiceClient;
 import org.testng.Assert;
+import client.configuration.AutomationConfigurationReader;
 import org.wso2.carbon.application.mgt.stub.ApplicationAdminStub;
 import org.wso2.carbon.application.mgt.stub.types.carbon.ApplicationMetadata;
-
-import client.configuration.AutomationConfigurationReader;
-import client.support.modules.AuthenticationLibrary;
-
 import javax.activation.DataHandler;
 
+
+/**
+ * Auto generated ApplicationAdmin service Client
+ *
+ * Service name : ApplicationAdmin
+ * Service WSDL : ApplicationAdmin.wsdl
+ * Service stub class : ApplicationAdminStub
+ * Client Library : ApplicationAdminLibrary
+ *
+ * @author rukshan
+ * 
+ */
 
 public class ApplicationAdminLibrary{
 	public static final String ROBOT_LIBRARY_SCOPE = "GLOBAL";
@@ -24,6 +33,54 @@ public class ApplicationAdminLibrary{
 	public ApplicationAdminLibrary(){
 
 	}		
+
+	public ApplicationMetadata getAppData(String arg)  throws java.lang.Exception{
+
+		this.getAppData=stub.getAppData(arg);
+		return this.getAppData;
+
+	}
+
+	private ApplicationMetadata getAppData;
+
+	public void  AssertgetAppData(ApplicationMetadata expected) {	
+		Assert.assertEquals(getAppData , expected );		
+	}
+	public void deleteFaultyApplication(String[] arg)  throws java.lang.Exception{
+
+	stub.deleteFaultyApplication(arg);
+
+	}
+
+	public String[] listAllFaultyApplications()  throws java.lang.Exception{
+
+		this.listAllFaultyApplications=stub.listAllFaultyApplications();
+		return this.listAllFaultyApplications;
+
+	}
+
+	private String[] listAllFaultyApplications;
+
+	public void  AssertlistAllFaultyApplications(String[] expected) {	
+		Assert.assertEquals(listAllFaultyApplications , expected );		
+	}
+	public String[] listAllApplications()  throws java.lang.Exception{
+
+		this.listAllApplications=stub.listAllApplications();
+		return this.listAllApplications;
+
+	}
+
+	private String[] listAllApplications;
+
+	public void  AssertlistAllApplications(String[] expected) {	
+		Assert.assertEquals(listAllApplications , expected );		
+	}
+	public void deleteApplication(String arg)  throws java.lang.Exception{
+
+	stub.deleteApplication(arg);
+
+	}
 
 	public DataHandler downloadCappArchive(String arg)  throws java.lang.Exception{
 
@@ -55,69 +112,13 @@ public class ApplicationAdminLibrary{
 
 	}
 
-	public void deleteFaultyApplication(String[] arg)  throws java.lang.Exception{
-
-	stub.deleteFaultyApplication(arg);
-
-	}
-
-	public String[] listAllFaultyApplications()  throws java.lang.Exception{
-
-		this.listAllFaultyApplications=stub.listAllFaultyApplications();
-		return this.listAllFaultyApplications;
-
-	}
-
-	private String[] listAllFaultyApplications;
-
-	public void  AssertlistAllFaultyApplications(String[] expected) {	
-		Assert.assertEquals(listAllFaultyApplications , expected );		
-	}
-	public ApplicationMetadata getAppData(String arg)  throws java.lang.Exception{
-
-		this.getAppData=stub.getAppData(arg);
-		return this.getAppData;
-
-	}
-
-	private ApplicationMetadata getAppData;
-
-	public void  AssertgetAppData(ApplicationMetadata expected) {	
-		Assert.assertEquals(getAppData , expected );		
-	}
-	public String[] listAllApplications()  throws java.lang.Exception{
-
-		this.listAllApplications=stub.listAllApplications();
-		return this.listAllApplications;
-
-	}
-
-	private String[] listAllApplications;
-
-	public void  AssertlistAllApplications(String[] expected) {	
-		Assert.assertEquals(listAllApplications , expected );		
-	}
-	public void deleteApplication(String arg)  throws java.lang.Exception{
-
-	stub.deleteApplication(arg);
-
-	}
 
 
-
-	public static void main(String[] args) {
-		//ApplicationAdminLibrary l=new ApplicationAdminLibrary();
-		//l.setX(10);
-		//l.setY(25);
-		//System.out.println(l.getSum());
-	}
 
 	public void initApplicationAdmin() throws AxisFault {
 		String sessionCookie=AuthenticationLibrary.sessionString;
 		String serviceName = "ApplicationAdmin";
 		String endPoint;
-		//String host = PropertyInfo.read("host");
-		//String port = PropertyInfo.read("port");
 		String host = AutomationConfigurationReader.context(AutomationConfigurationReader.PRODUCT_HOST);
 		String port = AutomationConfigurationReader.context(AutomationConfigurationReader.PRODUCT_PORT);
 		String backEndUrl = "https://" + host + ":" + port + "/services/";

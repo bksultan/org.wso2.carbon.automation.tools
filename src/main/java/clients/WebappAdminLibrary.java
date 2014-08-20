@@ -1,21 +1,30 @@
-//package robotlib;
 package clients;
 
+import client.support.modules.AuthenticationLibrary;
 import org.apache.axis2.AxisFault;
 import org.apache.axis2.client.Options;
 import org.apache.axis2.client.ServiceClient;
 import org.testng.Assert;
+import client.configuration.AutomationConfigurationReader;
 import org.wso2.carbon.webapp.mgt.stub.types.carbon.WebappUploadData;
 import org.wso2.carbon.webapp.mgt.stub.types.carbon.WebappsWrapper;
 import org.wso2.carbon.webapp.mgt.stub.types.carbon.SessionsWrapper;
 import org.wso2.carbon.webapp.mgt.stub.WebappAdminStub;
 import org.wso2.carbon.webapp.mgt.stub.types.carbon.WebappMetadata;
-
-import client.configuration.AutomationConfigurationReader;
-import client.support.modules.AuthenticationLibrary;
-
 import javax.activation.DataHandler;
 
+
+/**
+ * Auto generated WebappAdmin service Client
+ *
+ * Service name : WebappAdmin
+ * Service WSDL : WebappAdmin.wsdl
+ * Service stub class : WebappAdminStub
+ * Client Library : WebappAdminLibrary
+ *
+ * @author rukshan
+ * 
+ */
 
 public class WebappAdminLibrary{
 	public static final String ROBOT_LIBRARY_SCOPE = "GLOBAL";
@@ -276,19 +285,11 @@ public class WebappAdminLibrary{
 	}
 
 
-	public static void main(String[] args) {
-		//WebappAdminLibrary l=new WebappAdminLibrary();
-		//l.setX(10);
-		//l.setY(25);
-		//System.out.println(l.getSum());
-	}
 
 	public void initWebappAdmin() throws AxisFault {
 		String sessionCookie=AuthenticationLibrary.sessionString;
 		String serviceName = "WebappAdmin";
 		String endPoint;
-		//String host = PropertyInfo.read("host");
-		//String port = PropertyInfo.read("port");
 		String host = AutomationConfigurationReader.context(AutomationConfigurationReader.PRODUCT_HOST);
 		String port = AutomationConfigurationReader.context(AutomationConfigurationReader.PRODUCT_PORT);
 		String backEndUrl = "https://" + host + ":" + port + "/services/";

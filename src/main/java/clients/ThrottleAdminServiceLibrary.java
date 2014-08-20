@@ -1,16 +1,26 @@
-//package robotlib;
 package clients;
 
+import client.support.modules.AuthenticationLibrary;
 import org.apache.axis2.AxisFault;
 import org.apache.axis2.client.Options;
 import org.apache.axis2.client.ServiceClient;
 import org.testng.Assert;
+import client.configuration.AutomationConfigurationReader;
 import org.wso2.carbon.throttle.stub.ThrottleAdminServiceStub;
 import org.wso2.carbon.throttle.stub.types.ThrottlePolicy;
 
-import client.configuration.AutomationConfigurationReader;
-import client.support.modules.AuthenticationLibrary;
 
+/**
+ * Auto generated ThrottleAdminService service Client
+ *
+ * Service name : ThrottleAdminService
+ * Service WSDL : ThrottleAdminService.wsdl
+ * Service stub class : ThrottleAdminServiceStub
+ * Client Library : ThrottleAdminServiceLibrary
+ *
+ * @author rukshan
+ * 
+ */
 
 public class ThrottleAdminServiceLibrary{
 	public static final String ROBOT_LIBRARY_SCOPE = "GLOBAL";
@@ -23,42 +33,12 @@ public class ThrottleAdminServiceLibrary{
 
 	}		
 
-	public ThrottlePolicy getOperationPolicyConfigs(String arg0,String arg)  throws java.lang.Exception{
-
-		this.getOperationPolicyConfigs=stub.getOperationPolicyConfigs(arg0,arg);
-		return this.getOperationPolicyConfigs;
-
-	}
-
-	private ThrottlePolicy getOperationPolicyConfigs;
-
-	public void  AssertgetOperationPolicyConfigs(ThrottlePolicy expected) {	
-		Assert.assertEquals(getOperationPolicyConfigs , expected );		
-	}
 	public void disengageGlobalThrottling()  throws java.lang.Exception{
 
 	stub.disengageGlobalThrottling();
 
 	}
 
-	public void enableThrottling(String arg0,ThrottlePolicy arg)  throws java.lang.Exception{
-
-	stub.enableThrottling(arg0,arg);
-
-	}
-
-	public String throttlePolicyToString(ThrottlePolicy arg)  throws java.lang.Exception{
-
-		this.throttlePolicyToString=stub.throttlePolicyToString(arg);
-		return this.throttlePolicyToString;
-
-	}
-
-	private String throttlePolicyToString;
-
-	public void  AssertthrottlePolicyToString(String expected) {	
-		Assert.assertEquals(throttlePolicyToString , expected );		
-	}
 	public ThrottlePolicy getPolicyConfigs(String arg)  throws java.lang.Exception{
 
 		this.getPolicyConfigs=stub.getPolicyConfigs(arg);
@@ -101,6 +81,36 @@ public class ThrottleAdminServiceLibrary{
 	public void  AssertengageThrottlingForOperation(boolean expected) {	
 		Assert.assertEquals(engageThrottlingForOperation , expected );		
 	}
+	public ThrottlePolicy getOperationPolicyConfigs(String arg0,String arg)  throws java.lang.Exception{
+
+		this.getOperationPolicyConfigs=stub.getOperationPolicyConfigs(arg0,arg);
+		return this.getOperationPolicyConfigs;
+
+	}
+
+	private ThrottlePolicy getOperationPolicyConfigs;
+
+	public void  AssertgetOperationPolicyConfigs(ThrottlePolicy expected) {	
+		Assert.assertEquals(getOperationPolicyConfigs , expected );		
+	}
+	public void enableThrottling(String arg0,ThrottlePolicy arg)  throws java.lang.Exception{
+
+	stub.enableThrottling(arg0,arg);
+
+	}
+
+	public String throttlePolicyToString(ThrottlePolicy arg)  throws java.lang.Exception{
+
+		this.throttlePolicyToString=stub.throttlePolicyToString(arg);
+		return this.throttlePolicyToString;
+
+	}
+
+	private String throttlePolicyToString;
+
+	public void  AssertthrottlePolicyToString(String expected) {	
+		Assert.assertEquals(throttlePolicyToString , expected );		
+	}
 	public void globallyEngageThrottling(ThrottlePolicy arg)  throws java.lang.Exception{
 
 	stub.globallyEngageThrottling(arg);
@@ -133,19 +143,11 @@ public class ThrottleAdminServiceLibrary{
 	}
 
 
-	public static void main(String[] args) {
-		//ThrottleAdminServiceLibrary l=new ThrottleAdminServiceLibrary();
-		//l.setX(10);
-		//l.setY(25);
-		//System.out.println(l.getSum());
-	}
 
 	public void initThrottleAdminService() throws AxisFault {
 		String sessionCookie=AuthenticationLibrary.sessionString;
 		String serviceName = "ThrottleAdminService";
 		String endPoint;
-		//String host = PropertyInfo.read("host");
-		//String port = PropertyInfo.read("port");
 		String host = AutomationConfigurationReader.context(AutomationConfigurationReader.PRODUCT_HOST);
 		String port = AutomationConfigurationReader.context(AutomationConfigurationReader.PRODUCT_PORT);
 		String backEndUrl = "https://" + host + ":" + port + "/services/";

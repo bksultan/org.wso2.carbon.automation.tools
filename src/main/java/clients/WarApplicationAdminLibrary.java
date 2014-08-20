@@ -1,16 +1,26 @@
-//package robotlib;
 package clients;
 
+import client.support.modules.AuthenticationLibrary;
 import org.apache.axis2.AxisFault;
 import org.apache.axis2.client.Options;
 import org.apache.axis2.client.ServiceClient;
 import org.testng.Assert;
+import client.configuration.AutomationConfigurationReader;
 import org.wso2.carbon.application.mgt.webapp.stub.WarApplicationAdminStub;
 import org.wso2.carbon.application.mgt.webapp.stub.types.carbon.WarCappMetadata;
 
-import client.configuration.AutomationConfigurationReader;
-import client.support.modules.AuthenticationLibrary;
 
+/**
+ * Auto generated WarApplicationAdmin service Client
+ *
+ * Service name : WarApplicationAdmin
+ * Service WSDL : WarApplicationAdmin.wsdl
+ * Service stub class : WarApplicationAdminStub
+ * Client Library : WarApplicationAdminLibrary
+ *
+ * @author rukshan
+ * 
+ */
 
 public class WarApplicationAdminLibrary{
 	public static final String ROBOT_LIBRARY_SCOPE = "GLOBAL";
@@ -49,19 +59,11 @@ public class WarApplicationAdminLibrary{
 	}
 
 
-	public static void main(String[] args) {
-		//WarApplicationAdminLibrary l=new WarApplicationAdminLibrary();
-		//l.setX(10);
-		//l.setY(25);
-		//System.out.println(l.getSum());
-	}
 
 	public void initWarApplicationAdmin() throws AxisFault {
 		String sessionCookie=AuthenticationLibrary.sessionString;
 		String serviceName = "WarApplicationAdmin";
 		String endPoint;
-		//String host = PropertyInfo.read("host");
-		//String port = PropertyInfo.read("port");
 		String host = AutomationConfigurationReader.context(AutomationConfigurationReader.PRODUCT_HOST);
 		String port = AutomationConfigurationReader.context(AutomationConfigurationReader.PRODUCT_PORT);
 		String backEndUrl = "https://" + host + ":" + port + "/services/";

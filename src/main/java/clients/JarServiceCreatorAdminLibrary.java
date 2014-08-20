@@ -1,18 +1,28 @@
-//package robotlib;
 package clients;
 
+import client.support.modules.AuthenticationLibrary;
 import org.apache.axis2.AxisFault;
 import org.apache.axis2.client.Options;
 import org.apache.axis2.client.ServiceClient;
 import org.testng.Assert;
+import client.configuration.AutomationConfigurationReader;
 import org.wso2.carbon.jarservices.stub.types.Resource;
 import org.wso2.carbon.jarservices.stub.types.UploadArtifactsResponse;
 import org.wso2.carbon.jarservices.stub.types.Service;
 import org.wso2.carbon.jarservices.stub.JarServiceCreatorAdminStub;
 
-import client.configuration.AutomationConfigurationReader;
-import client.support.modules.AuthenticationLibrary;
 
+/**
+ * Auto generated JarServiceCreatorAdmin service Client
+ *
+ * Service name : JarServiceCreatorAdmin
+ * Service WSDL : JarServiceCreatorAdmin.wsdl
+ * Service stub class : JarServiceCreatorAdminStub
+ * Client Library : JarServiceCreatorAdminLibrary
+ *
+ * @author rukshan
+ * 
+ */
 
 public class JarServiceCreatorAdminLibrary{
 	public static final String ROBOT_LIBRARY_SCOPE = "GLOBAL";
@@ -24,12 +34,6 @@ public class JarServiceCreatorAdminLibrary{
 	public JarServiceCreatorAdminLibrary(){
 
 	}		
-
-	public void uploadService()  throws java.lang.Exception{
-
-	stub.uploadService();
-
-	}
 
 	public void createAndDeployService(String arg0,String arg1,String arg2,Service[] arg)  throws java.lang.Exception{
 
@@ -49,6 +53,12 @@ public class JarServiceCreatorAdminLibrary{
 	public void  AssertgetClassMethods(Service[] expected) {	
 		Assert.assertEquals(getClassMethods , expected );		
 	}
+	public void uploadService()  throws java.lang.Exception{
+
+	stub.uploadService();
+
+	}
+
 	public UploadArtifactsResponse upload(String arg0,Resource arg1,Resource[] arg)  throws java.lang.Exception{
 
 		this.upload=stub.upload(arg0,arg1,arg);
@@ -63,19 +73,11 @@ public class JarServiceCreatorAdminLibrary{
 	}
 
 
-	public static void main(String[] args) {
-		//JarServiceCreatorAdminLibrary l=new JarServiceCreatorAdminLibrary();
-		//l.setX(10);
-		//l.setY(25);
-		//System.out.println(l.getSum());
-	}
 
 	public void initJarServiceCreatorAdmin() throws AxisFault {
 		String sessionCookie=AuthenticationLibrary.sessionString;
 		String serviceName = "JarServiceCreatorAdmin";
 		String endPoint;
-		//String host = PropertyInfo.read("host");
-		//String port = PropertyInfo.read("port");
 		String host = AutomationConfigurationReader.context(AutomationConfigurationReader.PRODUCT_HOST);
 		String port = AutomationConfigurationReader.context(AutomationConfigurationReader.PRODUCT_PORT);
 		String backEndUrl = "https://" + host + ":" + port + "/services/";

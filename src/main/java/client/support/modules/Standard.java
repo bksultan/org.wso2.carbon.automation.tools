@@ -16,7 +16,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
 import client.configuration.AutomationConfigurationReader;
-import client.genration.ClientGenerator;
+import client.genration.ServiceStubClientGenerator;
 
 /**
  * Provide the standard Asserting functions
@@ -156,7 +156,7 @@ public class Standard {
 				res[0] = ele.getAttribute("stub"); // get the stub class name
 				res[1] = ele.getAttribute("wsdl"); // get the wsdl name
 
-				new ClientGenerator().generateClient(res); // generate class one
+				new ServiceStubClientGenerator().generateClient(res); // generate class one
 															// by one
 
 			}

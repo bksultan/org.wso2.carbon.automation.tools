@@ -1,19 +1,29 @@
-//package robotlib;
 package clients;
 
+import client.support.modules.AuthenticationLibrary;
 import org.apache.axis2.AxisFault;
 import org.apache.axis2.client.Options;
 import org.apache.axis2.client.ServiceClient;
 import org.testng.Assert;
+import client.configuration.AutomationConfigurationReader;
 import org.wso2.carbon.discovery.admin.stub.types.mgt.TargetServiceDetails;
 import org.wso2.carbon.discovery.admin.stub.types.DiscoveryAdminStub;
 import org.wso2.carbon.discovery.admin.stub.types.mgt.DiscoveryProxyDetails;
 import org.wso2.carbon.discovery.admin.stub.types.mgt.ProbeDetails;
 import org.wso2.carbon.discovery.admin.stub.types.mgt.ServiceDiscoveryConfig;
 
-import client.configuration.AutomationConfigurationReader;
-import client.support.modules.AuthenticationLibrary;
 
+/**
+ * Auto generated DiscoveryAdmin service Client
+ *
+ * Service name : DiscoveryAdmin
+ * Service WSDL : DiscoveryAdmin.wsdl
+ * Service stub class : DiscoveryAdminStub
+ * Client Library : DiscoveryAdminLibrary
+ *
+ * @author rukshan
+ * 
+ */
 
 public class DiscoveryAdminLibrary{
 	public static final String ROBOT_LIBRARY_SCOPE = "GLOBAL";
@@ -38,18 +48,6 @@ public class DiscoveryAdminLibrary{
 	public void  AssertgetDiscoveryProxy(DiscoveryProxyDetails expected) {	
 		Assert.assertEquals(getDiscoveryProxy , expected );		
 	}
-	public void enableServiceDiscovery(String arg)  throws java.lang.Exception{
-
-	stub.enableServiceDiscovery(arg);
-
-	}
-
-	public void disableServiceDiscovery(boolean arg)  throws java.lang.Exception{
-
-	stub.disableServiceDiscovery(arg);
-
-	}
-
 	public TargetServiceDetails resolveTargetService(String arg0,String arg)  throws java.lang.Exception{
 
 		this.resolveTargetService=stub.resolveTargetService(arg0,arg);
@@ -62,6 +60,18 @@ public class DiscoveryAdminLibrary{
 	public void  AssertresolveTargetService(TargetServiceDetails expected) {	
 		Assert.assertEquals(resolveTargetService , expected );		
 	}
+	public void enableServiceDiscovery(String arg)  throws java.lang.Exception{
+
+	stub.enableServiceDiscovery(arg);
+
+	}
+
+	public void disableServiceDiscovery(boolean arg)  throws java.lang.Exception{
+
+	stub.disableServiceDiscovery(arg);
+
+	}
+
 	public void addDiscoveryProxy(DiscoveryProxyDetails arg)  throws java.lang.Exception{
 
 	stub.addDiscoveryProxy(arg);
@@ -118,19 +128,11 @@ public class DiscoveryAdminLibrary{
 
 
 
-	public static void main(String[] args) {
-		//DiscoveryAdminLibrary l=new DiscoveryAdminLibrary();
-		//l.setX(10);
-		//l.setY(25);
-		//System.out.println(l.getSum());
-	}
 
 	public void initDiscoveryAdmin() throws AxisFault {
 		String sessionCookie=AuthenticationLibrary.sessionString;
 		String serviceName = "DiscoveryAdmin";
 		String endPoint;
-		//String host = PropertyInfo.read("host");
-		//String port = PropertyInfo.read("port");
 		String host = AutomationConfigurationReader.context(AutomationConfigurationReader.PRODUCT_HOST);
 		String port = AutomationConfigurationReader.context(AutomationConfigurationReader.PRODUCT_PORT);
 		String backEndUrl = "https://" + host + ":" + port + "/services/";

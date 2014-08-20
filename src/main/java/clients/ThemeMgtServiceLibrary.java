@@ -1,24 +1,32 @@
-//package robotlib;
 package clients;
 
+import client.support.modules.AuthenticationLibrary;
 import org.apache.axis2.AxisFault;
 import org.apache.axis2.client.Options;
 import org.apache.axis2.client.ServiceClient;
 import org.testng.Assert;
+import client.configuration.AutomationConfigurationReader;
 import org.wso2.carbon.theme.mgt.stub.registry.resource.stub.common.xsd.ResourceData;
 import org.wso2.carbon.theme.mgt.stub.registry.resource.stub.beans.xsd.ContentBean;
 import org.wso2.carbon.theme.mgt.stub.registry.resource.stub.beans.xsd.ContentDownloadBean;
 import org.wso2.carbon.theme.mgt.stub.registry.resource.stub.beans.xsd.ResourceTreeEntryBean;
 import org.wso2.carbon.theme.mgt.stub.ThemeMgtServiceStub;
 import org.wso2.carbon.theme.mgt.stub.registry.resource.stub.beans.xsd.MetadataBean;
-
 import javax.activation.DataHandler;
-
 import org.wso2.carbon.theme.mgt.stub.registry.resource.stub.beans.xsd.CollectionContentBean;
 
-import client.configuration.AutomationConfigurationReader;
-import client.support.modules.AuthenticationLibrary;
 
+/**
+ * Auto generated ThemeMgtService service Client
+ *
+ * Service name : ThemeMgtService
+ * Service WSDL : ThemeMgtService.wsdl
+ * Service stub class : ThemeMgtServiceStub
+ * Client Library : ThemeMgtServiceLibrary
+ *
+ * @author rukshan
+ * 
+ */
 
 public class ThemeMgtServiceLibrary{
 	public static final String ROBOT_LIBRARY_SCOPE = "GLOBAL";
@@ -37,24 +45,6 @@ public class ThemeMgtServiceLibrary{
 
 	}
 
-	public void importResource(String arg0,String arg1,String arg2,String arg3,String arg4,String arg5,String arg)  throws java.lang.Exception{
-
-	stub.importResource(arg0,arg1,arg2,arg3,arg4,arg5,arg);
-
-	}
-
-	public ResourceTreeEntryBean getResourceTreeEntry(String arg)  throws java.lang.Exception{
-
-		this.getResourceTreeEntry=stub.getResourceTreeEntry(arg);
-		return this.getResourceTreeEntry;
-
-	}
-
-	private ResourceTreeEntryBean getResourceTreeEntry;
-
-	public void  AssertgetResourceTreeEntry(ResourceTreeEntryBean expected) {	
-		Assert.assertEquals(getResourceTreeEntry , expected );		
-	}
 	public String[] getAllThemes(String arg)  throws java.lang.Exception{
 
 		this.getAllThemes=stub.getAllThemes(arg);
@@ -84,6 +74,24 @@ public class ThemeMgtServiceLibrary{
 
 	public void  AssertgetAllPaths(String[] expected) {	
 		Assert.assertEquals(getAllPaths , expected );		
+	}
+	public void importResource(String arg0,String arg1,String arg2,String arg3,String arg4,String arg5,String arg)  throws java.lang.Exception{
+
+	stub.importResource(arg0,arg1,arg2,arg3,arg4,arg5,arg);
+
+	}
+
+	public ResourceTreeEntryBean getResourceTreeEntry(String arg)  throws java.lang.Exception{
+
+		this.getResourceTreeEntry=stub.getResourceTreeEntry(arg);
+		return this.getResourceTreeEntry;
+
+	}
+
+	private ResourceTreeEntryBean getResourceTreeEntry;
+
+	public void  AssertgetResourceTreeEntry(ResourceTreeEntryBean expected) {	
+		Assert.assertEquals(getResourceTreeEntry , expected );		
 	}
 	public void updateTextContent(String arg0,String arg)  throws java.lang.Exception{
 
@@ -207,19 +215,11 @@ public class ThemeMgtServiceLibrary{
 
 
 
-	public static void main(String[] args) {
-		//ThemeMgtServiceLibrary l=new ThemeMgtServiceLibrary();
-		//l.setX(10);
-		//l.setY(25);
-		//System.out.println(l.getSum());
-	}
 
 	public void initThemeMgtService() throws AxisFault {
 		String sessionCookie=AuthenticationLibrary.sessionString;
 		String serviceName = "ThemeMgtService";
 		String endPoint;
-		//String host = PropertyInfo.read("host");
-		//String port = PropertyInfo.read("port");
 		String host = AutomationConfigurationReader.context(AutomationConfigurationReader.PRODUCT_HOST);
 		String port = AutomationConfigurationReader.context(AutomationConfigurationReader.PRODUCT_PORT);
 		String backEndUrl = "https://" + host + ":" + port + "/services/";

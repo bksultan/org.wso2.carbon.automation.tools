@@ -1,16 +1,26 @@
-//package robotlib;
 package clients;
 
+import client.support.modules.AuthenticationLibrary;
 import org.apache.axis2.AxisFault;
 import org.apache.axis2.client.Options;
 import org.apache.axis2.client.ServiceClient;
 import org.testng.Assert;
+import client.configuration.AutomationConfigurationReader;
 import org.wso2.carbon.transport.jms.stub.JMSTransportAdminStub;
 import org.wso2.carbon.transport.jms.stub.types.carbon.TransportParameter;
 
-import client.configuration.AutomationConfigurationReader;
-import client.support.modules.AuthenticationLibrary;
 
+/**
+ * Auto generated JMSTransportAdmin service Client
+ *
+ * Service name : JMSTransportAdmin
+ * Service WSDL : JMSTransportAdmin.wsdl
+ * Service stub class : JMSTransportAdminStub
+ * Client Library : JMSTransportAdminLibrary
+ *
+ * @author rukshan
+ * 
+ */
 
 public class JMSTransportAdminLibrary{
 	public static final String ROBOT_LIBRARY_SCOPE = "GLOBAL";
@@ -22,6 +32,60 @@ public class JMSTransportAdminLibrary{
 	public JMSTransportAdminLibrary(){
 
 	}		
+
+	public TransportParameter[] getServiceSpecificOutParameters(String arg)  throws java.lang.Exception{
+
+		this.getServiceSpecificOutParameters=stub.getServiceSpecificOutParameters(arg);
+		return this.getServiceSpecificOutParameters;
+
+	}
+
+	private TransportParameter[] getServiceSpecificOutParameters;
+
+	public void  AssertgetServiceSpecificOutParameters(TransportParameter[] expected) {	
+		Assert.assertEquals(getServiceSpecificOutParameters , expected );		
+	}
+	public TransportParameter[] getGloballyDefinedInParameters()  throws java.lang.Exception{
+
+		this.getGloballyDefinedInParameters=stub.getGloballyDefinedInParameters();
+		return this.getGloballyDefinedInParameters;
+
+	}
+
+	private TransportParameter[] getGloballyDefinedInParameters;
+
+	public void  AssertgetGloballyDefinedInParameters(TransportParameter[] expected) {	
+		Assert.assertEquals(getGloballyDefinedInParameters , expected );		
+	}
+	public TransportParameter[] getServiceSpecificInParameters(String arg)  throws java.lang.Exception{
+
+		this.getServiceSpecificInParameters=stub.getServiceSpecificInParameters(arg);
+		return this.getServiceSpecificInParameters;
+
+	}
+
+	private TransportParameter[] getServiceSpecificInParameters;
+
+	public void  AssertgetServiceSpecificInParameters(TransportParameter[] expected) {	
+		Assert.assertEquals(getServiceSpecificInParameters , expected );		
+	}
+	public void disableTransportSender()  throws java.lang.Exception{
+
+	stub.disableTransportSender();
+
+	}
+
+	public void updateGloballyDefinedOutParameters(TransportParameter[] arg)  throws java.lang.Exception{
+
+	stub.updateGloballyDefinedOutParameters(arg);
+
+	}
+
+	public void disableTransportListener()  throws java.lang.Exception{
+
+	stub.disableTransportListener();
+
+	}
 
 	public void updateGloballyDefinedInParameters(TransportParameter[] arg)  throws java.lang.Exception{
 
@@ -41,69 +105,9 @@ public class JMSTransportAdminLibrary{
 
 	}
 
-	public TransportParameter[] getServiceSpecificOutParameters(String arg)  throws java.lang.Exception{
-
-		this.getServiceSpecificOutParameters=stub.getServiceSpecificOutParameters(arg);
-		return this.getServiceSpecificOutParameters;
-
-	}
-
-	private TransportParameter[] getServiceSpecificOutParameters;
-
-	public void  AssertgetServiceSpecificOutParameters(TransportParameter[] expected) {	
-		Assert.assertEquals(getServiceSpecificOutParameters , expected );		
-	}
-	public void removeConnectionFactory(String arg0,String arg1,boolean arg)  throws java.lang.Exception{
-
-	stub.removeConnectionFactory(arg0,arg1,arg);
-
-	}
-
-	public TransportParameter[] getGloballyDefinedInParameters()  throws java.lang.Exception{
-
-		this.getGloballyDefinedInParameters=stub.getGloballyDefinedInParameters();
-		return this.getGloballyDefinedInParameters;
-
-	}
-
-	private TransportParameter[] getGloballyDefinedInParameters;
-
-	public void  AssertgetGloballyDefinedInParameters(TransportParameter[] expected) {	
-		Assert.assertEquals(getGloballyDefinedInParameters , expected );		
-	}
-	public void disableTransportListener()  throws java.lang.Exception{
-
-	stub.disableTransportListener();
-
-	}
-
-	public TransportParameter[] getServiceSpecificInParameters(String arg)  throws java.lang.Exception{
-
-		this.getServiceSpecificInParameters=stub.getServiceSpecificInParameters(arg);
-		return this.getServiceSpecificInParameters;
-
-	}
-
-	private TransportParameter[] getServiceSpecificInParameters;
-
-	public void  AssertgetServiceSpecificInParameters(TransportParameter[] expected) {	
-		Assert.assertEquals(getServiceSpecificInParameters , expected );		
-	}
 	public void addConnectionFactory(TransportParameter arg0,String arg1,boolean arg)  throws java.lang.Exception{
 
 	stub.addConnectionFactory(arg0,arg1,arg);
-
-	}
-
-	public void disableTransportSender()  throws java.lang.Exception{
-
-	stub.disableTransportSender();
-
-	}
-
-	public void updateGloballyDefinedOutParameters(TransportParameter[] arg)  throws java.lang.Exception{
-
-	stub.updateGloballyDefinedOutParameters(arg);
 
 	}
 
@@ -119,21 +123,19 @@ public class JMSTransportAdminLibrary{
 	public void  AssertgetGloballyDefinedOutParameters(TransportParameter[] expected) {	
 		Assert.assertEquals(getGloballyDefinedOutParameters , expected );		
 	}
+	public void removeConnectionFactory(String arg0,String arg1,boolean arg)  throws java.lang.Exception{
 
+	stub.removeConnectionFactory(arg0,arg1,arg);
 
-	public static void main(String[] args) {
-		//JMSTransportAdminLibrary l=new JMSTransportAdminLibrary();
-		//l.setX(10);
-		//l.setY(25);
-		//System.out.println(l.getSum());
 	}
+
+
+
 
 	public void initJMSTransportAdmin() throws AxisFault {
 		String sessionCookie=AuthenticationLibrary.sessionString;
 		String serviceName = "JMSTransportAdmin";
 		String endPoint;
-		//String host = PropertyInfo.read("host");
-		//String port = PropertyInfo.read("port");
 		String host = AutomationConfigurationReader.context(AutomationConfigurationReader.PRODUCT_HOST);
 		String port = AutomationConfigurationReader.context(AutomationConfigurationReader.PRODUCT_PORT);
 		String backEndUrl = "https://" + host + ":" + port + "/services/";

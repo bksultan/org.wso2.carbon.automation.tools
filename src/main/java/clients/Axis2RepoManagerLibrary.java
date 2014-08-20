@@ -1,19 +1,28 @@
-//package robotlib;
 package clients;
 
+import client.support.modules.AuthenticationLibrary;
 import org.apache.axis2.AxisFault;
 import org.apache.axis2.client.Options;
 import org.apache.axis2.client.ServiceClient;
 import org.testng.Assert;
+import client.configuration.AutomationConfigurationReader;
 import org.wso2.carbon.repomanager.axis2.stub.Axis2RepoManagerStub;
 import org.wso2.carbon.repomanager.axis2.stub.types.Axis2ArtifactUploadData;
 import org.wso2.carbon.repomanager.axis2.stub.types.DirectoryStructureMetaData;
-
-import client.configuration.AutomationConfigurationReader;
-import client.support.modules.AuthenticationLibrary;
-
 import javax.activation.DataHandler;
 
+
+/**
+ * Auto generated Axis2RepoManager service Client
+ *
+ * Service name : Axis2RepoManager
+ * Service WSDL : Axis2RepoManager.wsdl
+ * Service stub class : Axis2RepoManagerStub
+ * Client Library : Axis2RepoManagerLibrary
+ *
+ * @author rukshan
+ * 
+ */
 
 public class Axis2RepoManagerLibrary{
 	public static final String ROBOT_LIBRARY_SCOPE = "GLOBAL";
@@ -26,18 +35,6 @@ public class Axis2RepoManagerLibrary{
 
 	}		
 
-	public boolean deleteLib(String arg)  throws java.lang.Exception{
-
-		this.deleteLib=stub.deleteLib(arg);
-		return this.deleteLib;
-
-	}
-
-	private boolean deleteLib;
-
-	public void  AssertdeleteLib(boolean expected) {	
-		Assert.assertEquals(deleteLib , expected );		
-	}
 	public boolean uploadArtifact(Axis2ArtifactUploadData[] arg0,String arg)  throws java.lang.Exception{
 
 		this.uploadArtifact=stub.uploadArtifact(arg0,arg);
@@ -49,6 +46,18 @@ public class Axis2RepoManagerLibrary{
 
 	public void  AssertuploadArtifact(boolean expected) {	
 		Assert.assertEquals(uploadArtifact , expected );		
+	}
+	public boolean deleteLib(String arg)  throws java.lang.Exception{
+
+		this.deleteLib=stub.deleteLib(arg);
+		return this.deleteLib;
+
+	}
+
+	private boolean deleteLib;
+
+	public void  AssertdeleteLib(boolean expected) {	
+		Assert.assertEquals(deleteLib , expected );		
 	}
 	public DirectoryStructureMetaData getDirectoryStructure()  throws java.lang.Exception{
 
@@ -88,19 +97,11 @@ public class Axis2RepoManagerLibrary{
 	}
 
 
-	public static void main(String[] args) {
-		//Axis2RepoManagerLibrary l=new Axis2RepoManagerLibrary();
-		//l.setX(10);
-		//l.setY(25);
-		//System.out.println(l.getSum());
-	}
 
 	public void initAxis2RepoManager() throws AxisFault {
 		String sessionCookie=AuthenticationLibrary.sessionString;
 		String serviceName = "Axis2RepoManager";
 		String endPoint;
-		//String host = PropertyInfo.read("host");
-		//String port = PropertyInfo.read("port");
 		String host = AutomationConfigurationReader.context(AutomationConfigurationReader.PRODUCT_HOST);
 		String port = AutomationConfigurationReader.context(AutomationConfigurationReader.PRODUCT_PORT);
 		String backEndUrl = "https://" + host + ":" + port + "/services/";

@@ -1,17 +1,27 @@
-//package robotlib;
 package clients;
 
+import client.support.modules.AuthenticationLibrary;
 import org.apache.axis2.AxisFault;
 import org.apache.axis2.client.Options;
 import org.apache.axis2.client.ServiceClient;
 import org.testng.Assert;
+import client.configuration.AutomationConfigurationReader;
 import org.wso2.carbon.module.mgt.stub.types.ModuleMetaData;
 import org.wso2.carbon.module.mgt.stub.ModuleAdminServiceStub;
 import org.wso2.carbon.module.mgt.stub.types.ModuleUploadData;
 
-import client.configuration.AutomationConfigurationReader;
-import client.support.modules.AuthenticationLibrary;
 
+/**
+ * Auto generated ModuleAdminService service Client
+ *
+ * Service name : ModuleAdminService
+ * Service WSDL : ModuleAdminService.wsdl
+ * Service stub class : ModuleAdminServiceStub
+ * Client Library : ModuleAdminServiceLibrary
+ *
+ * @author rukshan
+ * 
+ */
 
 public class ModuleAdminServiceLibrary{
 	public static final String ROBOT_LIBRARY_SCOPE = "GLOBAL";
@@ -260,19 +270,11 @@ public class ModuleAdminServiceLibrary{
 	}
 
 
-	public static void main(String[] args) {
-		//ModuleAdminServiceLibrary l=new ModuleAdminServiceLibrary();
-		//l.setX(10);
-		//l.setY(25);
-		//System.out.println(l.getSum());
-	}
 
 	public void initModuleAdminService() throws AxisFault {
 		String sessionCookie=AuthenticationLibrary.sessionString;
 		String serviceName = "ModuleAdminService";
 		String endPoint;
-		//String host = PropertyInfo.read("host");
-		//String port = PropertyInfo.read("port");
 		String host = AutomationConfigurationReader.context(AutomationConfigurationReader.PRODUCT_HOST);
 		String port = AutomationConfigurationReader.context(AutomationConfigurationReader.PRODUCT_PORT);
 		String backEndUrl = "https://" + host + ":" + port + "/services/";

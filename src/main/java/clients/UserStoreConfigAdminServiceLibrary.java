@@ -1,17 +1,27 @@
-//package robotlib;
 package clients;
 
+import client.support.modules.AuthenticationLibrary;
 import org.apache.axis2.AxisFault;
 import org.apache.axis2.client.Options;
 import org.apache.axis2.client.ServiceClient;
 import org.testng.Assert;
+import client.configuration.AutomationConfigurationReader;
 import org.wso2.carbon.identity.user.store.configuration.stub.dto.UserStoreDTO;
 import org.wso2.carbon.identity.user.store.configuration.stub.api.Properties;
 import org.wso2.carbon.identity.user.store.configuration.stub.UserStoreConfigAdminServiceStub;
 
-import client.configuration.AutomationConfigurationReader;
-import client.support.modules.AuthenticationLibrary;
 
+/**
+ * Auto generated UserStoreConfigAdminService service Client
+ *
+ * Service name : UserStoreConfigAdminService
+ * Service WSDL : UserStoreConfigAdminService.wsdl
+ * Service stub class : UserStoreConfigAdminServiceStub
+ * Client Library : UserStoreConfigAdminServiceLibrary
+ *
+ * @author rukshan
+ * 
+ */
 
 public class UserStoreConfigAdminServiceLibrary{
 	public static final String ROBOT_LIBRARY_SCOPE = "GLOBAL";
@@ -23,6 +33,24 @@ public class UserStoreConfigAdminServiceLibrary{
 	public UserStoreConfigAdminServiceLibrary(){
 
 	}		
+
+	public Properties getUserStoreManagerProperties(String arg)  throws java.lang.Exception{
+
+		this.getUserStoreManagerProperties=stub.getUserStoreManagerProperties(arg);
+		return this.getUserStoreManagerProperties;
+
+	}
+
+	private Properties getUserStoreManagerProperties;
+
+	public void  AssertgetUserStoreManagerProperties(Properties expected) {	
+		Assert.assertEquals(getUserStoreManagerProperties , expected );		
+	}
+	public void addUserStore(UserStoreDTO arg)  throws java.lang.Exception{
+
+	stub.addUserStore(arg);
+
+	}
 
 	public UserStoreDTO[] getSecondaryRealmConfigurations()  throws java.lang.Exception{
 
@@ -60,24 +88,6 @@ public class UserStoreConfigAdminServiceLibrary{
 
 	}
 
-	public void addUserStore(UserStoreDTO arg)  throws java.lang.Exception{
-
-	stub.addUserStore(arg);
-
-	}
-
-	public Properties getUserStoreManagerProperties(String arg)  throws java.lang.Exception{
-
-		this.getUserStoreManagerProperties=stub.getUserStoreManagerProperties(arg);
-		return this.getUserStoreManagerProperties;
-
-	}
-
-	private Properties getUserStoreManagerProperties;
-
-	public void  AssertgetUserStoreManagerProperties(Properties expected) {	
-		Assert.assertEquals(getUserStoreManagerProperties , expected );		
-	}
 	public void editUserStoreWithDomainName(String arg0,UserStoreDTO arg)  throws java.lang.Exception{
 
 	stub.editUserStoreWithDomainName(arg0,arg);
@@ -98,19 +108,11 @@ public class UserStoreConfigAdminServiceLibrary{
 
 
 
-	public static void main(String[] args) {
-		//UserStoreConfigAdminServiceLibrary l=new UserStoreConfigAdminServiceLibrary();
-		//l.setX(10);
-		//l.setY(25);
-		//System.out.println(l.getSum());
-	}
 
 	public void initUserStoreConfigAdminService() throws AxisFault {
 		String sessionCookie=AuthenticationLibrary.sessionString;
 		String serviceName = "UserStoreConfigAdminService";
 		String endPoint;
-		//String host = PropertyInfo.read("host");
-		//String port = PropertyInfo.read("port");
 		String host = AutomationConfigurationReader.context(AutomationConfigurationReader.PRODUCT_HOST);
 		String port = AutomationConfigurationReader.context(AutomationConfigurationReader.PRODUCT_PORT);
 		String backEndUrl = "https://" + host + ":" + port + "/services/";

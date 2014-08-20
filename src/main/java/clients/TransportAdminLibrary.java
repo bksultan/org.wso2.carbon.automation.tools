@@ -1,19 +1,29 @@
-//package robotlib;
 package clients;
 
+import client.support.modules.AuthenticationLibrary;
 import org.apache.axis2.AxisFault;
 import org.apache.axis2.client.Options;
 import org.apache.axis2.client.ServiceClient;
 import org.testng.Assert;
+import client.configuration.AutomationConfigurationReader;
 import org.wso2.carbon.transport.mgt.stub.types.carbon.TransportSummary;
 import org.wso2.carbon.transport.mgt.stub.TransportAdminStub;
 import org.wso2.carbon.transport.mgt.stub.types.carbon.TransportData;
 import org.wso2.carbon.transport.mgt.stub.types.carbon.TransportDetails;
 import org.wso2.carbon.transport.mgt.stub.types.carbon.TransportParameter;
 
-import client.configuration.AutomationConfigurationReader;
-import client.support.modules.AuthenticationLibrary;
 
+/**
+ * Auto generated TransportAdmin service Client
+ *
+ * Service name : TransportAdmin
+ * Service WSDL : TransportAdmin.wsdl
+ * Service stub class : TransportAdminStub
+ * Client Library : TransportAdminLibrary
+ *
+ * @author rukshan
+ * 
+ */
 
 public class TransportAdminLibrary{
 	public static final String ROBOT_LIBRARY_SCOPE = "GLOBAL";
@@ -25,24 +35,6 @@ public class TransportAdminLibrary{
 	public TransportAdminLibrary(){
 
 	}		
-
-	public void updateGloballyDefinedInParameters(String arg0,TransportParameter[] arg)  throws java.lang.Exception{
-
-	stub.updateGloballyDefinedInParameters(arg0,arg);
-
-	}
-
-	public void updateServiceSpecificInParameters(String arg0,String arg1,TransportParameter[] arg)  throws java.lang.Exception{
-
-	stub.updateServiceSpecificInParameters(arg0,arg1,arg);
-
-	}
-
-	public void updateServiceSpecificOutParameters(String arg0,String arg1,TransportParameter[] arg)  throws java.lang.Exception{
-
-	stub.updateServiceSpecificOutParameters(arg0,arg1,arg);
-
-	}
 
 	public TransportParameter[] getServiceSpecificOutParameters(String arg0,String arg)  throws java.lang.Exception{
 
@@ -86,6 +78,24 @@ public class TransportAdminLibrary{
 
 	}
 
+	public void updateGloballyDefinedInParameters(String arg0,TransportParameter[] arg)  throws java.lang.Exception{
+
+	stub.updateGloballyDefinedInParameters(arg0,arg);
+
+	}
+
+	public void updateServiceSpecificInParameters(String arg0,String arg1,TransportParameter[] arg)  throws java.lang.Exception{
+
+	stub.updateServiceSpecificInParameters(arg0,arg1,arg);
+
+	}
+
+	public void updateServiceSpecificOutParameters(String arg0,String arg1,TransportParameter[] arg)  throws java.lang.Exception{
+
+	stub.updateServiceSpecificOutParameters(arg0,arg1,arg);
+
+	}
+
 	public TransportParameter[] getGloballyDefinedOutParameters(String arg)  throws java.lang.Exception{
 
 		this.getGloballyDefinedOutParameters=stub.getGloballyDefinedOutParameters(arg);
@@ -97,6 +107,54 @@ public class TransportAdminLibrary{
 
 	public void  AssertgetGloballyDefinedOutParameters(TransportParameter[] expected) {	
 		Assert.assertEquals(getGloballyDefinedOutParameters , expected );		
+	}
+	public void disableSender(String arg)  throws java.lang.Exception{
+
+	stub.disableSender(arg);
+
+	}
+
+	public void disableListener(String arg)  throws java.lang.Exception{
+
+	stub.disableListener(arg);
+
+	}
+
+	public TransportSummary[] listExposedTransports(String arg)  throws java.lang.Exception{
+
+		this.listExposedTransports=stub.listExposedTransports(arg);
+		return this.listExposedTransports;
+
+	}
+
+	private TransportSummary[] listExposedTransports;
+
+	public void  AssertlistExposedTransports(TransportSummary[] expected) {	
+		Assert.assertEquals(listExposedTransports , expected );		
+	}
+	public TransportDetails getTransportDetails(String arg)  throws java.lang.Exception{
+
+		this.getTransportDetails=stub.getTransportDetails(arg);
+		return this.getTransportDetails;
+
+	}
+
+	private TransportDetails getTransportDetails;
+
+	public void  AssertgetTransportDetails(TransportDetails expected) {	
+		Assert.assertEquals(getTransportDetails , expected );		
+	}
+	public boolean dependenciesAvailable(String arg0,TransportParameter[] arg)  throws java.lang.Exception{
+
+		this.dependenciesAvailable=stub.dependenciesAvailable(arg0,arg);
+		return this.dependenciesAvailable;
+
+	}
+
+	private boolean dependenciesAvailable;
+
+	public void  AssertdependenciesAvailable(boolean expected) {	
+		Assert.assertEquals(dependenciesAvailable , expected );		
 	}
 	public TransportData[] getAllTransportData()  throws java.lang.Exception{
 
@@ -146,69 +204,13 @@ public class TransportAdminLibrary{
 
 	}
 
-	public void disableSender(String arg)  throws java.lang.Exception{
-
-	stub.disableSender(arg);
-
-	}
-
-	public void disableListener(String arg)  throws java.lang.Exception{
-
-	stub.disableListener(arg);
-
-	}
-
-	public TransportSummary[] listExposedTransports(String arg)  throws java.lang.Exception{
-
-		this.listExposedTransports=stub.listExposedTransports(arg);
-		return this.listExposedTransports;
-
-	}
-
-	private TransportSummary[] listExposedTransports;
-
-	public void  AssertlistExposedTransports(TransportSummary[] expected) {	
-		Assert.assertEquals(listExposedTransports , expected );		
-	}
-	public TransportDetails getTransportDetails(String arg)  throws java.lang.Exception{
-
-		this.getTransportDetails=stub.getTransportDetails(arg);
-		return this.getTransportDetails;
-
-	}
-
-	private TransportDetails getTransportDetails;
-
-	public void  AssertgetTransportDetails(TransportDetails expected) {	
-		Assert.assertEquals(getTransportDetails , expected );		
-	}
-	public boolean dependenciesAvailable(String arg0,TransportParameter[] arg)  throws java.lang.Exception{
-
-		this.dependenciesAvailable=stub.dependenciesAvailable(arg0,arg);
-		return this.dependenciesAvailable;
-
-	}
-
-	private boolean dependenciesAvailable;
-
-	public void  AssertdependenciesAvailable(boolean expected) {	
-		Assert.assertEquals(dependenciesAvailable , expected );		
-	}
 
 
-	public static void main(String[] args) {
-		//TransportAdminLibrary l=new TransportAdminLibrary();
-		//l.setX(10);
-		//l.setY(25);
-		//System.out.println(l.getSum());
-	}
 
 	public void initTransportAdmin() throws AxisFault {
 		String sessionCookie=AuthenticationLibrary.sessionString;
 		String serviceName = "TransportAdmin";
 		String endPoint;
-		//String host = PropertyInfo.read("host");
-		//String port = PropertyInfo.read("port");
 		String host = AutomationConfigurationReader.context(AutomationConfigurationReader.PRODUCT_HOST);
 		String port = AutomationConfigurationReader.context(AutomationConfigurationReader.PRODUCT_PORT);
 		String backEndUrl = "https://" + host + ":" + port + "/services/";

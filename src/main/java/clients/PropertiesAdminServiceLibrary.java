@@ -1,17 +1,27 @@
-//package robotlib;
 package clients;
 
+import client.support.modules.AuthenticationLibrary;
 import org.apache.axis2.AxisFault;
 import org.apache.axis2.client.Options;
 import org.apache.axis2.client.ServiceClient;
 import org.testng.Assert;
+import client.configuration.AutomationConfigurationReader;
 import org.wso2.carbon.registry.properties.stub.PropertiesAdminServiceStub;
 import org.wso2.carbon.registry.properties.stub.beans.xsd.PropertiesBean;
 import org.wso2.carbon.registry.properties.stub.beans.xsd.RetentionBean;
 
-import client.configuration.AutomationConfigurationReader;
-import client.support.modules.AuthenticationLibrary;
 
+/**
+ * Auto generated PropertiesAdminService service Client
+ *
+ * Service name : PropertiesAdminService
+ * Service WSDL : PropertiesAdminService.wsdl
+ * Service stub class : PropertiesAdminServiceStub
+ * Client Library : PropertiesAdminServiceLibrary
+ *
+ * @author rukshan
+ * 
+ */
 
 public class PropertiesAdminServiceLibrary{
 	public static final String ROBOT_LIBRARY_SCOPE = "GLOBAL";
@@ -30,6 +40,18 @@ public class PropertiesAdminServiceLibrary{
 
 	}
 
+	public RetentionBean getRetentionProperties(String arg)  throws java.lang.Exception{
+
+		this.getRetentionProperties=stub.getRetentionProperties(arg);
+		return this.getRetentionProperties;
+
+	}
+
+	private RetentionBean getRetentionProperties;
+
+	public void  AssertgetRetentionProperties(RetentionBean expected) {	
+		Assert.assertEquals(getRetentionProperties , expected );		
+	}
 	public void updateProperty(String arg0,String arg1,String arg2,String arg)  throws java.lang.Exception{
 
 	stub.updateProperty(arg0,arg1,arg2,arg);
@@ -47,18 +69,6 @@ public class PropertiesAdminServiceLibrary{
 
 	public void  AssertsetRetentionProperties(boolean expected) {	
 		Assert.assertEquals(setRetentionProperties , expected );		
-	}
-	public RetentionBean getRetentionProperties(String arg)  throws java.lang.Exception{
-
-		this.getRetentionProperties=stub.getRetentionProperties(arg);
-		return this.getRetentionProperties;
-
-	}
-
-	private RetentionBean getRetentionProperties;
-
-	public void  AssertgetRetentionProperties(RetentionBean expected) {	
-		Assert.assertEquals(getRetentionProperties , expected );		
 	}
 	public void setProperty(String arg0,String arg1,String arg)  throws java.lang.Exception{
 
@@ -80,19 +90,11 @@ public class PropertiesAdminServiceLibrary{
 	}
 
 
-	public static void main(String[] args) {
-		//PropertiesAdminServiceLibrary l=new PropertiesAdminServiceLibrary();
-		//l.setX(10);
-		//l.setY(25);
-		//System.out.println(l.getSum());
-	}
 
 	public void initPropertiesAdminService() throws AxisFault {
 		String sessionCookie=AuthenticationLibrary.sessionString;
 		String serviceName = "PropertiesAdminService";
 		String endPoint;
-		//String host = PropertyInfo.read("host");
-		//String port = PropertyInfo.read("port");
 		String host = AutomationConfigurationReader.context(AutomationConfigurationReader.PRODUCT_HOST);
 		String port = AutomationConfigurationReader.context(AutomationConfigurationReader.PRODUCT_PORT);
 		String backEndUrl = "https://" + host + ":" + port + "/services/";

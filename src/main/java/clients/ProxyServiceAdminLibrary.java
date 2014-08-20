@@ -1,19 +1,28 @@
-//package robotlib;
 package clients;
 
+import client.support.modules.AuthenticationLibrary;
 import org.apache.axis2.AxisFault;
 import org.apache.axis2.client.Options;
 import org.apache.axis2.client.ServiceClient;
 import org.testng.Assert;
+import client.configuration.AutomationConfigurationReader;
 import org.wso2.carbon.proxyadmin.stub.ProxyServiceAdminStub;
 import org.wso2.carbon.proxyadmin.stub.types.carbon.MetaData;
 import org.wso2.carbon.proxyadmin.stub.types.carbon.ProxyData;
 
-import client.configuration.AutomationConfigurationReader;
-import client.support.modules.AuthenticationLibrary;
 
+/**
+ * Auto generated ProxyServiceAdmin service Client
+ *
+ * Service name : ProxyServiceAdmin
+ * Service WSDL : ProxyServiceAdmin.wsdl
+ * Service stub class : ProxyServiceAdminStub
+ * Client Library : ProxyServiceAdminLibrary
+ *
+ * @author rukshan
+ * 
+ */
 
-//add comment
 public class ProxyServiceAdminLibrary{
 	public static final String ROBOT_LIBRARY_SCOPE = "GLOBAL";
 
@@ -49,54 +58,6 @@ public class ProxyServiceAdminLibrary{
 	public void  AssertredeployProxyService(String expected) {	
 		Assert.assertEquals(redeployProxyService , expected );		
 	}
-	public String modifyProxy(ProxyData arg)  throws java.lang.Exception{
-
-		this.modifyProxy=stub.modifyProxy(arg);
-		return this.modifyProxy;
-
-	}
-
-	private String modifyProxy;
-
-	public void  AssertmodifyProxy(String expected) {	
-		Assert.assertEquals(modifyProxy , expected );		
-	}
-	public String disableTracing(String arg)  throws java.lang.Exception{
-
-		this.disableTracing=stub.disableTracing(arg);
-		return this.disableTracing;
-
-	}
-
-	private String disableTracing;
-
-	public void  AssertdisableTracing(String expected) {	
-		Assert.assertEquals(disableTracing , expected );		
-	}
-	public String[] getAvailableTransports()  throws java.lang.Exception{
-
-		this.getAvailableTransports=stub.getAvailableTransports();
-		return this.getAvailableTransports;
-
-	}
-
-	private String[] getAvailableTransports;
-
-	public void  AssertgetAvailableTransports(String[] expected) {	
-		Assert.assertEquals(getAvailableTransports , expected );		
-	}
-	public String getEndpoint(String arg)  throws java.lang.Exception{
-
-		this.getEndpoint=stub.getEndpoint(arg);
-		return this.getEndpoint;
-
-	}
-
-	private String getEndpoint;
-
-	public void  AssertgetEndpoint(String expected) {	
-		Assert.assertEquals(getEndpoint , expected );		
-	}
 	public String disableStatistics(String arg)  throws java.lang.Exception{
 
 		this.disableStatistics=stub.disableStatistics(arg);
@@ -108,30 +69,6 @@ public class ProxyServiceAdminLibrary{
 
 	public void  AssertdisableStatistics(String expected) {	
 		Assert.assertEquals(disableStatistics , expected );		
-	}
-	public String startProxyService(String arg)  throws java.lang.Exception{
-
-		this.startProxyService=stub.startProxyService(arg);
-		return this.startProxyService;
-
-	}
-
-	private String startProxyService;
-
-	public void  AssertstartProxyService(String expected) {	
-		Assert.assertEquals(startProxyService , expected );		
-	}
-	public MetaData getMetaData()  throws java.lang.Exception{
-
-		this.getMetaData=stub.getMetaData();
-		return this.getMetaData;
-
-	}
-
-	private MetaData getMetaData;
-
-	public void  AssertgetMetaData(MetaData expected) {	
-		Assert.assertEquals(getMetaData , expected );		
 	}
 	public String enableTracing(String arg)  throws java.lang.Exception{
 
@@ -205,6 +142,78 @@ public class ProxyServiceAdminLibrary{
 	public void  AssertdeleteProxyService(String expected) {	
 		Assert.assertEquals(deleteProxyService , expected );		
 	}
+	public String modifyProxy(ProxyData arg)  throws java.lang.Exception{
+
+		this.modifyProxy=stub.modifyProxy(arg);
+		return this.modifyProxy;
+
+	}
+
+	private String modifyProxy;
+
+	public void  AssertmodifyProxy(String expected) {	
+		Assert.assertEquals(modifyProxy , expected );		
+	}
+	public String disableTracing(String arg)  throws java.lang.Exception{
+
+		this.disableTracing=stub.disableTracing(arg);
+		return this.disableTracing;
+
+	}
+
+	private String disableTracing;
+
+	public void  AssertdisableTracing(String expected) {	
+		Assert.assertEquals(disableTracing , expected );		
+	}
+	public String[] getAvailableTransports()  throws java.lang.Exception{
+
+		this.getAvailableTransports=stub.getAvailableTransports();
+		return this.getAvailableTransports;
+
+	}
+
+	private String[] getAvailableTransports;
+
+	public void  AssertgetAvailableTransports(String[] expected) {	
+		Assert.assertEquals(getAvailableTransports , expected );		
+	}
+	public String getEndpoint(String arg)  throws java.lang.Exception{
+
+		this.getEndpoint=stub.getEndpoint(arg);
+		return this.getEndpoint;
+
+	}
+
+	private String getEndpoint;
+
+	public void  AssertgetEndpoint(String expected) {	
+		Assert.assertEquals(getEndpoint , expected );		
+	}
+	public String startProxyService(String arg)  throws java.lang.Exception{
+
+		this.startProxyService=stub.startProxyService(arg);
+		return this.startProxyService;
+
+	}
+
+	private String startProxyService;
+
+	public void  AssertstartProxyService(String expected) {	
+		Assert.assertEquals(startProxyService , expected );		
+	}
+	public MetaData getMetaData()  throws java.lang.Exception{
+
+		this.getMetaData=stub.getMetaData();
+		return this.getMetaData;
+
+	}
+
+	private MetaData getMetaData;
+
+	public void  AssertgetMetaData(MetaData expected) {	
+		Assert.assertEquals(getMetaData , expected );		
+	}
 	public String addProxy(ProxyData arg)  throws java.lang.Exception{
 
 		this.addProxy=stub.addProxy(arg);
@@ -231,19 +240,11 @@ public class ProxyServiceAdminLibrary{
 	}
 
 
-	public static void main(String[] args) {
-		//ProxyServiceAdminLibrary l=new ProxyServiceAdminLibrary();
-		//l.setX(10);
-		//l.setY(25);
-		//System.out.println(l.getSum());
-	}
 
 	public void initProxyServiceAdmin() throws AxisFault {
 		String sessionCookie=AuthenticationLibrary.sessionString;
 		String serviceName = "ProxyServiceAdmin";
 		String endPoint;
-		//String host = PropertyInfo.read("host");
-		//String port = PropertyInfo.read("port");
 		String host = AutomationConfigurationReader.context(AutomationConfigurationReader.PRODUCT_HOST);
 		String port = AutomationConfigurationReader.context(AutomationConfigurationReader.PRODUCT_PORT);
 		String backEndUrl = "https://" + host + ":" + port + "/services/";

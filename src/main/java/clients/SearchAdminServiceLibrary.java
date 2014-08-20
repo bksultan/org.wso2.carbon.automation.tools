@@ -1,19 +1,29 @@
-//package robotlib;
 package clients;
 
+import client.support.modules.AuthenticationLibrary;
 import org.apache.axis2.AxisFault;
 import org.apache.axis2.client.Options;
 import org.apache.axis2.client.ServiceClient;
 import org.testng.Assert;
+import client.configuration.AutomationConfigurationReader;
 import org.wso2.carbon.registry.search.stub.beans.xsd.SearchResultsBean;
 import org.wso2.carbon.registry.search.stub.beans.xsd.AdvancedSearchResultsBean;
 import org.wso2.carbon.registry.search.stub.beans.xsd.CustomSearchParameterBean;
 import org.wso2.carbon.registry.search.stub.beans.xsd.MediaTypeValueList;
 import org.wso2.carbon.registry.search.stub.SearchAdminServiceStub;
 
-import client.configuration.AutomationConfigurationReader;
-import client.support.modules.AuthenticationLibrary;
 
+/**
+ * Auto generated SearchAdminService service Client
+ *
+ * Service name : SearchAdminService
+ * Service WSDL : SearchAdminService.wsdl
+ * Service stub class : SearchAdminServiceStub
+ * Client Library : SearchAdminServiceLibrary
+ *
+ * @author rukshan
+ * 
+ */
 
 public class SearchAdminServiceLibrary{
 	public static final String ROBOT_LIBRARY_SCOPE = "GLOBAL";
@@ -25,12 +35,6 @@ public class SearchAdminServiceLibrary{
 	public SearchAdminServiceLibrary(){
 
 	}		
-
-	public void deleteFilter(String arg)  throws java.lang.Exception{
-
-	stub.deleteFilter(arg);
-
-	}
 
 	public MediaTypeValueList getMediaTypeSearch(String arg)  throws java.lang.Exception{
 
@@ -56,6 +60,12 @@ public class SearchAdminServiceLibrary{
 	public void  AssertgetSavedFilters(String[] expected) {	
 		Assert.assertEquals(getSavedFilters , expected );		
 	}
+	public void deleteFilter(String arg)  throws java.lang.Exception{
+
+	stub.deleteFilter(arg);
+
+	}
+
 	public void saveAdvancedSearchFilter(CustomSearchParameterBean arg0,String arg)  throws java.lang.Exception{
 
 	stub.saveAdvancedSearchFilter(arg0,arg);
@@ -100,19 +110,11 @@ public class SearchAdminServiceLibrary{
 	}
 
 
-	public static void main(String[] args) {
-		//SearchAdminServiceLibrary l=new SearchAdminServiceLibrary();
-		//l.setX(10);
-		//l.setY(25);
-		//System.out.println(l.getSum());
-	}
 
 	public void initSearchAdminService() throws AxisFault {
 		String sessionCookie=AuthenticationLibrary.sessionString;
 		String serviceName = "SearchAdminService";
 		String endPoint;
-		//String host = PropertyInfo.read("host");
-		//String port = PropertyInfo.read("port");
 		String host = AutomationConfigurationReader.context(AutomationConfigurationReader.PRODUCT_HOST);
 		String port = AutomationConfigurationReader.context(AutomationConfigurationReader.PRODUCT_PORT);
 		String backEndUrl = "https://" + host + ":" + port + "/services/";

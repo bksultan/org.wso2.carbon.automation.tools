@@ -1,10 +1,11 @@
-//package robotlib;
 package clients;
 
+import client.support.modules.AuthenticationLibrary;
 import org.apache.axis2.AxisFault;
 import org.apache.axis2.client.Options;
 import org.apache.axis2.client.ServiceClient;
 import org.testng.Assert;
+import client.configuration.AutomationConfigurationReader;
 import org.wso2.carbon.statistics.stub.types.carbon.OperationStatistics;
 import org.wso2.carbon.statistics.stub.types.axis2.context.ConfigurationContext;
 import org.wso2.carbon.statistics.stub.webapp.StatisticData;
@@ -12,9 +13,18 @@ import org.wso2.carbon.statistics.stub.types.carbon.ServiceStatistics;
 import org.wso2.carbon.statistics.stub.StatisticsAdminStub;
 import org.wso2.carbon.statistics.stub.types.carbon.SystemStatistics;
 
-import client.configuration.AutomationConfigurationReader;
-import client.support.modules.AuthenticationLibrary;
 
+/**
+ * Auto generated StatisticsAdmin service Client
+ *
+ * Service name : StatisticsAdmin
+ * Service WSDL : StatisticsAdmin.wsdl
+ * Service stub class : StatisticsAdminStub
+ * Client Library : StatisticsAdminLibrary
+ *
+ * @author rukshan
+ * 
+ */
 
 public class StatisticsAdminLibrary{
 	public static final String ROBOT_LIBRARY_SCOPE = "GLOBAL";
@@ -27,18 +37,6 @@ public class StatisticsAdminLibrary{
 
 	}		
 
-	public int getServiceRequestCount(String arg)  throws java.lang.Exception{
-
-		this.getServiceRequestCount=stub.getServiceRequestCount(arg);
-		return this.getServiceRequestCount;
-
-	}
-
-	private int getServiceRequestCount;
-
-	public void  AssertgetServiceRequestCount(int expected) {	
-		Assert.assertEquals(getServiceRequestCount , expected );		
-	}
 	public OperationStatistics getOperationStatistics(String arg0,String arg)  throws java.lang.Exception{
 
 		this.getOperationStatistics=stub.getOperationStatistics(arg0,arg);
@@ -50,30 +48,6 @@ public class StatisticsAdminLibrary{
 
 	public void  AssertgetOperationStatistics(OperationStatistics expected) {	
 		Assert.assertEquals(getOperationStatistics , expected );		
-	}
-	public int getSystemResponseCount()  throws java.lang.Exception{
-
-		this.getSystemResponseCount=stub.getSystemResponseCount();
-		return this.getSystemResponseCount;
-
-	}
-
-	private int getSystemResponseCount;
-
-	public void  AssertgetSystemResponseCount(int expected) {	
-		Assert.assertEquals(getSystemResponseCount , expected );		
-	}
-	public int getOperationResponseCount(String arg0,String arg)  throws java.lang.Exception{
-
-		this.getOperationResponseCount=stub.getOperationResponseCount(arg0,arg);
-		return this.getOperationResponseCount;
-
-	}
-
-	private int getOperationResponseCount;
-
-	public void  AssertgetOperationResponseCount(int expected) {	
-		Assert.assertEquals(getOperationResponseCount , expected );		
 	}
 	public StatisticData getWebappRelatedData(String arg)  throws java.lang.Exception{
 
@@ -158,6 +132,30 @@ public class StatisticsAdminLibrary{
 
 	public void  AssertgetSystemFaultCount(int expected) {	
 		Assert.assertEquals(getSystemFaultCount , expected );		
+	}
+	public int getSystemResponseCount()  throws java.lang.Exception{
+
+		this.getSystemResponseCount=stub.getSystemResponseCount();
+		return this.getSystemResponseCount;
+
+	}
+
+	private int getSystemResponseCount;
+
+	public void  AssertgetSystemResponseCount(int expected) {	
+		Assert.assertEquals(getSystemResponseCount , expected );		
+	}
+	public int getOperationResponseCount(String arg0,String arg)  throws java.lang.Exception{
+
+		this.getOperationResponseCount=stub.getOperationResponseCount(arg0,arg);
+		return this.getOperationResponseCount;
+
+	}
+
+	private int getOperationResponseCount;
+
+	public void  AssertgetOperationResponseCount(int expected) {	
+		Assert.assertEquals(getOperationResponseCount , expected );		
 	}
 	public long getMinServiceResponseTime(String arg)  throws java.lang.Exception{
 
@@ -261,6 +259,18 @@ public class StatisticsAdminLibrary{
 	public void  AssertgetMinOperationResponseTime(long expected) {	
 		Assert.assertEquals(getMinOperationResponseTime , expected );		
 	}
+	public int getServiceRequestCount(String arg)  throws java.lang.Exception{
+
+		this.getServiceRequestCount=stub.getServiceRequestCount(arg);
+		return this.getServiceRequestCount;
+
+	}
+
+	private int getServiceRequestCount;
+
+	public void  AssertgetServiceRequestCount(int expected) {	
+		Assert.assertEquals(getServiceRequestCount , expected );		
+	}
 	public double getAvgSystemResponseTime()  throws java.lang.Exception{
 
 		this.getAvgSystemResponseTime=stub.getAvgSystemResponseTime();
@@ -299,19 +309,11 @@ public class StatisticsAdminLibrary{
 	}
 
 
-	public static void main(String[] args) {
-		//StatisticsAdminLibrary l=new StatisticsAdminLibrary();
-		//l.setX(10);
-		//l.setY(25);
-		//System.out.println(l.getSum());
-	}
 
 	public void initStatisticsAdmin() throws AxisFault {
 		String sessionCookie=AuthenticationLibrary.sessionString;
 		String serviceName = "StatisticsAdmin";
 		String endPoint;
-		//String host = PropertyInfo.read("host");
-		//String port = PropertyInfo.read("port");
 		String host = AutomationConfigurationReader.context(AutomationConfigurationReader.PRODUCT_HOST);
 		String port = AutomationConfigurationReader.context(AutomationConfigurationReader.PRODUCT_PORT);
 		String backEndUrl = "https://" + host + ":" + port + "/services/";

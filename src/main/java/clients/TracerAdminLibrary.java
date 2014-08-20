@@ -1,17 +1,27 @@
-//package robotlib;
 package clients;
 
+import client.support.modules.AuthenticationLibrary;
 import org.apache.axis2.AxisFault;
 import org.apache.axis2.client.Options;
 import org.apache.axis2.client.ServiceClient;
 import org.testng.Assert;
+import client.configuration.AutomationConfigurationReader;
 import org.wso2.carbon.tracer.stub.types.carbon.TracerServiceInfo;
 import org.wso2.carbon.tracer.stub.types.carbon.MessagePayload;
 import org.wso2.carbon.tracer.stub.TracerAdminStub;
 
-import client.configuration.AutomationConfigurationReader;
-import client.support.modules.AuthenticationLibrary;
 
+/**
+ * Auto generated TracerAdmin service Client
+ *
+ * Service name : TracerAdmin
+ * Service WSDL : TracerAdmin.wsdl
+ * Service stub class : TracerAdminStub
+ * Client Library : TracerAdminLibrary
+ *
+ * @author rukshan
+ * 
+ */
 
 public class TracerAdminLibrary{
 	public static final String ROBOT_LIBRARY_SCOPE = "GLOBAL";
@@ -23,6 +33,12 @@ public class TracerAdminLibrary{
 	public TracerAdminLibrary(){
 
 	}		
+
+	public void clearAllSoapMessages()  throws java.lang.Exception{
+
+	stub.clearAllSoapMessages();
+
+	}
 
 	public TracerServiceInfo setMonitoring(String arg)  throws java.lang.Exception{
 
@@ -36,12 +52,6 @@ public class TracerAdminLibrary{
 	public void  AssertsetMonitoring(TracerServiceInfo expected) {	
 		Assert.assertEquals(setMonitoring , expected );		
 	}
-	public void clearAllSoapMessages()  throws java.lang.Exception{
-
-	stub.clearAllSoapMessages();
-
-	}
-
 	public TracerServiceInfo getMessages(int arg0,String arg)  throws java.lang.Exception{
 
 		this.getMessages=stub.getMessages(arg0,arg);
@@ -68,19 +78,11 @@ public class TracerAdminLibrary{
 	}
 
 
-	public static void main(String[] args) {
-		//TracerAdminLibrary l=new TracerAdminLibrary();
-		//l.setX(10);
-		//l.setY(25);
-		//System.out.println(l.getSum());
-	}
 
 	public void initTracerAdmin() throws AxisFault {
 		String sessionCookie=AuthenticationLibrary.sessionString;
 		String serviceName = "TracerAdmin";
 		String endPoint;
-		//String host = PropertyInfo.read("host");
-		//String port = PropertyInfo.read("port");
 		String host = AutomationConfigurationReader.context(AutomationConfigurationReader.PRODUCT_HOST);
 		String port = AutomationConfigurationReader.context(AutomationConfigurationReader.PRODUCT_PORT);
 		String backEndUrl = "https://" + host + ":" + port + "/services/";

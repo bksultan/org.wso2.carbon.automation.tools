@@ -36,8 +36,8 @@ import com.predic8.wsdl.WSDLParser;
  * Generate the service client in to the specified package.
  *
  */
-public class ClientGenerator {
-	static Logger log = Logger.getLogger(ClientGenerator.class.getName());
+public class ServiceStubClientGenerator {
+	static Logger log = Logger.getLogger(ServiceStubClientGenerator.class.getName());
 	static ArrayList<String> operations;				// keep operation of service listed as wsdl
 	private static String path = "/src/main/java";		// path of client should be generated
 	private static String packageName;					// keep the package name
@@ -47,7 +47,7 @@ public class ClientGenerator {
 	/**
 	 * Constructor- define and import resources
 	 */
-	public ClientGenerator() {
+	public ServiceStubClientGenerator() {
 		//load the service.xml 
 		File pomfile = new File("src/main/resources/service.xml");
 		try {
@@ -76,7 +76,7 @@ public class ClientGenerator {
 		System.out.println(System.getProperty("user.dir"));
 		
 		//new instance
-		ClientGenerator g = new ClientGenerator();
+		ServiceStubClientGenerator g = new ServiceStubClientGenerator();
 		
 //		 g.GenerateLibraries("robotlib");
 		

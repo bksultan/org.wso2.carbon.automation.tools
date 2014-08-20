@@ -1,10 +1,11 @@
-//package robotlib;
 package clients;
 
+import client.support.modules.AuthenticationLibrary;
 import org.apache.axis2.AxisFault;
 import org.apache.axis2.client.Options;
 import org.apache.axis2.client.ServiceClient;
 import org.testng.Assert;
+import client.configuration.AutomationConfigurationReader;
 import org.wso2.carbon.registry.extensions.stub.beans.xsd.VersionsBean;
 import org.wso2.carbon.registry.extensions.stub.beans.xsd.ResourceTreeEntryBean;
 import org.wso2.carbon.registry.extensions.stub.beans.xsd.ContentBean;
@@ -13,14 +14,21 @@ import org.wso2.carbon.registry.extensions.stub.beans.xsd.MetadataBean;
 import org.wso2.carbon.registry.extensions.stub.ResourceAdminServiceStub;
 import org.wso2.carbon.registry.extensions.stub.beans.xsd.CollectionContentBean;
 import org.wso2.carbon.registry.extensions.stub.beans.xsd.ContentDownloadBean;
-
 import javax.activation.DataHandler;
-
 import org.wso2.carbon.registry.extensions.stub.beans.xsd.PermissionBean;
 
-import client.configuration.AutomationConfigurationReader;
-import client.support.modules.AuthenticationLibrary;
 
+/**
+ * Auto generated ResourceAdminService service Client
+ *
+ * Service name : ResourceAdminService
+ * Service WSDL : ResourceAdminService.wsdl
+ * Service stub class : ResourceAdminServiceStub
+ * Client Library : ResourceAdminServiceLibrary
+ *
+ * @author rukshan
+ * 
+ */
 
 public class ResourceAdminServiceLibrary{
 	public static final String ROBOT_LIBRARY_SCOPE = "GLOBAL";
@@ -33,6 +41,18 @@ public class ResourceAdminServiceLibrary{
 
 	}		
 
+	public boolean createVersion(String arg)  throws java.lang.Exception{
+
+		this.createVersion=stub.createVersion(arg);
+		return this.createVersion;
+
+	}
+
+	private boolean createVersion;
+
+	public void  AssertcreateVersion(boolean expected) {	
+		Assert.assertEquals(createVersion , expected );		
+	}
 	public boolean moveResource(String arg0,String arg1,String arg2,String arg)  throws java.lang.Exception{
 
 		this.moveResource=stub.moveResource(arg0,arg1,arg2,arg);
@@ -140,18 +160,6 @@ public class ResourceAdminServiceLibrary{
 
 	public void  AssertgetCustomUIMediatypeDefinitions(String expected) {	
 		Assert.assertEquals(getCustomUIMediatypeDefinitions , expected );		
-	}
-	public boolean createVersion(String arg)  throws java.lang.Exception{
-
-		this.createVersion=stub.createVersion(arg);
-		return this.createVersion;
-
-	}
-
-	private boolean createVersion;
-
-	public void  AssertcreateVersion(boolean expected) {	
-		Assert.assertEquals(createVersion , expected );		
 	}
 	public boolean updateTextContent(String arg0,String arg)  throws java.lang.Exception{
 
@@ -369,17 +377,17 @@ public class ResourceAdminServiceLibrary{
 	public void  AssertaddResource(boolean expected) {	
 		Assert.assertEquals(addResource , expected );		
 	}
-	public boolean removeExtension(String arg)  throws java.lang.Exception{
+	public MetadataBean getMetadata(String arg)  throws java.lang.Exception{
 
-		this.removeExtension=stub.removeExtension(arg);
-		return this.removeExtension;
+		this.getMetadata=stub.getMetadata(arg);
+		return this.getMetadata;
 
 	}
 
-	private boolean removeExtension;
+	private MetadataBean getMetadata;
 
-	public void  AssertremoveExtension(boolean expected) {	
-		Assert.assertEquals(removeExtension , expected );		
+	public void  AssertgetMetadata(MetadataBean expected) {	
+		Assert.assertEquals(getMetadata , expected );		
 	}
 	public boolean addExtension(String arg0,DataHandler arg)  throws java.lang.Exception{
 
@@ -393,17 +401,17 @@ public class ResourceAdminServiceLibrary{
 	public void  AssertaddExtension(boolean expected) {	
 		Assert.assertEquals(addExtension , expected );		
 	}
-	public MetadataBean getMetadata(String arg)  throws java.lang.Exception{
+	public boolean removeExtension(String arg)  throws java.lang.Exception{
 
-		this.getMetadata=stub.getMetadata(arg);
-		return this.getMetadata;
+		this.removeExtension=stub.removeExtension(arg);
+		return this.removeExtension;
 
 	}
 
-	private MetadataBean getMetadata;
+	private boolean removeExtension;
 
-	public void  AssertgetMetadata(MetadataBean expected) {	
-		Assert.assertEquals(getMetadata , expected );		
+	public void  AssertremoveExtension(boolean expected) {	
+		Assert.assertEquals(removeExtension , expected );		
 	}
 	public String getProperty(String arg0,String arg)  throws java.lang.Exception{
 
@@ -443,19 +451,11 @@ public class ResourceAdminServiceLibrary{
 	}
 
 
-	public static void main(String[] args) {
-		//ResourceAdminServiceLibrary l=new ResourceAdminServiceLibrary();
-		//l.setX(10);
-		//l.setY(25);
-		//System.out.println(l.getSum());
-	}
 
 	public void initResourceAdminService() throws AxisFault {
 		String sessionCookie=AuthenticationLibrary.sessionString;
 		String serviceName = "ResourceAdminService";
 		String endPoint;
-		//String host = PropertyInfo.read("host");
-		//String port = PropertyInfo.read("port");
 		String host = AutomationConfigurationReader.context(AutomationConfigurationReader.PRODUCT_HOST);
 		String port = AutomationConfigurationReader.context(AutomationConfigurationReader.PRODUCT_PORT);
 		String backEndUrl = "https://" + host + ":" + port + "/services/";

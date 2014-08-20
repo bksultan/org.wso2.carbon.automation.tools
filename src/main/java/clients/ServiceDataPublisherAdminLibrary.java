@@ -1,16 +1,26 @@
-//package robotlib;
 package clients;
 
+import client.support.modules.AuthenticationLibrary;
 import org.apache.axis2.AxisFault;
 import org.apache.axis2.client.Options;
 import org.apache.axis2.client.ServiceClient;
 import org.testng.Assert;
+import client.configuration.AutomationConfigurationReader;
 import org.wso2.carbon.bam.service.data.publisher.stub.ServiceDataPublisherAdminStub;
 import org.wso2.carbon.bam.service.data.publisher.stub.conf.EventingConfigData;
 
-import client.configuration.AutomationConfigurationReader;
-import client.support.modules.AuthenticationLibrary;
 
+/**
+ * Auto generated ServiceDataPublisherAdmin service Client
+ *
+ * Service name : ServiceDataPublisherAdmin
+ * Service WSDL : ServiceDataPublisherAdmin.wsdl
+ * Service stub class : ServiceDataPublisherAdminStub
+ * Client Library : ServiceDataPublisherAdminLibrary
+ *
+ * @author rukshan
+ * 
+ */
 
 public class ServiceDataPublisherAdminLibrary{
 	public static final String ROBOT_LIBRARY_SCOPE = "GLOBAL";
@@ -22,12 +32,6 @@ public class ServiceDataPublisherAdminLibrary{
 	public ServiceDataPublisherAdminLibrary(){
 
 	}		
-
-	public void configureEventing(EventingConfigData arg)  throws java.lang.Exception{
-
-	stub.configureEventing(arg);
-
-	}
 
 	public boolean isCloudDeployment()  throws java.lang.Exception{
 
@@ -41,6 +45,12 @@ public class ServiceDataPublisherAdminLibrary{
 	public void  AssertisCloudDeployment(boolean expected) {	
 		Assert.assertEquals(isCloudDeployment , expected );		
 	}
+	public void configureEventing(EventingConfigData arg)  throws java.lang.Exception{
+
+	stub.configureEventing(arg);
+
+	}
+
 	public EventingConfigData getEventingConfigData()  throws java.lang.Exception{
 
 		this.getEventingConfigData=stub.getEventingConfigData();
@@ -67,19 +77,11 @@ public class ServiceDataPublisherAdminLibrary{
 	}
 
 
-	public static void main(String[] args) {
-		//ServiceDataPublisherAdminLibrary l=new ServiceDataPublisherAdminLibrary();
-		//l.setX(10);
-		//l.setY(25);
-		//System.out.println(l.getSum());
-	}
 
 	public void initServiceDataPublisherAdmin() throws AxisFault {
 		String sessionCookie=AuthenticationLibrary.sessionString;
 		String serviceName = "ServiceDataPublisherAdmin";
 		String endPoint;
-		//String host = PropertyInfo.read("host");
-		//String port = PropertyInfo.read("port");
 		String host = AutomationConfigurationReader.context(AutomationConfigurationReader.PRODUCT_HOST);
 		String port = AutomationConfigurationReader.context(AutomationConfigurationReader.PRODUCT_PORT);
 		String backEndUrl = "https://" + host + ":" + port + "/services/";

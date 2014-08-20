@@ -17,7 +17,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.w3c.dom.Document;
 
-import client.genration.ClientGenerator;
+import client.genration.ServiceStubClientGenerator;
 
 public class ClientGeneratorTest {
 
@@ -26,7 +26,7 @@ public class ClientGeneratorTest {
 
 		// System.setProperty("user.dir","src/test/resources/testng");
 		File target = new File("testout/src/main/java");
-		ClientGenerator g=new ClientGenerator();
+		ServiceStubClientGenerator g=new ServiceStubClientGenerator();
 		g.setPackageName("robotlib");
 		if (!target.exists()) {
 			target.mkdirs();
@@ -43,7 +43,7 @@ public class ClientGeneratorTest {
 				f.delete();
 			}
 
-			Class<?> c = ClientGenerator.class;
+			Class<?> c = ServiceStubClientGenerator.class;
 			Object client = g;
 
 			Field path = c.getDeclaredField("path");
@@ -71,7 +71,7 @@ public class ClientGeneratorTest {
 	public void testIsMethodNameValid() {
 		try {
 
-			Class<?> c = ClientGenerator.class;
+			Class<?> c = ServiceStubClientGenerator.class;
 			Class<?>[] argTypes = new Class[] { String.class };
 			Method main = c.getDeclaredMethod("isMethodNameValid", argTypes);
 			main.setAccessible(true);
@@ -122,7 +122,7 @@ public class ClientGeneratorTest {
 		// fail("Not yet implemented");
 		try {
 
-			Class<?> c = ClientGenerator.class;
+			Class<?> c = ServiceStubClientGenerator.class;
 			Class<?>[] argTypes = new Class[] { String.class };
 			Method main = c.getDeclaredMethod("isNameValid", argTypes);
 			main.setAccessible(true);
@@ -159,7 +159,7 @@ public class ClientGeneratorTest {
 	public void testGetOperations() {
 		try {
 
-			Class<?> c = ClientGenerator.class;
+			Class<?> c = ServiceStubClientGenerator.class;
 			Class<?>[] argTypes = new Class[] { Class.class, String.class };
 			Method main = c.getDeclaredMethod("getOperations", argTypes);
 			main.setAccessible(true);
@@ -190,7 +190,7 @@ public class ClientGeneratorTest {
 	public void testGetServiceName() {
 		try {
 
-			Class<?> c = ClientGenerator.class;
+			Class<?> c = ServiceStubClientGenerator.class;
 			Class<?>[] argTypes = new Class[] { Class.class, String.class };
 			Method main = c.getDeclaredMethod("getServiceName", argTypes);
 			main.setAccessible(true);
@@ -209,7 +209,7 @@ public class ClientGeneratorTest {
 
 	@Test
 	public void testGenerateClient() {
-		ClientGenerator g = new ClientGenerator();
+		ServiceStubClientGenerator g = new ServiceStubClientGenerator();
 		g.setPackageName("robot.lib");
 		try {
 
@@ -221,7 +221,7 @@ public class ClientGeneratorTest {
 			}
 			STGroup group = new STGroupFile(url, "UTF-8", '<', '>');
 
-			Class<?> c = ClientGenerator.class;
+			Class<?> c = ServiceStubClientGenerator.class;
 			Field fgroup = c.getDeclaredField("group");
 			fgroup.setAccessible(true);
 			fgroup.set(g, group);
@@ -244,12 +244,12 @@ public class ClientGeneratorTest {
 				f.delete();
 			}
 
-			Class<?> c = ClientGenerator.class;
+			Class<?> c = ServiceStubClientGenerator.class;
 			Field path = c.getDeclaredField("path");
 			path.setAccessible(true);
 			path.set(g, loc);
 
-			new ClientGenerator().generateClient(new String[] {
+			new ServiceStubClientGenerator().generateClient(new String[] {
 					"org.wso2.carbon.statistics.stub.StatisticsAdminStub",
 					"StatisticsAdmin" });
 			Assert.assertTrue(f.exists());
@@ -270,7 +270,7 @@ public class ClientGeneratorTest {
 			target.mkdirs();
 		}
 
-		ClientGenerator g = new ClientGenerator();
+		ServiceStubClientGenerator g = new ServiceStubClientGenerator();
 
 		g.setPackageName("robotlib");
 		try {
@@ -283,7 +283,7 @@ public class ClientGeneratorTest {
 			}
 			STGroup group = new STGroupFile(url, "UTF-8", '<', '>');
 
-			Class<?> c = ClientGenerator.class;
+			Class<?> c = ServiceStubClientGenerator.class;
 			Field fgroup = c.getDeclaredField("group");
 			fgroup.setAccessible(true);
 			fgroup.set(g, group);
@@ -325,12 +325,12 @@ public class ClientGeneratorTest {
 				}
 			}
 
-			Class<?> c = ClientGenerator.class;
+			Class<?> c = ServiceStubClientGenerator.class;
 			Field path = c.getDeclaredField("path");
 			path.setAccessible(true);
 			path.set(g, loc);
 
-			new ClientGenerator().GenerateLibraries("robot.lib");
+			new ServiceStubClientGenerator().GenerateLibraries("robot.lib");
 
 			for (String fi : files) {
 				File f = new File("testout/src/main/java/robot/lib/" + fi);

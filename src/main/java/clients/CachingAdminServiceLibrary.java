@@ -1,16 +1,26 @@
-//package robotlib;
 package clients;
 
+import client.support.modules.AuthenticationLibrary;
 import org.apache.axis2.AxisFault;
 import org.apache.axis2.client.Options;
 import org.apache.axis2.client.ServiceClient;
 import org.testng.Assert;
+import client.configuration.AutomationConfigurationReader;
 import org.wso2.carbon.caching.stub.types.CachingConfigData;
 import org.wso2.carbon.caching.stub.CachingAdminServiceStub;
 
-import client.configuration.AutomationConfigurationReader;
-import client.support.modules.AuthenticationLibrary;
 
+/**
+ * Auto generated CachingAdminService service Client
+ *
+ * Service name : CachingAdminService
+ * Service WSDL : CachingAdminService.wsdl
+ * Service stub class : CachingAdminServiceStub
+ * Client Library : CachingAdminServiceLibrary
+ *
+ * @author rukshan
+ * 
+ */
 
 public class CachingAdminServiceLibrary{
 	public static final String ROBOT_LIBRARY_SCOPE = "GLOBAL";
@@ -145,19 +155,11 @@ public class CachingAdminServiceLibrary{
 	}
 
 
-	public static void main(String[] args) {
-		//CachingAdminServiceLibrary l=new CachingAdminServiceLibrary();
-		//l.setX(10);
-		//l.setY(25);
-		//System.out.println(l.getSum());
-	}
 
 	public void initCachingAdminService() throws AxisFault {
 		String sessionCookie=AuthenticationLibrary.sessionString;
 		String serviceName = "CachingAdminService";
 		String endPoint;
-		//String host = PropertyInfo.read("host");
-		//String port = PropertyInfo.read("port");
 		String host = AutomationConfigurationReader.context(AutomationConfigurationReader.PRODUCT_HOST);
 		String port = AutomationConfigurationReader.context(AutomationConfigurationReader.PRODUCT_PORT);
 		String backEndUrl = "https://" + host + ":" + port + "/services/";

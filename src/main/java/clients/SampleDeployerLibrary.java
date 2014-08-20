@@ -1,16 +1,26 @@
-//package robotlib;
 package clients;
 
+import client.support.modules.AuthenticationLibrary;
 import org.apache.axis2.AxisFault;
 import org.apache.axis2.client.Options;
 import org.apache.axis2.client.ServiceClient;
 import org.testng.Assert;
+import client.configuration.AutomationConfigurationReader;
 import org.wso2.carbon.sample.installer.stub.SampleDeployerStub;
 import org.wso2.carbon.sample.installer.stub.SampleInformation;
 
-import client.configuration.AutomationConfigurationReader;
-import client.support.modules.AuthenticationLibrary;
 
+/**
+ * Auto generated SampleDeployer service Client
+ *
+ * Service name : SampleDeployer
+ * Service WSDL : SampleDeployer.wsdl
+ * Service stub class : SampleDeployerStub
+ * Client Library : SampleDeployerLibrary
+ *
+ * @author rukshan
+ * 
+ */
 
 public class SampleDeployerLibrary{
 	public static final String ROBOT_LIBRARY_SCOPE = "GLOBAL";
@@ -67,19 +77,11 @@ public class SampleDeployerLibrary{
 	}
 
 
-	public static void main(String[] args) {
-		//SampleDeployerLibrary l=new SampleDeployerLibrary();
-		//l.setX(10);
-		//l.setY(25);
-		//System.out.println(l.getSum());
-	}
 
 	public void initSampleDeployer() throws AxisFault {
 		String sessionCookie=AuthenticationLibrary.sessionString;
 		String serviceName = "SampleDeployer";
 		String endPoint;
-		//String host = PropertyInfo.read("host");
-		//String port = PropertyInfo.read("port");
 		String host = AutomationConfigurationReader.context(AutomationConfigurationReader.PRODUCT_HOST);
 		String port = AutomationConfigurationReader.context(AutomationConfigurationReader.PRODUCT_PORT);
 		String backEndUrl = "https://" + host + ":" + port + "/services/";

@@ -1,17 +1,27 @@
-//package robotlib;
 package clients;
 
+import client.support.modules.AuthenticationLibrary;
 import org.apache.axis2.AxisFault;
 import org.apache.axis2.client.Options;
 import org.apache.axis2.client.ServiceClient;
 import org.testng.Assert;
+import client.configuration.AutomationConfigurationReader;
 import org.wso2.carbon.admin.mgt.stub.beans.xsd.AdminMgtInfoBean;
 import org.wso2.carbon.admin.mgt.stub.AdminManagementServiceStub;
 import org.wso2.carbon.admin.mgt.stub.beans.xsd.CaptchaInfoBean;
 
-import client.configuration.AutomationConfigurationReader;
-import client.support.modules.AuthenticationLibrary;
 
+/**
+ * Auto generated AdminManagementService service Client
+ *
+ * Service name : AdminManagementService
+ * Service WSDL : AdminManagementService.wsdl
+ * Service stub class : AdminManagementServiceStub
+ * Client Library : AdminManagementServiceLibrary
+ *
+ * @author rukshan
+ * 
+ */
 
 public class AdminManagementServiceLibrary{
 	public static final String ROBOT_LIBRARY_SCOPE = "GLOBAL";
@@ -24,17 +34,17 @@ public class AdminManagementServiceLibrary{
 
 	}		
 
-	public boolean initiatePasswordReset(AdminMgtInfoBean arg0,CaptchaInfoBean arg)  throws java.lang.Exception{
+	public CaptchaInfoBean generateRandomCaptcha()  throws java.lang.Exception{
 
-		this.initiatePasswordReset=stub.initiatePasswordReset(arg0,arg);
-		return this.initiatePasswordReset;
+		this.generateRandomCaptcha=stub.generateRandomCaptcha();
+		return this.generateRandomCaptcha;
 
 	}
 
-	private boolean initiatePasswordReset;
+	private CaptchaInfoBean generateRandomCaptcha;
 
-	public void  AssertinitiatePasswordReset(boolean expected) {	
-		Assert.assertEquals(initiatePasswordReset , expected );		
+	public void  AssertgenerateRandomCaptcha(CaptchaInfoBean expected) {	
+		Assert.assertEquals(generateRandomCaptcha , expected );		
 	}
 	public boolean updatePasswordWithUserInput(AdminMgtInfoBean arg0,CaptchaInfoBean arg1,String arg)  throws java.lang.Exception{
 
@@ -48,33 +58,25 @@ public class AdminManagementServiceLibrary{
 	public void  AssertupdatePasswordWithUserInput(boolean expected) {	
 		Assert.assertEquals(updatePasswordWithUserInput , expected );		
 	}
-	public CaptchaInfoBean generateRandomCaptcha()  throws java.lang.Exception{
+	public boolean initiatePasswordReset(AdminMgtInfoBean arg0,CaptchaInfoBean arg)  throws java.lang.Exception{
 
-		this.generateRandomCaptcha=stub.generateRandomCaptcha();
-		return this.generateRandomCaptcha;
+		this.initiatePasswordReset=stub.initiatePasswordReset(arg0,arg);
+		return this.initiatePasswordReset;
 
 	}
 
-	private CaptchaInfoBean generateRandomCaptcha;
+	private boolean initiatePasswordReset;
 
-	public void  AssertgenerateRandomCaptcha(CaptchaInfoBean expected) {	
-		Assert.assertEquals(generateRandomCaptcha , expected );		
+	public void  AssertinitiatePasswordReset(boolean expected) {	
+		Assert.assertEquals(initiatePasswordReset , expected );		
 	}
 
 
-	public static void main(String[] args) {
-		//AdminManagementServiceLibrary l=new AdminManagementServiceLibrary();
-		//l.setX(10);
-		//l.setY(25);
-		//System.out.println(l.getSum());
-	}
 
 	public void initAdminManagementService() throws AxisFault {
 		String sessionCookie=AuthenticationLibrary.sessionString;
 		String serviceName = "AdminManagementService";
 		String endPoint;
-		//String host = PropertyInfo.read("host");
-		//String port = PropertyInfo.read("port");
 		String host = AutomationConfigurationReader.context(AutomationConfigurationReader.PRODUCT_HOST);
 		String port = AutomationConfigurationReader.context(AutomationConfigurationReader.PRODUCT_PORT);
 		String backEndUrl = "https://" + host + ":" + port + "/services/";
