@@ -36,7 +36,7 @@ public class ServiceStubClientGeneratorTest {
 			String loc = "/testout/src/main/java";
 
 			File f = new File(
-					"testout/src/main/java/robotlib/TestngtestingclassLibrary.java");
+					"testout/src/main/java/robotlib/TestngtestingclassClient.java");
 			// f=new File(url.toURI());
 			System.out.println(f.exists());
 			if (f.exists()) {
@@ -239,7 +239,7 @@ public class ServiceStubClientGeneratorTest {
 			String loc = "/testout/src/main/java";
 
 			File f = new File(
-					"testout/src/main/java/robot/lib/StatisticsAdminLibrary.java");
+					"testout/src/main/java/robot/lib/StatisticsAdminClient.java");
 			if (f.exists()) {
 				f.delete();
 			}
@@ -307,16 +307,16 @@ public class ServiceStubClientGeneratorTest {
 			String loc = "/testout/src/main/java";
 
 			String[] files = {
-					"AdminManagementServiceLibrary.java",
-					"ApplicationAdminLibrary.java",
-					"CarbonAppUploaderLibrary.java",
-					"DiscoveryAdminLibrary.java",
-					"JarServiceCreatorAdminLibrary.java",
-					"ProxyServiceAdminLibrary.java",
-					"ServiceAdminLibrary.java",
-					"ServiceUploaderLibrary.java",
-					"StatisticsAdminLibrary.java",
-					"UserAdminLibrary.java"
+					"AdminManagementServiceClient.java",
+					"ApplicationAdminClient.java",
+					"CarbonAppUploaderClient.java",
+					"DiscoveryAdminClient.java",
+					"JarServiceCreatorAdminClient.java",
+					"ProxyServiceAdminClient.java",
+					"ServiceAdminClient.java",
+					"ServiceUploaderClient.java",
+					"StatisticsAdminClient.java",
+					"UserAdminClient.java"
 					};
 			for (String fi : files) {
 				File f = new File("testout/src/main/java/robot/lib/" + fi);

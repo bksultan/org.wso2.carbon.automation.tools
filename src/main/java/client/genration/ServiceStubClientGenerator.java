@@ -25,9 +25,7 @@ import com.predic8.wsdl.Definitions;
 import com.predic8.wsdl.Operation;
 import com.predic8.wsdl.PortType;
 import com.predic8.wsdl.WSDLParser;
-//rename the class name like service stub client gen
 
-//rename to library to client for gen lib
 
 /**
  * 
@@ -43,6 +41,7 @@ public class ServiceStubClientGenerator {
 	private static String packageName;					// keep the package name
 	private static Document doc;						// xml reading document
 	private static STGroup group;						// String template group file instance
+	private static String suffix="Client";
 
 	/**
 	 * Constructor- define and import resources
@@ -129,7 +128,7 @@ public class ServiceStubClientGenerator {
 
 			//create java file to be saved
 			File f = new File(loc + path + "/" + pName + className
-					+ "Library.java");
+					+suffix+".java");
 			
 			//save to the disk
 			BufferedWriter wri = new BufferedWriter(new FileWriter(f));
@@ -328,6 +327,7 @@ public class ServiceStubClientGenerator {
 				imports += "import " + s + ";\n";
 			}
 
+			classTem.add("suffix", suffix);					//set the client suffix name as Client
 			classTem.add("clsimport", imports);					//set the imported class
 
 			save(serviceName, classTem.render());				// save the template into file

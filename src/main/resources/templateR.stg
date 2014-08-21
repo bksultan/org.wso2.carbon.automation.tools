@@ -34,7 +34,7 @@ public void  Assert<methodName>(<returnType> expected) {
 
 >>
 
-class(name,fields,methods,clsimport,namestub,package) ::=<<
+class(name,fields,methods,clsimport,namestub,package,suffix) ::=<<
 
 <package>
 
@@ -58,7 +58,7 @@ import client.configuration.AutomationConfigurationReader;
  * 
  */
 
-public class <name>Library{
+public class <name><suffix>{
 	public static final String ROBOT_LIBRARY_SCOPE = "GLOBAL";
 	
 	private <namestub> stub;
@@ -66,7 +66,7 @@ public class <name>Library{
 	
 	<fields>
 	//Constructor		
-	public <name>Library(){
+	public <name><suffix>(){
 		
 	}		
 	

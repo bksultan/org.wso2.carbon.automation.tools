@@ -1,129 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="26" passed="26">
+<testng-results skipped="0" failed="0" total="5" passed="5">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="17312" started-at="2014-08-19T07:53:19Z" finished-at="2014-08-19T07:53:36Z">
+  <suite name="Default suite" duration-ms="1446" started-at="2014-08-21T05:39:20Z" finished-at="2014-08-21T05:39:21Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="17312" started-at="2014-08-19T07:53:19Z" finished-at="2014-08-19T07:53:36Z">
-      <class name="property.AutomationContextTest">
-        <test-method status="PASS" signature="setXML()[pri:0, instance:property.AutomationContextTest@309c85cb]" name="setXML" is-config="true" duration-ms="54" started-at="2014-08-19T13:23:19Z" finished-at="2014-08-19T13:23:19Z">
+    <test name="Default test" duration-ms="1446" started-at="2014-08-21T05:39:20Z" finished-at="2014-08-21T05:39:21Z">
+      <class name="client.configuration.AutomationConfigurationReaderTest">
+        <test-method status="PASS" signature="setXML()[pri:0, instance:client.configuration.AutomationConfigurationReaderTest@4c0833c9]" name="setXML" is-config="true" duration-ms="40" started-at="2014-08-21T11:09:20Z" finished-at="2014-08-21T11:09:20Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setXML -->
-        <test-method status="PASS" signature="context()[pri:0, instance:property.AutomationContextTest@309c85cb]" name="context" duration-ms="946" started-at="2014-08-19T13:23:19Z" finished-at="2014-08-19T13:23:20Z">
+        <test-method status="PASS" signature="context()[pri:0, instance:client.configuration.AutomationConfigurationReaderTest@4c0833c9]" name="context" duration-ms="861" started-at="2014-08-21T11:09:20Z" finished-at="2014-08-21T11:09:21Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- context -->
-        <test-method status="PASS" signature="getDelayTime()[pri:0, instance:property.AutomationContextTest@309c85cb]" name="getDelayTime" duration-ms="535" started-at="2014-08-19T13:23:20Z" finished-at="2014-08-19T13:23:21Z">
+        <test-method status="PASS" signature="getDelayTime()[pri:0, instance:client.configuration.AutomationConfigurationReaderTest@4c0833c9]" name="getDelayTime" duration-ms="430" started-at="2014-08-21T11:09:21Z" finished-at="2014-08-21T11:09:21Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getDelayTime -->
-        <test-method status="PASS" signature="getHostName()[pri:0, instance:property.AutomationContextTest@309c85cb]" name="getHostName" duration-ms="9" started-at="2014-08-19T13:23:21Z" finished-at="2014-08-19T13:23:21Z">
+        <test-method status="PASS" signature="getHostName()[pri:0, instance:client.configuration.AutomationConfigurationReaderTest@4c0833c9]" name="getHostName" duration-ms="7" started-at="2014-08-21T11:09:21Z" finished-at="2014-08-21T11:09:21Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getHostName -->
-        <test-method status="PASS" signature="getPassword()[pri:0, instance:property.AutomationContextTest@309c85cb]" name="getPassword" duration-ms="23" started-at="2014-08-19T13:23:21Z" finished-at="2014-08-19T13:23:21Z">
+        <test-method status="PASS" signature="getPassword()[pri:0, instance:client.configuration.AutomationConfigurationReaderTest@4c0833c9]" name="getPassword" duration-ms="31" started-at="2014-08-21T11:09:21Z" finished-at="2014-08-21T11:09:21Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getPassword -->
-        <test-method status="PASS" signature="getUserName()[pri:0, instance:property.AutomationContextTest@309c85cb]" name="getUserName" duration-ms="24" started-at="2014-08-19T13:23:21Z" finished-at="2014-08-19T13:23:21Z">
+        <test-method status="PASS" signature="getUserName()[pri:0, instance:client.configuration.AutomationConfigurationReaderTest@4c0833c9]" name="getUserName" duration-ms="21" started-at="2014-08-21T11:09:21Z" finished-at="2014-08-21T11:09:21Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getUserName -->
-      </class> <!-- property.AutomationContextTest -->
-      <class name="lib.ObjectPoolTest">
-        <test-method status="PASS" signature="createAARServiceData()[pri:0, instance:lib.ObjectPoolTest@50431425]" name="createAARServiceData" duration-ms="20" started-at="2014-08-19T13:23:36Z" finished-at="2014-08-19T13:23:36Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- createAARServiceData -->
-        <test-method status="PASS" signature="createProxyData()[pri:0, instance:lib.ObjectPoolTest@50431425]" name="createProxyData" duration-ms="2" started-at="2014-08-19T13:23:36Z" finished-at="2014-08-19T13:23:36Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- createProxyData -->
-        <test-method status="PASS" signature="createUploadedFileItems()[pri:0, instance:lib.ObjectPoolTest@50431425]" name="createUploadedFileItems" duration-ms="1" started-at="2014-08-19T13:23:36Z" finished-at="2014-08-19T13:23:36Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- createUploadedFileItems -->
-      </class> <!-- lib.ObjectPoolTest -->
-      <class name="lib.AxisServiceClientTest">
-        <test-method status="PASS" signature="clearServiceHttpHeader()[pri:0, instance:lib.AxisServiceClientTest@18855121]" name="clearServiceHttpHeader" duration-ms="70" started-at="2014-08-19T13:23:21Z" finished-at="2014-08-19T13:23:21Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- clearServiceHttpHeader -->
-        <test-method status="PASS" signature="clearServiceParas()[pri:0, instance:lib.AxisServiceClientTest@18855121]" name="clearServiceParas" duration-ms="1" started-at="2014-08-19T13:23:21Z" finished-at="2014-08-19T13:23:21Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- clearServiceParas -->
-        <test-method status="PASS" signature="createArrayFromOMElement()[pri:0, instance:lib.AxisServiceClientTest@18855121]" name="createArrayFromOMElement" duration-ms="715" started-at="2014-08-19T13:23:21Z" finished-at="2014-08-19T13:23:22Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- createArrayFromOMElement -->
-        <test-method status="PASS" signature="createPayloadWithText()[pri:0, instance:lib.AxisServiceClientTest@18855121]" name="createPayloadWithText" duration-ms="1" started-at="2014-08-19T13:23:22Z" finished-at="2014-08-19T13:23:22Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- createPayloadWithText -->
-        <test-method status="PASS" signature="getMethod()[pri:0, instance:lib.AxisServiceClientTest@18855121]" name="getMethod" duration-ms="78" started-at="2014-08-19T13:23:22Z" finished-at="2014-08-19T13:23:22Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- getMethod -->
-        <test-method status="PASS" signature="getResponseAttributeValue()[pri:0, instance:lib.AxisServiceClientTest@18855121]" name="getResponseAttributeValue" duration-ms="6" started-at="2014-08-19T13:23:22Z" finished-at="2014-08-19T13:23:22Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- getResponseAttributeValue -->
-        <test-method status="PASS" signature="getTargetNamespace()[pri:0, instance:lib.AxisServiceClientTest@18855121]" name="getTargetNamespace" duration-ms="7968" started-at="2014-08-19T13:23:22Z" finished-at="2014-08-19T13:23:30Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- getTargetNamespace -->
-        <test-method status="PASS" signature="getValue()[pri:0, instance:lib.AxisServiceClientTest@18855121]" name="getValue" duration-ms="1" started-at="2014-08-19T13:23:30Z" finished-at="2014-08-19T13:23:30Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- getValue -->
-      </class> <!-- lib.AxisServiceClientTest -->
-      <class name="lib.StandardTest">
-        <test-method status="PASS" signature="CreateArray()[pri:0, instance:lib.StandardTest@3b794c60]" name="CreateArray" duration-ms="2" started-at="2014-08-19T13:23:36Z" finished-at="2014-08-19T13:23:36Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- CreateArray -->
-        <test-method status="PASS" signature="containString()[pri:0, instance:lib.StandardTest@3b794c60]" name="containString" duration-ms="1" started-at="2014-08-19T13:23:36Z" finished-at="2014-08-19T13:23:36Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- containString -->
-        <test-method status="PASS" signature="createArrayFromOME()[pri:0, instance:lib.StandardTest@3b794c60]" name="createArrayFromOME" duration-ms="2" started-at="2014-08-19T13:23:36Z" finished-at="2014-08-19T13:23:36Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- createArrayFromOME -->
-      </class> <!-- lib.StandardTest -->
-      <class name="generator.ClientGeneratorTest">
-        <test-method status="PASS" signature="testGenerateClient()[pri:0, instance:generator.ClientGeneratorTest@58915a1a]" name="testGenerateClient" duration-ms="1698" started-at="2014-08-19T13:23:30Z" finished-at="2014-08-19T13:23:31Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testGenerateClient -->
-        <test-method status="PASS" signature="testGenerateLibraries()[pri:0, instance:generator.ClientGeneratorTest@58915a1a]" name="testGenerateLibraries" duration-ms="4741" started-at="2014-08-19T13:23:31Z" finished-at="2014-08-19T13:23:36Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testGenerateLibraries -->
-        <test-method status="PASS" signature="testGetOperations()[pri:0, instance:generator.ClientGeneratorTest@58915a1a]" name="testGetOperations" duration-ms="132" started-at="2014-08-19T13:23:36Z" finished-at="2014-08-19T13:23:36Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testGetOperations -->
-        <test-method status="PASS" signature="testGetServiceName()[pri:0, instance:generator.ClientGeneratorTest@58915a1a]" name="testGetServiceName" duration-ms="187" started-at="2014-08-19T13:23:36Z" finished-at="2014-08-19T13:23:36Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testGetServiceName -->
-        <test-method status="PASS" signature="testIsMethodNameValid()[pri:0, instance:generator.ClientGeneratorTest@58915a1a]" name="testIsMethodNameValid" duration-ms="5" started-at="2014-08-19T13:23:36Z" finished-at="2014-08-19T13:23:36Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testIsMethodNameValid -->
-        <test-method status="PASS" signature="testIsNameValid()[pri:0, instance:generator.ClientGeneratorTest@58915a1a]" name="testIsNameValid" duration-ms="0" started-at="2014-08-19T13:23:36Z" finished-at="2014-08-19T13:23:36Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testIsNameValid -->
-        <test-method status="PASS" signature="testSave()[pri:0, instance:generator.ClientGeneratorTest@58915a1a]" name="testSave" duration-ms="18" started-at="2014-08-19T13:23:36Z" finished-at="2014-08-19T13:23:36Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testSave -->
-      </class> <!-- generator.ClientGeneratorTest -->
+      </class> <!-- client.configuration.AutomationConfigurationReaderTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
